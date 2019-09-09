@@ -1,0 +1,41 @@
+<!-- Main navigation -->
+<header>
+  <!-- Navbar -->
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar background-color-semi-white">
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand waves-light btn-sm" mdbWavesEffect mdbBtn color="primary" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>
+    </mdb-navbar-brand>
+  </mdb-navbar>
+  <!-- Full Page Intro -->
+  <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/89.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-indigo-strong d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container">
+        <!--Grid row-->
+        <div class="row pt-lg-5 mt-lg-5">
+          <!--Grid column-->
+          <div class="col-md-6 mb-5 mt-md-0 mt-5 white-text text-center wow fadeInLeft" [ngClass]="('DIRECTION' | translate) === 'ltr' ? 'text-md-left' : 'text-md-right'" data-wow-delay="0.3s">
+            <h1 class="display-4 font-weight-bold">{{'SITE_NAME' | translate}}</h1>
+            <hr class="hr-light">
+            <h6 class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi
+              fuga
+              nesciunt dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea
+              dolor molestiae, quisquam iste.</h6>
+          </div>
+          <!--Grid column-->
+          <!--Grid column-->
+          <div class="col-md-6 col-xl-5 mb-4">
+            <router-outlet></router-outlet>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+  <!-- Full Page Intro -->
+</header>
+<!-- Main navigation -->

@@ -1,0 +1,35 @@
+<div class="mt-4 text-align-center">
+<!--  <div class="margin-auto-x">-->
+<!--    <img src="./assets/media/logos/logo.png">-->
+<!--  </div>-->
+  <img class="margin-auto-x" src="./assets/media/logos/logo.png">
+</div>
+<div class="mt-3">
+  <div class="section-container">
+    <div class="section-selector round-border">
+      <div class="row section-button-group">
+        <div class="col-md-4">
+          <div mdbBtn color="light-blue" class="full-width mx-0" routerLink="/human" (click)="setSection('/human')">
+            <img class="full-width" src="./assets/media/logos/logo-alt.png">
+            <div class="text-transform-none mt-2">{{'HOME_FRONT.HUMAN_CAPITAL' | translate}}</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div mdbBtn color="blue-grey" class="full-width mx-0" routerLink="/conference" (click)="setSection('/conference')">
+            <img class="full-width" src="./assets/media/logos/logo-alt.png">
+            <div class="text-transform-none mt-2">{{'HOME_FRONT.CONFERENCE' | translate}}</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div mdbBtn color="light-green" class="full-width mx-0" routerLink="/business" (click)="setSection('/business')">
+            <img class="full-width" src="./assets/media/logos/logo-alt.png">
+            <div class="text-transform-none mt-2">{{'HOME_FRONT.BUSINESS_SOLUTION' | translate}}</div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-3">
+          <mdb-checkbox class="text-color-white" [(ngModel)]="rememberChoice">{{'HOME_FRONT.REMEMBER_MY_CHOICE' | translate}}</mdb-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<!--Form-->
+<mdb-card class="wow fadeInRight" data-wow-delay="0.3s">
+  <mdb-card-body class="z-depth-2">
+    <!--Header-->
+    <div class="text-center">
+      <h3 class="dark-grey-text">
+        <strong>{{'SIGNIN.SIGNIN' | translate}}</strong>
+      </h3>
+      <hr>
+    </div>
+    <!--Body-->
+
+    <div *ngIf="alert.show" class="alert alert-dismissible fade show" [ngClass]="alert.type" role="alert">
+      <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{alert.message}}
+    </div>
+    <form name="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="md-form">
+<!--        <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>-->
+<!--        <input type="text" class="form-control" mdbInput placeholder="{{'SIGNIN.USERNAME' | translate}}">-->
+        <input type="text" id="username" class="form-control" mdbInput mdbValidate formControlName="username" [readOnly]="loading">
+        <label for="username">{{'SIGNIN.USERNAME' | translate}}</label>
+        <mdb-error *ngIf="f.username.errors && f.username.errors.required && (f.username.dirty || f.username.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.USERNAME' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+<!--        <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>-->
+<!--        <input type="password" class="form-control" mdbInput placeholder="{{'SIGNIN.PASSWORD' | translate}}">-->
+        <input type="password" id="password" class="form-control" mdbInput mdbValidate formControlName="password" [readOnly]="loading">
+        <label for="password">{{'SIGNIN.PASSWORD' | translate}}</label>
+        <mdb-error *ngIf="f.password.errors && f.password.errors.required && (f.password.dirty || f.password.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate}"></mdb-error>
+        <mdb-error *ngIf="f.password.errors && f.password.errors.minlength && (f.password.dirty || f.password.touched)"
+                   [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SIGNIN.PASSWORD' | translate}"></mdb-error>
+      </div>
+      <div class="text-center mt-3">
+        <button type="submit" mdbBtn color="indigo" mdbWavesEffect [disabled]="loading">
+          <mdb-icon fas icon="sign-in-alt"></mdb-icon>
+          {{'SIGNIN.SIGNIN' | translate}}
+        </button>
+      </div>
+    </form>
+  </mdb-card-body>
+</mdb-card>
+<!--/.Form-->

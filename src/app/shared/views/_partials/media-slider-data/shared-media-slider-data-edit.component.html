@@ -1,0 +1,77 @@
+<!--<div class="modal-content">-->
+<!--  <div class="modal-header">-->
+<!--    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">-->
+<!--      <span aria-hidden="true">×</span>-->
+<!--    </button>-->
+<!--    <h4 class="modal-title w-100" id="myModalLabel">{{editableRow.id ? 'Edit Bot: ' + editableRow.name : 'New Bot'}}</h4>-->
+<!--  </div>-->
+<!--  <div class="modal-body">-->
+    <form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
+      <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="md-form mt-0">
+            <input type="text" id="name" class="form-control" formControlName="name" mdbInput mdbValidate
+                   [validateSuccess]="false">
+            <label for="name">{{'SHARED_MEDIA_SLIDER.NAME' | translate}}</label>
+            <mdb-error *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.NAME' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form mt-0">
+            <input type="text" id="title" class="form-control" formControlName="title" mdbInput mdbValidate
+                   [validateSuccess]="false">
+            <label for="title">{{'SHARED_MEDIA_SLIDER.TITLE' | translate}}</label>
+            <mdb-error *ngIf="f.title.invalid && (f.title.dirty || f.title.touched)"
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.TITLE' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="md-form mt-0">
+            <textarea type="text" id="description" class="md-textarea form-control" formControlName="description" mdbInput mdbValidate
+                      [validateSuccess]="false"></textarea>
+            <label for="description">{{'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}}</label>
+            <mdb-error *ngIf="f.description.invalid && (f.description.dirty || f.description.touched)"
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="md-form mt-0">
+            <div class="row px-0">
+              <div for="media" class="col-md-3 label">{{'SHARED_MEDIA_SLIDER.MEDIA' | translate}}</div>
+              <div class="col-md-3">
+                <button *ngIf="f.media.value && f.media.value.length > 0" mdbBtn color="warning" mdbWavesEffect (click)="onClearMediaClicked()">{{'COMMON.CLEAR' | translate}}</button>
+              </div>
+            </div>
+            <input type="hidden" id="media" class="form-control" formControlName="media" mdbInput mdbValidate
+                   [validateSuccess]="false">
+            <input type="hidden" id="originMedia" class="form-control" formControlName="originMedia" mdbInput mdbValidate
+                   [validateSuccess]="false">
+            <mdb-error *ngIf="f.media.invalid"
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.MEDIA' | translate}"></mdb-error>
+          </div>
+          <div class="md-form col-md-8 margin-auto-x mt-0">
+<!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->
+            <dropzone class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+        <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{alert.message}}
+      </div>
+      <div class="button-spec mt-3">
+        <button [routerLink]="backUrl" mdbBtn color="warning" class="waves-light" aria-label="Close"
+                mdbWavesEffect [disabled]="loading">{{'COMMON.BACK' | translate}}
+        </button>
+        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+                [disabled]="form.invalid || loading">{{'COMMON.SAVE' | translate}}
+        </button>
+      </div>
+    </form>
+<!--  </div>-->
+<!--</div>-->

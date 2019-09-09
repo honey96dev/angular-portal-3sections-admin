@@ -1,0 +1,13 @@
+<main>
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar background-color-semi-white">
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand waves-light btn-sm" mdbWavesEffect mdbBtn color="primary" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>
+    </mdb-navbar-brand>
+  </mdb-navbar>
+  <div class="screen-breakpoint margin-auto-x main-container">
+<!--    <div class="mt-2">-->
+<!--      <button mdbBtn color="primary" class="btn-sm" (click)="onLanguageButtonClicked()">{{'LANGUAGE' | translate}}</button>-->
+<!--    </div>-->
+    <router-outlet></router-outlet>
+  </div>
+</main>

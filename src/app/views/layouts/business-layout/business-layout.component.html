@@ -1,0 +1,67 @@
+<main>
+  <div class="full-width">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-light background-color-white sticky-top"
+                [containerInside]="false">
+      <mdb-navbar-brand><a class="navbar-brand"><img routerLink="/" src="./assets/media/logos/logo-sm.png" (click)="clearSection()"></a>
+      </mdb-navbar-brand>
+      <links>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link waves-light" [routerLink]="routes.business.main"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.MAIN' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" [routerLink]="routes.business.ourServices"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_SERVICES' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" [routerLink]="routes.business.businessPartner"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_BUSINESS_PARTNER' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.ourClients"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_CLIENTS' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.contactUs"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.CONTACT_US' | translate}}</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.registrationRequest"
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.REGISTRATION' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" [routerLink]="routes.business.signIn"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.SIGN_IN' | translate}}</a>
+          </li>
+
+<!--        <ul mdbScrollSpy="navbarScrollspy" class="navbar-nav mr-auto">-->
+<!--          <li class="nav-item">-->
+<!--            <a [ngx-scroll-to]="'main'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"-->
+<!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.MAIN' | translate}}</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a [ngx-scroll-to]="'ourService'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"-->
+<!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.PREVIOUS_EVENTS' | translate}}</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a [ngx-scroll-to]="'contactUs'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"-->
+<!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.UPCOMING_EVENTS' | translate}}</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a [ngx-scroll-to]="'businessPartner'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"-->
+<!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.REGISTER' | translate}}</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a [ngx-scroll-to]="'ourClients'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"-->
+<!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.SPONSOR_REQUEST4COMPANIES' | translate}}</a>-->
+<!--          </li>-->
+        </ul>
+      </links>
+    </mdb-navbar>
+    <router-outlet></router-outlet>
+    <app-layout-footer></app-layout-footer>
+  </div>
+</main>

@@ -1,0 +1,138 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./consts";
+
+.rtl-content {
+  direction: rtl;
+}
+
+.margin-auto-x {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-transform-none {
+  text-transform: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.screen-breakpoint {
+  width: $screen-breakpoint;
+}
+
+@media (max-width: $screen-breakpoint) {
+  .screen-breakpoint{
+    width: 100%;
+  }
+}
+
+.navbar-toggler-icon {
+  color: $gray !important;
+}
+
+.round-border {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+.round-border-top {
+  border-top-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+}
+
+.round-border-left {
+  border-top-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+}
+
+.round-border-right {
+  border-top-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+}
+
+.round-border-bottom {
+  border-bottom-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+}
+
+.text-color-white {
+  color: $white;
+}
+
+.background-color-white {
+  background-color: $white;
+}
+
+.rtl-content .md-form label, .rtl-content .error-message {
+  left: unset;
+  right: 0;
+}
+
+.rtl-content h1, .rtl-content h2, .rtl-content h3, .rtl-content h4, .rtl-content h5, .rtl-content h6 {
+  //text-align: right;
+}
+
+.rtl-content .alert-dismissible {
+  padding-left: 4em;
+  padding-right: 1.25rem;
+  text-align: right;
+}
+
+.rtl-content .alert-dismissible .close {
+  left: 0;
+  right: unset;
+}
+
+.rtl-content .my-modal-close {
+  left: 0 !important;
+  right: unset !important;
+}
+
+.background-color-semi-white {
+  background-color: $semi-white;
+}
+
+//.dropzone-container {
+//  border: 2px solid $gray-lighten-1;
+//}
+
+dropzone > .dropzone.dz-wrapper {
+  height: 100% !important;
+}
+
+dropzone > .dropzone.dz-wrapper.dz-single .dz-message {
+  height: calc(100% - 25px) !important;
+}
+
+dropzone > .dropzone.dz-wrapper.dz-single .dz-preview {
+  height: calc(100% - 18px) !important;
+}
+
+dropzone > .dropzone.dz-wrapper.dz-single .dz-preview .dz-image img {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: auto !important;
+  height: 100% !important;
+}
+
+.label {
+  color: $input-label-color;
+}

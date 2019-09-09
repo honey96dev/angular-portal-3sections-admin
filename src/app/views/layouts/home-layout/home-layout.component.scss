@@ -1,0 +1,13 @@
+@import "../../../../consts";
+
+.main-container {
+  //width: $screen-breakpoint;
+  margin-top: 80px;
+}
+
+@media (max-width: $screen-breakpoint) {
+  .main-container{
+    width: 100%;
+  }
+}
+
