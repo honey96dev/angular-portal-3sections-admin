@@ -4,16 +4,24 @@ import {MDBBootstrapModulesPro} from 'ng-uikit-pro-standard';
 import {TranslateModule} from '@ngx-translate/core';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, reducers} from '@core/reducers';
-import {AlertModalComponent} from '@app/shared/views/_partials/common-dialogs/alert/alert-modal.component';
-import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
-import {LayoutFooterComponent} from '@app/views/layouts/_partials/footer/layout-footer.component';
-import {SharedMediaSliderDataComponent} from '@app/shared/views/_partials/media-slider-data/shared-media-slider-data.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {SharedMediaSliderDataEditComponent} from '@app/shared/views/_partials/media-slider-data/shared-media-slider-data-edit.component';
 import {RouterModule} from '@angular/router';
 import {DROPZONE_CONFIG, DropzoneModule, DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
+import {AlertModalComponent} from '@app/shared/views/_partials/common-dialogs/alert/alert-modal.component';
+import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
+import {LayoutFooterComponent} from '@app/views/layouts/_partials/footer/layout-footer.component';
+import {SharedMediaSliderDataComponent} from '@app/shared/views/_partials/media-slider-data/shared-media-slider-data.component';
+import {SharedMediaSliderDataEditComponent} from '@app/shared/views/_partials/media-slider-data/shared-media-slider-data-edit.component';
+import {SharedOurServicesDataComponent} from '@app/shared/views/_partials/our-services-data/shared-our-services-data.component';
+import {SharedOurServicesDataEditComponent} from '@app/shared/views/_partials/our-services-data/shared-our-services-data-edit.component';
+import {SharedContactUsDataComponent} from '@app/shared/views/_partials/contact-us-data/shared-contact-us-data.component';
+import {SharedContactUsDataEditComponent} from '@app/shared/views/_partials/contact-us-data/shared-contact-us-data-edit.component';
+import {SharedBusinessPartnerDataComponent} from '@app/shared/views/_partials/business-partner-data/shared-business-partner-data.component';
+import {SharedBusinessPartnerDataEditComponent} from '@app/shared/views/_partials/business-partner-data/shared-business-partner-data-edit.component';
+import {SharedDirectorBoardDataComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data.component';
+import {SharedDirectorBoardDataEditComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data-edit.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -42,6 +50,14 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 
     SharedMediaSliderDataComponent,
     SharedMediaSliderDataEditComponent,
+    SharedOurServicesDataComponent,
+    SharedOurServicesDataEditComponent,
+    SharedContactUsDataComponent,
+    SharedContactUsDataEditComponent,
+    SharedBusinessPartnerDataComponent,
+    SharedBusinessPartnerDataEditComponent,
+    SharedDirectorBoardDataComponent,
+    SharedDirectorBoardDataEditComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -56,6 +72,14 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 
     SharedMediaSliderDataComponent,
     SharedMediaSliderDataEditComponent,
+    SharedOurServicesDataComponent,
+    SharedOurServicesDataEditComponent,
+    SharedBusinessPartnerDataComponent,
+    SharedBusinessPartnerDataEditComponent,
+    SharedContactUsDataComponent,
+    SharedContactUsDataEditComponent,
+    SharedDirectorBoardDataComponent,
+    SharedDirectorBoardDataEditComponent,
   ],
   providers: [
     {

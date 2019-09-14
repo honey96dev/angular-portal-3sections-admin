@@ -15,28 +15,28 @@ export class MediaSliderDataService {
   }
 
   list(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.human.mediaSlider.list}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.mediaSlider.list}`, params)
       .pipe(map(res => {
         return res;
       }));
   }
 
   add(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.human.mediaSlider.add}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.mediaSlider.add}`, params)
       .pipe(map(res => {
         return res;
       }));
   }
 
   edit(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.human.mediaSlider.edit}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.mediaSlider.edit}`, params)
       .pipe(map(res => {
         return res;
       }));
   }
 
   delete(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.human.mediaSlider.delete}`, params)
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.mediaSlider.delete}`, params)
       .pipe(map(res => {
         return res;
       }));

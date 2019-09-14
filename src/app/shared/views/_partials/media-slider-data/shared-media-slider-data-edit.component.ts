@@ -6,8 +6,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {sprintf} from 'sprintf-js';
 import {AuthenticationService, GlobalVariableService} from '@app/_services';
 import {first} from 'rxjs/operators';
-// @ts-ignore
-import path from 'path';
 import {MediaSliderDataService} from '@app/shared/_services';
 import {TranslateService} from '@ngx-translate/core';
 import {MDBModalService} from 'ng-uikit-pro-standard';
@@ -15,6 +13,7 @@ import {DropzoneComponent, DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
 import consts from '@core/consts';
+import ext2mime from '@core/ext2mime.json';
 
 @Component({
   selector: 'app-shared-media-slider-data-edit',
@@ -125,7 +124,7 @@ export class SharedMediaSliderDataEditComponent implements OnInit {
     this.service.edit(data).pipe(first())
       .subscribe(res => {
         this.loading = false;
-        if (res.result == 'success') {
+        if (res.result == consts.success) {
           this.alert = {
             show: true,
             type: 'alert-success',
@@ -155,18 +154,21 @@ export class SharedMediaSliderDataEditComponent implements OnInit {
     console.log('onUploadInit:', args);
     setTimeout(() => {
       const row = this.service.editableRowValue();
-      console.log(row.mediaSize);
       if (!!row.id && row.media.length > 0) {
         const dropzone = this.mediaRef.directiveRef.dropzone();
 
         const mockFile = { name: row.originMedia, size: row.mediaSize };
 
-        const extension = path.extname(row.media);
+        // const extension = path.extname(row.media);
+        const extension = '.' + row.media.split('.').pop();
         dropzone.emit( "addedfile", mockFile );
         dropzone.files.push(mockFile);
-        dropzone.emit( "thumbnail", mockFile, `${environment.resourceBaseUrl}${row.media}` );
+        if (ext2mime[extension] && ext2mime[extension].startsWith("image")) {
+          dropzone.emit("thumbnail", mockFile, `${environment.assetsBaseUrl}${row.media}`);
+        }
         dropzone.emit( "complete", mockFile);
         dropzone.options.maxFiles = 0;
+        this.mediaSize = row.mediaSize;
       }
     }, 500);
 

@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:8080/api/admin/',
-  resourceBaseUrl: 'http://localhost:8080',
-  // apiUrl: 'http://139.180.130.41/api/admin/',
-  socketIOUrl: 'http://139.180.130.41',
+  apiUrl: 'http://108.160.135.63/api/admin/',
+  assetsBaseUrl: 'http://108.160.135.63/assets',
+  // apiUrl: 'http://108.160.135.63/api/admin/',
+  socketIOUrl: 'http://108.160.135.63',
 
   pingTimeoutDelay: 30 * 1000,
 };

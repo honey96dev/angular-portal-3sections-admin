@@ -31,6 +31,7 @@
     "ng-uikit-pro-standard": "^8.2.0",
     "ngrx-store-freeze": "^0.2.4",
     "ngx-dropzone-wrapper": "^8.0.0",
+    "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "screenfull": "^3.3.0",
     "sprintf-js": "^1.1.2",

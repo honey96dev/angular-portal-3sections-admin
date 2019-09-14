@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 // Tranlsation
 import { TranslateService } from '@ngx-translate/core';
+import consts from '@core/consts';
 
 export interface Locale {
   lang: string;
@@ -55,7 +56,7 @@ export class TranslationService {
     if (lang) {
       this.translate.use(this.translate.getDefaultLang());
       this.translate.use(lang);
-      localStorage.setItem('language', lang);
+      localStorage.setItem(consts.language, lang);
     }
   }
 
@@ -63,6 +64,6 @@ export class TranslationService {
    * Returns selected language
    */
   getSelectedLanguage(): string {
-    return localStorage.getItem('language') || this.translate.getDefaultLang();
+    return localStorage.getItem(consts.language) || this.translate.getDefaultLang();
   }
 }

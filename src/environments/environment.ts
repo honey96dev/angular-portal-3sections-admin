@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8080/api/admin/',
-  resourceBaseUrl: 'http://localhost:8080',
+  assetsBaseUrl: 'http://localhost:8080/assets',
   socketIOUrl: 'http://localhost:8080',
 
   pingTimeoutDelay: 30 * 1000,
