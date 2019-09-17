@@ -25,6 +25,12 @@ const apis = {
       edit: 'business-partner/edit',
       delete: 'business-partner/delete',
     },
+    ourClients: {
+      list: 'our-clients/list',
+      add: 'our-clients/add',
+      edit: 'our-clients/edit',
+      delete: 'our-clients/delete',
+    },
     directorBoard: {
       list: 'director-board/list',
       add: 'director-board/add',

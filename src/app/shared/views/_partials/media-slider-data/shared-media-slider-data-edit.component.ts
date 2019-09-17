@@ -53,11 +53,22 @@ export class SharedMediaSliderDataEditComponent implements OnInit {
 
   ngOnInit() {
     const row = this.service.editableRowValue();
-    // this.globalVariableService.setNavbarTitle(`${strings.registerBots} - ${row.id ? strings.edit : strings.add}`);
-    this.title.setTitle(this.translate.instant('HOME_FRONT.HUMAN_CAPITAL') + ' - ' + this.translate.instant('SITE_NAME'));
+    let title;
+    switch (this.category) {
+      case 'human':
+        title = this.translate.instant('HOME_FRONT.HUMAN_CAPITAL') + ' - ' + this.translate.instant('SITE_NAME');
+        break;
+      case 'conference':
+        title = this.translate.instant('HOME_FRONT.CONFERENCE') + ' - ' + this.translate.instant('SITE_NAME');
+        break;
+      case 'business':
+        title = this.translate.instant('HOME_FRONT.BUSINESS_SOLUTION') + ' - ' + this.translate.instant('SITE_NAME');
+        break;
+    }
+    this.title.setTitle(title);
     this.globalVariableService.getLanguage()
       .subscribe(data => {
-        this.title.setTitle(this.translate.instant('HOME_FRONT.HUMAN_CAPITAL') + ' - ' + this.translate.instant('SITE_NAME'));
+        this.title.setTitle(title);
       });
 
     this.form = this.formBuilder.group({

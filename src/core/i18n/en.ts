@@ -49,6 +49,16 @@ export const locale = {
       MEDIA: 'Media',
       DROPZONE_PLACEHOLDER: 'Click or drag image or video here to upload',
     },
+    SHARED_OUR_CLIENTS: {
+      TIMESTAMP: 'Timestamp',
+      NAME: 'Name',
+      PHOTO: 'Photo',
+      RATING: 'Rating',
+      STARS: 'Stars',
+      FEEDBACK: 'Feedback',
+      FILES: 'Files',
+      DROPZONE_PLACEHOLDER: 'Click or drag image or video here to upload',
+    },
     SHARED_CONTACT_US: {
       NAME: 'Name',
       EMAIL: 'Email',

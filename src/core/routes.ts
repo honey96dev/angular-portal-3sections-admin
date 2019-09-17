@@ -19,6 +19,10 @@ export default {
       main: 'business-partner',
       edit: 'business-partner/edit'
     },
+    ourClients: {
+      main: 'our-clients',
+      edit: 'our-clients/edit'
+    },
     directorBoard: {
       main: 'director-board',
       edit: 'director-board/edit'

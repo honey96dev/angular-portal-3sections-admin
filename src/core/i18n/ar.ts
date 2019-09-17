@@ -49,6 +49,16 @@ export const locale = {
       MEDIA: 'وسائل الإعلام',
       DROPZONE_PLACEHOLDER: 'انقر أو اسحب الصورة أو الفيديو هنا رفع',
     },
+    SHARED_OUR_CLIENTS: {
+      TIMESTAMP: 'الطابع الزمني',
+      NAME: 'اسم',
+      PHOTO: 'صورة فوتوغرافية',
+      RATING: 'تقييم',
+      STARS: 'نجوم',
+      FEEDBACK: 'ردود الفعل',
+      FILES: 'ملفات',
+      DROPZONE_PLACEHOLDER: 'انقر أو اسحب الصورة أو الفيديو هنا رفع',
+    },
     SHARED_CONTACT_US: {
       NAME: 'اسم',
       EMAIL: 'البريد الإلكتروني',

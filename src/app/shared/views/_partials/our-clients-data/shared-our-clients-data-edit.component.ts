@@ -6,30 +6,37 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {sprintf} from 'sprintf-js';
 import {AuthenticationService, GlobalVariableService} from '@app/_services';
 import {first} from 'rxjs/operators';
+import {OurClientsDataService} from '@app/shared/_services';
 import {TranslateService} from '@ngx-translate/core';
-import {MDBModalService} from 'ng-uikit-pro-standard';
+import {IMyOptions, MDBModalService} from 'ng-uikit-pro-standard';
 import {DropzoneComponent} from 'ngx-dropzone-wrapper';
 import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
 import consts from '@core/consts';
 import ext2mime from '@core/ext2mime.json';
-import {BusinessPartnerDataService} from '@app/shared/_services';
+import {StarRatingComponent} from 'ng-starrating';
 
 @Component({
-  selector: 'app-shared-business-partner-data-edit',
-  templateUrl: './shared-business-partner-data-edit.component.html',
-  styleUrls: ['./shared-business-partner-data-edit.component.scss']
+  selector: 'app-shared-our-clients-data-edit',
+  templateUrl: './shared-our-clients-data-edit.component.html',
+  styleUrls: ['./shared-our-clients-data-edit.component.scss']
 })
-export class SharedBusinessPartnerDataEditComponent implements OnInit {
+export class SharedOurClientsDataEditComponent implements OnInit {
   @Input() category: string;
   routes = routes;
   form: FormGroup;
 
   public editableRow: object;
-  public config;
-  mediaSize: number;
+  public photoConfig;
+  photoMediaSize: number;
+  public filesConfig;
+  filesMediaSize: number[];
 
-  @ViewChild(DropzoneComponent, { static: false }) mediaRef?: DropzoneComponent;
+  public timestampOptions: IMyOptions = {
+// Your options
+  };
+
+  @ViewChild(DropzoneComponent, { static: false }) photoMediaRef?: DropzoneComponent;
 
   backUrl: string = '';
 
@@ -47,7 +54,7 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
               private translate: TranslateService,
               private authService: AuthenticationService,
               private modalService: MDBModalService,
-              private service: BusinessPartnerDataService,
+              private service: OurClientsDataService,
               private formBuilder: FormBuilder,) {
   }
 
@@ -73,31 +80,30 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: new FormControl(''),
+      timestamp: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      social1: new FormControl(''),
-      social2: new FormControl(''),
-      social3: new FormControl(''),
-      media: new FormControl('', Validators.required),
-      originMedia: new FormControl('', Validators.required),
+      photo: new FormControl('', Validators.required),
+      photoOriginMedia: new FormControl('', Validators.required),
+      stars: new FormControl('', Validators.required),
+      feedback: new FormControl('', Validators.required),
+      files: new FormControl(''),
+      // originMedia: new FormControl('', Validators.required),
     });
 
     this.f['id'].patchValue(row.id);
+    this.f['timestamp'].patchValue(row.timestamp);
     this.f['name'].patchValue(row.name);
-    this.f['title'].patchValue(row.title);
-    this.f['description'].patchValue(row.description);
-    this.f['social1'].patchValue(row.social1);
-    this.f['social2'].patchValue(row.social2);
-    this.f['social3'].patchValue(row.social3);
-    this.f['media'].patchValue(row.media);
-    this.f['originMedia'].patchValue(row.originMedia);
+    this.f['photo'].patchValue(row.photo);
+    this.f['photoOriginMedia'].patchValue(row.photoOriginMedia);
+    this.f['stars'].patchValue(row.stars);
+    this.f['feedback'].patchValue(row.feedback);
+    this.f['files'].patchValue(row.files);
 
-    this.backUrl = sprintf("/%s/%s", this.category, routes._partials.businessPartner.main);
-    this.config = {
-      url: `${environment.apiUrl}${apis.common.upload}/business-partner`,
+    this.backUrl = sprintf("/%s/%s", this.category, routes._partials.ourClients.main);
+    this.photoConfig = {
+      url: `${environment.apiUrl}${apis.common.upload}/our-clients`,
       // url: `${environment.apiUrl}${apis.common.upload}/${this.category}`,
-      acceptedFiles: 'image/*',
+      acceptedFiles: 'image/*,video/*',
       maxmediaSize: consts.uploadMaxsize,
       clickable: true,
       maxFiles: 1,
@@ -124,18 +130,16 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
     const category = this.category;
     const f = this.f;
     const id = f.id.value;
+    const timestamp = f.timestamp.value;
     const name = f.name.value;
-    const title = f.title.value;
-    const description = f.description.value;
-    const social1 = f.social1.value;
-    const social2 = f.social2.value;
-    const social3 = f.social3.value;
-    const media = f.media.value;
-    const originMedia = f.originMedia.value;
-    const mediaSize = this.mediaSize;
+    const photo = f.photo.value;
+    const photoOriginMedia = f.photoOriginMedia.value;
+    const photoMediaSize = this.photoMediaSize;
+    const stars = f.stars.value;
+    const feedback = f.feedback.value;
 
     const data = {
-      id, category, name, title, description, social1, social2, social3, media, originMedia, mediaSize
+      id, category, timestamp, name, photo, photoOriginMedia, photoMediaSize, stars, feedback
     };
 
     this.loading = true;
@@ -170,50 +174,51 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
       });
   }
 
-  public onDropzoneInit(args: any): void {
+  public onPhotoDropzoneInit(args: any): void {
     console.log('onUploadInit:', args);
     setTimeout(() => {
       const row = this.service.editableRowValue();
-      if (!!row.id && row.media.length > 0) {
-        const dropzone = this.mediaRef.directiveRef.dropzone();
+      if (!!row.id && row.photo.length > 0) {
+        const dropzone = this.photoMediaRef.directiveRef.dropzone();
 
-        const mockFile = { name: row.originMedia, size: row.mediaSize };
+        const mockFile = { name: row.photoOriginMedia, size: row.photoMediaSize };
 
         // const extension = path.extname(row.media);
-        const extension = '.' + row.media.split('.').pop();
+        const extension = '.' + row.photo.split('.').pop();
         dropzone.emit( "addedfile", mockFile );
         dropzone.files.push(mockFile);
         if (ext2mime[extension] && ext2mime[extension].startsWith("image")) {
-          dropzone.emit("thumbnail", mockFile, `${environment.assetsBaseUrl}${row.media}`);
+          dropzone.emit("thumbnail", mockFile, `${environment.assetsBaseUrl}${row.photo}`);
         }
         dropzone.emit( "complete", mockFile);
         dropzone.options.maxFiles = 0;
-        this.mediaSize = row.mediaSize;
+        this.photoMediaSize = row.photoMediaSize;
       }
     }, 500);
 
   }
 
-  public onDropzoneError(args: any): void {
+  public onPhotoDropzoneError(args: any): void {
     console.log('onUploadError:', args);
-    this.mediaSize = 0;
-    this.f.media.patchValue(consts.error);this.alert = {
+    this.photoMediaSize = 0;
+    this.f.photo.patchValue(consts.error);
+    this.alert = {
       show: true,
       type: 'alert-danger',
       message: this.translate.instant('COMMON.UNKNOWN_SERVER_ERROR'),
     };
   }
 
-  public onDropzoneSuccess(args: any): void {
+  public onPhotoDropzoneSuccess(args: any): void {
     console.log('onUploadSuccess:', args);
-    this.mediaSize = args[0].size;
+    this.photoMediaSize = args[0].size;
     const {result, message, filename, oldFilename} = args[1];
     if (result === consts.success) {
       this.alert.show = false;
-      this.f.media.patchValue(filename);
-      this.f.originMedia.patchValue(oldFilename);
+      this.f.photo.patchValue(filename);
+      this.f.photoOriginMedia.patchValue(oldFilename);
     } else {
-      this.f.media.patchValue(consts.error);
+      this.f.photo.patchValue(consts.error);
       this.alert = {
         show: true,
         type: 'alert-danger',
@@ -222,13 +227,13 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
     }
   }
 
-  onClearMediaClicked() {
+  onClearPhotoMediaClicked() {
     const row = this.service.editableRowValue();
-    this.mediaRef.directiveRef.reset();
-    if (!!row.id && row.media.length > 0) {
-      const dropzone = this.mediaRef.directiveRef.dropzone();
+    this.photoMediaRef.directiveRef.reset();
+    if (!!row.id && row.photo.length > 0) {
+      const dropzone = this.photoMediaRef.directiveRef.dropzone();
 
-      const mockFile = { name: row.originMedia, size: row.mediaSize };
+      const mockFile = { name: row.photoOriginMedia, size: row.photoMediaSize };
       // dropzone.emit( "removedfile", mockFile );
       // dropzone.emit( "thumbnail", null, null );
       // dropzone.emit( "canceled", mockFile);
@@ -237,12 +242,20 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
     }
 
     // this.mediaRef.directiveRef.reset();
-    this.mediaRef.directiveRef.reset(true);
+    this.photoMediaRef.directiveRef.reset(true);
     // this.mediaRef.directiveRef.dropzone();
     // console.log(this.mediaRef.directiveRef.dropzone());
-    this.f.media.patchValue('');
-    this.f.originMedia.patchValue('');
-    this.mediaSize = 0;
+    this.f.photo.patchValue('');
+    this.f.photoOriginMedia.patchValue('');
+    this.photoMediaSize = 0;
     this.alert.show = false;
+  }
+
+  onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
+    // alert(`Old Value:${$event.oldValue},
+    //   New Value: ${$event.newValue},
+    //   Checked Color: ${$event.starRating.checkedcolor},
+    //   Unchecked Color: ${$event.starRating.uncheckedcolor}`);
+    this.f.stars.patchValue($event.newValue);
   }
 }

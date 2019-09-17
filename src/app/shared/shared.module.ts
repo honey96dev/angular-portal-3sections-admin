@@ -20,8 +20,11 @@ import {SharedContactUsDataComponent} from '@app/shared/views/_partials/contact-
 import {SharedContactUsDataEditComponent} from '@app/shared/views/_partials/contact-us-data/shared-contact-us-data-edit.component';
 import {SharedBusinessPartnerDataComponent} from '@app/shared/views/_partials/business-partner-data/shared-business-partner-data.component';
 import {SharedBusinessPartnerDataEditComponent} from '@app/shared/views/_partials/business-partner-data/shared-business-partner-data-edit.component';
+import {SharedOurClientsDataComponent} from '@app/shared/views/_partials/our-clients-data/shared-our-clients-data.component';
+import {SharedOurClientsDataEditComponent} from '@app/shared/views/_partials/our-clients-data/shared-our-clients-data-edit.component';
 import {SharedDirectorBoardDataComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data.component';
 import {SharedDirectorBoardDataEditComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data-edit.component';
+import {RatingModule} from 'ng-starrating';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -41,6 +44,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     ReactiveFormsModule,
     RouterModule,
     DropzoneModule,
+    RatingModule,
   ],
   declarations: [
     AlertModalComponent,
@@ -56,6 +60,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedContactUsDataEditComponent,
     SharedBusinessPartnerDataComponent,
     SharedBusinessPartnerDataEditComponent,
+    SharedOurClientsDataComponent,
+    SharedOurClientsDataEditComponent,
     SharedDirectorBoardDataComponent,
     SharedDirectorBoardDataEditComponent,
   ],
@@ -78,6 +84,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedBusinessPartnerDataEditComponent,
     SharedContactUsDataComponent,
     SharedContactUsDataEditComponent,
+    SharedOurClientsDataComponent,
+    SharedOurClientsDataEditComponent,
     SharedDirectorBoardDataComponent,
     SharedDirectorBoardDataEditComponent,
   ],

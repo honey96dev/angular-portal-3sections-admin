@@ -9,15 +9,15 @@ import {sprintf} from 'sprintf-js';
 import consts from '@core/consts';
 import routes from '@core/routes';
 import {AuthenticationService, GlobalVariableService} from '@app/_services';
-import {DirectorBoardDataService} from '@app/shared/_services';
+import {OurClientsDataService} from '@app/shared/_services';
 import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
 
 @Component({
-  selector: 'app-shared-director-board-data',
-  templateUrl: './shared-director-board-data.component.html',
-  styleUrls: ['./shared-director-board-data.component.scss']
+  selector: 'app-shared-our-clients-data',
+  templateUrl: './shared-our-clients-data.component.html',
+  styleUrls: ['./shared-our-clients-data.component.scss']
 })
-export class SharedDirectorBoardDataComponent implements OnInit {
+export class SharedOurClientsDataComponent implements OnInit {
   @Input() category: string;
   routes = routes;
   form: FormGroup;
@@ -34,7 +34,13 @@ export class SharedDirectorBoardDataComponent implements OnInit {
 
   elements: any = [];
   previous: string;
-  headElements = ['', 'Name', 'Title', 'Description', 'Media'];
+  headElements = [
+    '',
+    this.translate.instant('SHARED_OUR_CLIENTS.TIMESTAMP'),
+    this.translate.instant('SHARED_OUR_CLIENTS.NAME'),
+    this.translate.instant('SHARED_OUR_CLIENTS.RATING'),
+    this.translate.instant('SHARED_OUR_CLIENTS.FEEDBACK'),
+  ];
 
   addUrl: string = '';
   editUrl: string = '';
@@ -58,7 +64,7 @@ export class SharedDirectorBoardDataComponent implements OnInit {
                      private translate: TranslateService,
                      private authService: AuthenticationService,
                      private modalService: MDBModalService,
-                     private service: DirectorBoardDataService,
+                     private service: OurClientsDataService,
                      private formBuilder: FormBuilder,
                      private cdRef: ChangeDetectorRef
   ) {
@@ -89,8 +95,8 @@ export class SharedDirectorBoardDataComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.addUrl = sprintf("/%s/%s", this.category, routes._partials.directorBoard.edit);
-    this.editUrl = sprintf("/%s/%s", this.category, routes._partials.directorBoard.edit);
+    this.addUrl = sprintf("/%s/%s", this.category, routes._partials.ourClients.edit);
+    this.editUrl = sprintf("/%s/%s", this.category, routes._partials.ourClients.edit);
     this.loadData();
   }
 

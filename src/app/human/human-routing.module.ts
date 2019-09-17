@@ -9,6 +9,8 @@ import {HumanContactUsDataComponent} from '@app/human/views/contact-us/human-con
 import {HumanContactUsDataEditComponent} from '@app/human/views/contact-us/human-contact-us-data-edit.component';
 import {HumanBusinessPartnerDataComponent} from '@app/human/views/business-partner/human-business-partner-data.component';
 import {HumanBusinessPartnerDataEditComponent} from '@app/human/views/business-partner/human-business-partner-data-edit.component';
+import {HumanOurClientsDataComponent} from '@app/human/views/our-clients/human-our-clients-data.component';
+import {HumanOurClientsDataEditComponent} from '@app/human/views/our-clients/human-our-clients-data-edit.component';
 import {HumanDirectorBoardDataComponent} from '@app/human/views/director-board/human-director-board-data.component';
 import {HumanDirectorBoardDataEditComponent} from '@app/human/views/director-board/human-director-board-data-edit.component';
 
@@ -25,7 +27,8 @@ const routes: Routes = [
       {path: 'contact-us/edit', component: HumanContactUsDataEditComponent},
       {path: 'business-partner', component: HumanBusinessPartnerDataComponent},
       {path: 'business-partner/edit', component: HumanBusinessPartnerDataEditComponent},
-      // {path: 'our-clients', component: BusinessOurClientsComponent},
+      {path: 'our-clients', component: HumanOurClientsDataComponent},
+      {path: 'our-clients/edit', component: HumanOurClientsDataEditComponent},
       {path: 'director-board', component: HumanDirectorBoardDataComponent},
       {path: 'director-board/edit', component: HumanDirectorBoardDataEditComponent},
     ]
