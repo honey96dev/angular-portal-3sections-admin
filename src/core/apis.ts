@@ -37,6 +37,24 @@ const apis = {
       edit: 'director-board/edit',
       delete: 'director-board/delete',
     },
+    events: {
+      list: 'events/list',
+      add: 'events/add',
+      edit: 'events/edit',
+      delete: 'events/delete',
+    },
+    previousEvents: {
+      list: 'previous-events/list',
+      add: 'previous-events/add',
+      edit: 'previous-events/edit',
+      delete: 'previous-events/delete',
+    },
+    upcomingEvents: {
+      list: 'upcoming-events/list',
+      add: 'upcoming-events/add',
+      edit: 'upcoming-events/edit',
+      delete: 'upcoming-events/delete',
+    },
   },
   auth: {
     signIn: 'auth/sign-in',

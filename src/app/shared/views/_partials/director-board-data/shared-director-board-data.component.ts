@@ -34,7 +34,13 @@ export class SharedDirectorBoardDataComponent implements OnInit {
 
   elements: any = [];
   previous: string;
-  headElements = ['', 'Name', 'Title', 'Description', 'Media'];
+  headElements = [
+    '',
+    this.translate.instant('SHARED_DIRECTOR_BOARD.NAME'),
+    this.translate.instant('SHARED_DIRECTOR_BOARD.TITLE'),
+    this.translate.instant('SHARED_DIRECTOR_BOARD.DESCRIPTION'),
+    this.translate.instant('SHARED_DIRECTOR_BOARD.MEDIA'),
+  ];
 
   addUrl: string = '';
   editUrl: string = '';

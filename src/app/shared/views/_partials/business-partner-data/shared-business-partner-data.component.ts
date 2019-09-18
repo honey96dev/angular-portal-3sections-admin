@@ -34,7 +34,13 @@ export class SharedBusinessPartnerDataComponent implements OnInit {
 
   elements: any = [];
   previous: string;
-  headElements = ['', 'Name', 'Title', 'Description', 'Photo'];
+  headElements = [
+    '',
+    this.translate.instant('SHARED_BUSINESS_PARTNER.NAME'),
+    this.translate.instant('SHARED_BUSINESS_PARTNER.TITLE'),
+    this.translate.instant('SHARED_BUSINESS_PARTNER.DESCRIPTION'),
+    this.translate.instant('SHARED_BUSINESS_PARTNER.PHOTO'),
+  ];
 
   addUrl: string = '';
   editUrl: string = '';

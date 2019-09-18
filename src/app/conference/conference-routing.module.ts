@@ -1,15 +1,24 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ConferenceLayoutComponent} from '@app/views/layouts/conference-layout/conference-layout.component';
+import {ConferenceMainDataComponent} from '@app/conference/views/main/conference-main-data.component';
+import {ConferenceMainDataEditComponent} from '@app/conference/views/main/conference-main-data-edit.component';
+import {ConferencePreviousEventsDataComponent} from '@app/conference/views/previous-events/conference-previous-events-data.component';
+import {ConferencePreviousEventsDataEditComponent} from '@app/conference/views/previous-events/conference-previous-events-data-edit.component';
+import {ConferenceUpcomingEventsDataComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events-data.component';
+import {ConferenceUpcomingEventsDataEditComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events-data-edit.component';
 
 const routes: Routes = [
   {
     path: '',
     component: ConferenceLayoutComponent,
     children: [
-      // {path: '', component: BusinessFrontComponent},
-      // {path: 'business-partner', component: BusinessBusinessPartnerComponent},
-      // {path: 'our-clients', component: BusinessOurClientsComponent},
+      {path: '', component: ConferenceMainDataComponent},
+      {path: 'media-slider/edit', component: ConferenceMainDataEditComponent},
+      {path: 'previous-events', component: ConferencePreviousEventsDataComponent},
+      {path: 'previous-events/edit', component: ConferencePreviousEventsDataEditComponent},
+      {path: 'upcoming-events', component: ConferenceUpcomingEventsDataComponent},
+      {path: 'upcoming-events/edit', component: ConferenceUpcomingEventsDataEditComponent},
       // {path: 'contact-us', component: BusinessContactUsComponent},
     ]
   }

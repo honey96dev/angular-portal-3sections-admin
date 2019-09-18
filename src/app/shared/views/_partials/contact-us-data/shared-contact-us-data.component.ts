@@ -34,7 +34,13 @@ export class SharedContactUsDataComponent implements OnInit {
 
   elements: any = [];
   previous: string;
-  headElements = ['', 'Name', 'Email', 'Subject', 'Message'];
+  headElements = [
+    '',
+    this.translate.instant('SHARED_CONTACT_US.NAME'),
+    this.translate.instant('SHARED_CONTACT_US.EMAIL'),
+    this.translate.instant('SHARED_CONTACT_US.SUBJECT'),
+    this.translate.instant('SHARED_CONTACT_US.MESSAGE'),
+  ];
 
   addUrl: string = '';
   editUrl: string = '';

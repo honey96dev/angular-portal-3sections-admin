@@ -34,7 +34,13 @@ export class SharedOurServicesDataComponent implements OnInit {
 
   elements: any = [];
   previous: string;
-  headElements = ['', 'Name', 'Title', 'Description', 'Photo'];
+  headElements = [
+    '',
+    this.translate.instant('SHARED_OUR_SERVICES.NAME'),
+    this.translate.instant('SHARED_OUR_SERVICES.TITLE'),
+    this.translate.instant('SHARED_OUR_SERVICES.DESCRIPTION'),
+    this.translate.instant('SHARED_OUR_SERVICES.MEDIA'),
+  ];
 
   addUrl: string = '';
   editUrl: string = '';

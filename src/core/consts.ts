@@ -6,4 +6,9 @@ export default {
   success: 'success',
   error: 'error',
   uploadMaxsize: 5,
+  human: 'human',
+  conference: 'conference',
+  business: 'business',
+  upcoming: 'upcoming',
+  previous: 'previous',
 }

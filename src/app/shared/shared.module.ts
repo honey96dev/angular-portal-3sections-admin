@@ -6,6 +6,7 @@ import {StoreModule} from '@ngrx/store';
 import {metaReducers, reducers} from '@core/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {RatingModule} from 'ng-starrating';
 import {DROPZONE_CONFIG, DropzoneModule, DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
@@ -24,7 +25,8 @@ import {SharedOurClientsDataComponent} from '@app/shared/views/_partials/our-cli
 import {SharedOurClientsDataEditComponent} from '@app/shared/views/_partials/our-clients-data/shared-our-clients-data-edit.component';
 import {SharedDirectorBoardDataComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data.component';
 import {SharedDirectorBoardDataEditComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data-edit.component';
-import {RatingModule} from 'ng-starrating';
+import {SharedEventsDataComponent} from '@app/shared/views/_partials/events-data/shared-events-data.component';
+import {SharedEventsDataEditComponent} from '@app/shared/views/_partials/events-data/shared-events-data-edit.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -64,6 +66,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedOurClientsDataEditComponent,
     SharedDirectorBoardDataComponent,
     SharedDirectorBoardDataEditComponent,
+    SharedEventsDataComponent,
+    SharedEventsDataEditComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -88,6 +92,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedOurClientsDataEditComponent,
     SharedDirectorBoardDataComponent,
     SharedDirectorBoardDataEditComponent,
+    SharedEventsDataComponent,
+    SharedEventsDataEditComponent,
   ],
   providers: [
     {

@@ -34,7 +34,13 @@ export class SharedMediaSliderDataComponent implements OnInit {
 
   elements: any = [];
   previous: string;
-  headElements = ['', 'Name', 'Title', 'Description', 'Media'];
+  headElements = [
+    '',
+    this.translate.instant('SHARED_MEDIA_SLIDER.NAME'),
+    this.translate.instant('SHARED_MEDIA_SLIDER.TITLE'),
+    this.translate.instant('SHARED_MEDIA_SLIDER.DESCRIPTION'),
+    this.translate.instant('SHARED_MEDIA_SLIDER.MEDIA'),
+  ];
 
   addUrl: string = '';
   editUrl: string = '';

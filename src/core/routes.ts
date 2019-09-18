@@ -27,6 +27,14 @@ export default {
       main: 'director-board',
       edit: 'director-board/edit'
     },
+    previousEvents: {
+      main: 'previous-events',
+      edit: 'previous-events/edit'
+    },
+    upcomingEvents: {
+      main: 'upcoming-events',
+      edit: 'upcoming-events/edit'
+    },
   },
   human: {
     main: '/human',
