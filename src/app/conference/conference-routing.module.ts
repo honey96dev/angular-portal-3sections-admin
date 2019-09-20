@@ -7,6 +7,8 @@ import {ConferencePreviousEventsDataComponent} from '@app/conference/views/previ
 import {ConferencePreviousEventsDataEditComponent} from '@app/conference/views/previous-events/conference-previous-events-data-edit.component';
 import {ConferenceUpcomingEventsDataComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events-data.component';
 import {ConferenceUpcomingEventsDataEditComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events-data-edit.component';
+import {ConferenceDirectorBoardDataComponent} from '@app/conference/views/director-board/conference-director-board-data.component';
+import {ConferenceDirectorBoardDataEditComponent} from '@app/conference/views/director-board/conference-director-board-data-edit.component';
 
 const routes: Routes = [
   {
@@ -19,7 +21,8 @@ const routes: Routes = [
       {path: 'previous-events/edit', component: ConferencePreviousEventsDataEditComponent},
       {path: 'upcoming-events', component: ConferenceUpcomingEventsDataComponent},
       {path: 'upcoming-events/edit', component: ConferenceUpcomingEventsDataEditComponent},
-      // {path: 'contact-us', component: BusinessContactUsComponent},
+      {path: 'director-board', component: ConferenceDirectorBoardDataComponent},
+      {path: 'director-board/edit', component: ConferenceDirectorBoardDataEditComponent},
     ]
   }
 ];

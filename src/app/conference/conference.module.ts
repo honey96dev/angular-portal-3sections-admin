@@ -9,6 +9,8 @@ import {ConferencePreviousEventsDataComponent} from '@app/conference/views/previ
 import {ConferencePreviousEventsDataEditComponent} from '@app/conference/views/previous-events/conference-previous-events-data-edit.component';
 import {ConferenceUpcomingEventsDataComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events-data.component';
 import {ConferenceUpcomingEventsDataEditComponent} from '@app/conference/views/upcoming-events/conference-upcoming-events-data-edit.component';
+import {ConferenceDirectorBoardDataComponent} from '@app/conference/views/director-board/conference-director-board-data.component';
+import {ConferenceDirectorBoardDataEditComponent} from '@app/conference/views/director-board/conference-director-board-data-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import {ConferenceUpcomingEventsDataEditComponent} from '@app/conference/views/u
     ConferencePreviousEventsDataEditComponent,
     ConferenceUpcomingEventsDataComponent,
     ConferenceUpcomingEventsDataEditComponent,
+    ConferenceDirectorBoardDataComponent,
+    ConferenceDirectorBoardDataEditComponent,
   ],
   imports: [
     CommonModule,

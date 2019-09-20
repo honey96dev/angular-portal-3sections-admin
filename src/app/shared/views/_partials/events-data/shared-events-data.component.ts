@@ -37,12 +37,12 @@ export class SharedEventsDataComponent implements OnInit {
   previous: string;
   headElements = [
     '',
-    this.translate.instant('SHARED_PREVIOUS_EVENTS.TYPE'),
-    this.translate.instant('SHARED_PREVIOUS_EVENTS.NAME'),
-    this.translate.instant('SHARED_PREVIOUS_EVENTS.TIMESTAMP'),
-    this.translate.instant('SHARED_PREVIOUS_EVENTS.TITLE'),
-    this.translate.instant('SHARED_PREVIOUS_EVENTS.DESCRIPTION'),
-    this.translate.instant('SHARED_PREVIOUS_EVENTS.MEDIA'),
+    this.translate.instant('SHARED_EVENTS.TYPE'),
+    this.translate.instant('SHARED_EVENTS.NAME'),
+    this.translate.instant('SHARED_EVENTS.TIMESTAMP'),
+    this.translate.instant('SHARED_EVENTS.TITLE'),
+    this.translate.instant('SHARED_EVENTS.DESCRIPTION'),
+    this.translate.instant('SHARED_EVENTS.MEDIA'),
   ];
 
   addUrl: string = '';

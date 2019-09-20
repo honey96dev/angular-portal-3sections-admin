@@ -29,6 +29,15 @@ export const locale = {
       UNKNOWN_SERVER_ERROR: 'خطأ غير معروف في الخادم',
       NO_DATA: 'لايوجد بيانات',
       DELETE_CONFIRM_MSG: 'هل تريد حذف "{{item}}"؟',
+      X_MONTHS_AGO: '{{val}} منذ أشهر',
+      X_DAYS_AGO: '{{val}} قبل أيام',
+      X_HOURS_AGO: '{{val}} قبل ساعات',
+      X_MINUTES_AGO: '{{val}} قبل دقائق',
+      A_MONTH_AGO: 'قبل شهر',
+      A_DAY_AGO: 'قبل يوم واحد',
+      A_HOUR_AGO: 'منذ ساعة',
+      A_MINUTE_AGO: 'منذ دقيقة',
+      WELCOME: 'أهلا بك',
     },
     SIGNIN: {
       SIGNIN: 'تسجيل الدخول',
@@ -51,10 +60,11 @@ export const locale = {
       DROPZONE_PLACEHOLDER: 'انقر أو اسحب الصورة أو الفيديو هنا رفع',
     },
     SHARED_CONTACT_US: {
-      NAME: 'اسم',
-      EMAIL: 'البريد الإلكتروني',
+      TITLE: 'اتصل بنا',
+      NAME: 'اسمك',
+      EMAIL: 'بريدك الالكتروني',
       SUBJECT: 'موضوع',
-      MESSAGE: 'رسالة',
+      MESSAGE: 'رسالتك',
     },
     SHARED_BUSINESS_PARTNER: {
       NAME: 'اسم',
@@ -78,13 +88,16 @@ export const locale = {
       DROPZONE_PLACEHOLDER: 'انقر أو اسحب الصورة أو الفيديو هنا رفع',
     },
     SHARED_DIRECTOR_BOARD: {
+      PAGE_TITLE: 'مجموعة مخرجين',
       NAME: 'اسم',
       TITLE: 'عنوان',
       DESCRIPTION: 'وصف',
       MEDIA: 'وسائل الإعلام',
       DROPZONE_PLACEHOLDER: 'انقر أو اسحب الصورة أو الفيديو هنا رفع',
     },
-    SHARED_PREVIOUS_EVENTS: {
+    SHARED_EVENTS: {
+      LAST_EVENTS: 'الأحداث الأخيرة',
+      MOST_UPCOMING: 'معظم القادمة',
       TYPE: 'اكتب',
       NAME: 'اسم',
       TIMESTAMP: 'الطابع الزمني',

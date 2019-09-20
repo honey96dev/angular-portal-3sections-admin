@@ -32,7 +32,7 @@
         <div class="col-md-12">
           <div class="md-form mt-0">
             <textarea type="text" id="description" class="md-textarea form-control" formControlName="description" mdbInput mdbValidate
-                      [validateSuccess]="false"></textarea>
+                      [validateSuccess]="false" rows="8"></textarea>
             <label for="description">{{'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}}</label>
             <mdb-error *ngIf="f.description.invalid && (f.description.dirty || f.description.touched)"
                        [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}"></mdb-error>

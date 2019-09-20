@@ -13,18 +13,18 @@
           <div class="md-form mt-0">
             <input type="text" id="type" class="form-control" formControlName="type" mdbInput mdbValidate
                    [validateSuccess]="false">
-            <label for="name">{{'SHARED_PREVIOUS_EVENTS.TYPE' | translate}}</label>
+            <label for="name">{{'SHARED_EVENTS.TYPE' | translate}}</label>
             <mdb-error *ngIf="f.type.invalid && (f.type.dirty || f.type.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_PREVIOUS_EVENTS.TYPE' | translate}"></mdb-error>
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_EVENTS.TYPE' | translate}"></mdb-error>
           </div>
         </div>
         <div class="col-md-6">
           <div class="md-form mt-0">
             <input type="text" id="name" class="form-control" formControlName="name" mdbInput mdbValidate
                    [validateSuccess]="false">
-            <label for="name">{{'SHARED_PREVIOUS_EVENTS.NAME' | translate}}</label>
+            <label for="name">{{'SHARED_EVENTS.NAME' | translate}}</label>
             <mdb-error *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_PREVIOUS_EVENTS.NAME' | translate}"></mdb-error>
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_EVENTS.NAME' | translate}"></mdb-error>
           </div>
         </div>
       </div>
@@ -33,21 +33,21 @@
           <div class="md-form mt-0">
             <!--            <input type="text" id="timestamp" class="form-control" formControlName="timestamp" mdbInput mdbValidate-->
             <!--                   [validateSuccess]="false">-->
-            <mdb-date-picker name="timestamp" id="timestamp" [options]="timestampOptions" [placeholder]="'SHARED_PREVIOUS_EVENTS.TIMESTAMP' | translate"  formControlName="timestamp" required></mdb-date-picker>
-            <!--            <label for="timestamp">{{'SHARED_PREVIOUS_EVENTS.TIMESTAMP' | translate}}</label>-->
+            <mdb-date-picker name="timestamp" id="timestamp" [options]="timestampOptions" [placeholder]="'SHARED_EVENTS.TIMESTAMP' | translate"  formControlName="timestamp" required></mdb-date-picker>
+            <!--            <label for="timestamp">{{'SHARED_EVENTS.TIMESTAMP' | translate}}</label>-->
             <mdb-error *ngIf="f.timestamp.invalid && f.timestamp.errors.required && (f.timestamp.dirty || f.timestamp.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_PREVIOUS_EVENTS.TIMESTAMP' | translate}"></mdb-error>
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_EVENTS.TIMESTAMP' | translate}"></mdb-error>
             <mdb-error *ngIf="f.timestamp.invalid && !f.timestamp.errors.required && (f.timestamp.dirty || f.timestamp.touched)"
-                       [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SHARED_PREVIOUS_EVENTS.TIMESTAMP' | translate}"></mdb-error>
+                       [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SHARED_EVENTS.TIMESTAMP' | translate}"></mdb-error>
           </div>
         </div>
         <div class="col-md-6">
           <div class="md-form mt-0">
             <input type="text" id="title" class="form-control" formControlName="title" mdbInput mdbValidate
                    [validateSuccess]="false">
-            <label for="title">{{'SHARED_PREVIOUS_EVENTS.TITLE' | translate}}</label>
+            <label for="title">{{'SHARED_EVENTS.TITLE' | translate}}</label>
             <mdb-error *ngIf="f.title.invalid && (f.title.dirty || f.title.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_PREVIOUS_EVENTS.TITLE' | translate}"></mdb-error>
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_EVENTS.TITLE' | translate}"></mdb-error>
           </div>
         </div>
       </div>
@@ -56,9 +56,9 @@
           <div class="md-form mt-0">
             <textarea type="text" id="description" class="md-textarea form-control" formControlName="description" mdbInput mdbValidate
                       [validateSuccess]="false" rows="8"></textarea>
-            <label for="description">{{'SHARED_PREVIOUS_EVENTS.DESCRIPTION' | translate}}</label>
+            <label for="description">{{'SHARED_EVENTS.DESCRIPTION' | translate}}</label>
             <mdb-error *ngIf="f.description.invalid && (f.description.dirty || f.description.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_PREVIOUS_EVENTS.DESCRIPTION' | translate}"></mdb-error>
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_EVENTS.DESCRIPTION' | translate}"></mdb-error>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
         <div class="col-md-12">
           <div class="md-form mt-0">
             <div class="row px-0">
-              <div for="media" class="col-md-3 label">{{'SHARED_PREVIOUS_EVENTS.MEDIA' | translate}}</div>
+              <div for="media" class="col-md-3 label">{{'SHARED_EVENTS.MEDIA' | translate}}</div>
               <div class="col-md-3">
                 <button *ngIf="f.media.value && f.media.value.length > 0" mdbBtn color="warning" mdbWavesEffect (click)="onClearMediaClicked()">{{'COMMON.CLEAR' | translate}}</button>
               </div>
@@ -76,11 +76,11 @@
             <input type="hidden" id="originMedia" class="form-control" formControlName="originMedia" mdbInput mdbValidate
                    [validateSuccess]="false">
             <mdb-error *ngIf="f.media.invalid"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_PREVIOUS_EVENTS.MEDIA' | translate}"></mdb-error>
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_EVENTS.MEDIA' | translate}"></mdb-error>
           </div>
           <div class="md-form col-md-8 margin-auto-x mt-0">
-<!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_PREVIOUS_EVENTS.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->
-            <dropzone class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_PREVIOUS_EVENTS.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>
+<!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_EVENTS.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->
+            <dropzone class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_EVENTS.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>
           </div>
         </div>
       </div>

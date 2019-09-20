@@ -29,6 +29,15 @@ export const locale = {
       UNKNOWN_SERVER_ERROR: 'Unknown server error',
       NO_DATA: 'No data',
       DELETE_CONFIRM_MSG: 'Do you want to delete "{{item}}"?',
+      X_MONTHS_AGO: '{{val}} months ago',
+      X_DAYS_AGO: '{{val}} days ago',
+      X_HOURS_AGO: '{{val}} hours ago',
+      X_MINUTES_AGO: '{{val}} minutes ago',
+      A_MONTH_AGO: 'a month ago',
+      A_DAY_AGO: 'a day ago',
+      A_HOUR_AGO: 'an hour ago',
+      A_MINUTE_AGO: 'a minute ago',
+      WELCOME: 'Welcome',
     },
     SIGNIN: {
       SIGNIN: 'Sign In',
@@ -51,6 +60,7 @@ export const locale = {
       DROPZONE_PLACEHOLDER: 'Click or drag image or video here to upload',
     },
     SHARED_CONTACT_US: {
+      TITLE: 'Contact Us',
       NAME: 'Name',
       EMAIL: 'Email',
       SUBJECT: 'Subject',
@@ -78,13 +88,16 @@ export const locale = {
       DROPZONE_PLACEHOLDER: 'Click or drag image or video here to upload',
     },
     SHARED_DIRECTOR_BOARD: {
+      PAGE_TITLE: 'Board of Directors',
       NAME: 'Name',
       TITLE: 'Title',
       DESCRIPTION: 'Description',
       MEDIA: 'Media',
       DROPZONE_PLACEHOLDER: 'Click or drag image or video here to upload',
     },
-    SHARED_PREVIOUS_EVENTS: {
+    SHARED_EVENTS: {
+      LAST_EVENTS: 'Last Events',
+      MOST_UPCOMING: 'Most Upcoming',
       TYPE: 'Type',
       NAME: 'Name',
       TIMESTAMP: 'Timestamp',
