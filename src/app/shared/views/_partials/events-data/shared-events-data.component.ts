@@ -189,6 +189,7 @@ export class SharedEventsDataComponent implements OnInit {
     this.modalRef.content.message = this.translate.instant('COMMON.DELETE_CONFIRM_MSG', {item: el.name});
     this.modalRef.content.yesButtonColor = 'danger';
     this.modalRef.content.yesButtonClicked.subscribe(() => {
+      el['scope'] = this.scope;
       this.service.delete(el).pipe(first())
         .subscribe(res => {
           this.loading = false;
