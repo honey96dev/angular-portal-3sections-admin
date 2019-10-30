@@ -26,22 +26,23 @@
           <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
               scope="col">{{head}} <mdb-icon fas icon="sort"></mdb-icon>
           </th>
+          <th [mdbTableSort]="elements" [sortBy]="'SHARED_EVENTS.APPLICANTS' | translate">{{'SHARED_EVENTS.APPLICANTS' | translate}}</th>
           <th scope="col" class="edit-col"></th>
         </tr>
         </thead>
         <tbody #row>
         <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="no-col">{{i+1}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.type}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.name}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.typeEn : el.typeAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.nameEn : el.nameAr}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.timestamp}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.title}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.description}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.titleEn : el.titleAr}}</td>
+<!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.descriptionEn : el.descriptionAr}}</td>-->
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.originMedia}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
-            <a mdbBtn [routerLink]="editUrl" floating="true" rounded="true" color="warning" size="sm" mdbWavesEffect
-               [class.mr-2]="('DIRECTION' | translate) === 'ltr'" [class.ml-2]="('DIRECTION' | translate) === 'rtl'"
-               (click)="editItem(el)"><mdb-icon fas icon="edit"></mdb-icon></a>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.applicants}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col2">
+            <a mdbBtn [routerLink]="[applicantsUrl, el.id]" floating="true" rounded="true" color="indigo" size="sm" mdbWavesEffect (click)="editItem(el)"><mdb-icon fas icon="list"></mdb-icon></a>
+            <a mdbBtn [routerLink]="editUrl" floating="true" rounded="true" color="warning" size="sm" mdbWavesEffect class="mx-2" (click)="editItem(el)"><mdb-icon fas icon="edit"></mdb-icon></a>
             <a mdbBtn floating="true" rounded="true" color="danger" size="sm" mdbWavesEffect (click)="removeItem(el)"><mdb-icon fas icon="trash"></mdb-icon></a>
           </td>
         </tr>

@@ -21,12 +21,23 @@
                        [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SHARED_OUR_CLIENTS.TIMESTAMP' | translate}"></mdb-error>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="col-md-6">
           <div class="md-form mt-0">
-            <input type="text" id="name" class="form-control" formControlName="name" mdbInput mdbValidate
+            <input type="text" id="nameEn" class="form-control" formControlName="nameEn" mdbInput mdbValidate
                    [validateSuccess]="false">
-            <label for="name">{{'SHARED_OUR_CLIENTS.NAME' | translate}}</label>
-            <mdb-error *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"
+            <label for="nameEn">{{'SHARED_OUR_CLIENTS.NAME' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
+            <mdb-error *ngIf="f.nameEn.invalid && (f.nameEn.dirty || f.nameEn.touched)"
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_OUR_CLIENTS.NAME' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form mt-0">
+            <input type="text" id="nameAr" class="form-control" formControlName="nameAr" mdbInput mdbValidate
+                   [validateSuccess]="false">
+            <label for="nameAr">{{'SHARED_OUR_CLIENTS.NAME' | translate}}({{'COMMON.ARABIC' | translate}})</label>
+            <mdb-error *ngIf="f.nameAr.invalid && (f.nameAr.dirty || f.nameAr.touched)"
                        [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_OUR_CLIENTS.NAME' | translate}"></mdb-error>
           </div>
         </div>
@@ -70,10 +81,19 @@
       <div class="row">
         <div class="col-md-12">
           <div class="md-form mt-0">
-            <textarea type="text" id="feedback" class="md-textarea form-control" formControlName="feedback" mdbInput mdbValidate
+            <textarea type="text" id="feedbackEn" class="md-textarea form-control" formControlName="feedbackEn" mdbInput mdbValidate
                       [validateSuccess]="false" rows="8"></textarea>
-            <label for="feedback">{{'SHARED_OUR_CLIENTS.FEEDBACK' | translate}}</label>
-            <mdb-error *ngIf="f.feedback.invalid && (f.feedback.dirty || f.feedback.touched)"
+            <label for="feedbackEn">{{'SHARED_OUR_CLIENTS.FEEDBACK' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
+            <mdb-error *ngIf="f.feedbackEn.invalid && (f.feedbackEn.dirty || f.feedbackEn.touched)"
+                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_OUR_CLIENTS.FEEDBACK' | translate}"></mdb-error>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="md-form mt-0">
+            <textarea type="text" id="feedbackAr" class="md-textarea form-control" formControlName="feedbackAr" mdbInput mdbValidate
+                      [validateSuccess]="false" rows="8"></textarea>
+            <label for="feedbackAr">{{'SHARED_OUR_CLIENTS.FEEDBACK' | translate}}({{'COMMON.ARABIC' | translate}})</label>
+            <mdb-error *ngIf="f.feedbackAr.invalid && (f.feedbackAr.dirty || f.feedbackAr.touched)"
                        [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_OUR_CLIENTS.FEEDBACK' | translate}"></mdb-error>
           </div>
         </div>

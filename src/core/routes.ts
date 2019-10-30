@@ -2,6 +2,11 @@ export default {
   app: '/app',
   auth: '/auth',
   _partials: {
+    userMgmt: {
+      // main: 'media-slider',
+      main: 'user-mgmt',
+      edit: 'user-mgmt/edit',
+    },
     mediaSlider: {
       // main: 'media-slider',
       main: '',
@@ -35,6 +40,7 @@ export default {
       main: 'upcoming-events',
       edit: 'upcoming-events/edit'
     },
+    eventJoin: 'event-join',
   },
   human: {
     main: '/human',

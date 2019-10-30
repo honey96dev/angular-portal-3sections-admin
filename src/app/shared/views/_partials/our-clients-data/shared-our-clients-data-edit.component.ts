@@ -81,22 +81,26 @@ export class SharedOurClientsDataEditComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: new FormControl(''),
       timestamp: new FormControl('', Validators.required),
-      name: new FormControl('', Validators.required),
+      nameEn: new FormControl('', Validators.required),
+      nameAr: new FormControl('', Validators.required),
       photo: new FormControl('', Validators.required),
       photoOriginMedia: new FormControl('', Validators.required),
       stars: new FormControl('', Validators.required),
-      feedback: new FormControl('', Validators.required),
+      feedbackEn: new FormControl('', Validators.required),
+      feedbackAr: new FormControl('', Validators.required),
       files: new FormControl(''),
       // originMedia: new FormControl('', Validators.required),
     });
 
     this.f['id'].patchValue(row.id);
     this.f['timestamp'].patchValue(row.timestamp);
-    this.f['name'].patchValue(row.name);
+    this.f['nameEn'].patchValue(row.nameEn);
+    this.f['nameAr'].patchValue(row.nameAr);
     this.f['photo'].patchValue(row.photo);
     this.f['photoOriginMedia'].patchValue(row.photoOriginMedia);
     this.f['stars'].patchValue(row.stars);
-    this.f['feedback'].patchValue(row.feedback);
+    this.f['feedbackEn'].patchValue(row.feedbackEn);
+    this.f['feedbackAr'].patchValue(row.feedbackAr);
     this.f['files'].patchValue(row.files);
 
     this.backUrl = sprintf("/%s/%s", this.category, routes._partials.ourClients.main);
@@ -131,15 +135,17 @@ export class SharedOurClientsDataEditComponent implements OnInit {
     const f = this.f;
     const id = f.id.value;
     const timestamp = f.timestamp.value;
-    const name = f.name.value;
+    const nameEn = f.nameEn.value;
+    const nameAr = f.nameAr.value;
     const photo = f.photo.value;
     const photoOriginMedia = f.photoOriginMedia.value;
     const photoMediaSize = this.photoMediaSize;
     const stars = f.stars.value;
-    const feedback = f.feedback.value;
+    const feedbackEn = f.feedbackEn.value;
+    const feedbackAr = f.feedbackAr.value;
 
     const data = {
-      id, category, timestamp, name, photo, photoOriginMedia, photoMediaSize, stars, feedback
+      id, category, timestamp, nameEn, nameAr, photo, photoOriginMedia, photoMediaSize, stars, feedbackEn, feedbackAr
     };
 
     this.loading = true;

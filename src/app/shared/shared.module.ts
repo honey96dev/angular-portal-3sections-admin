@@ -7,12 +7,15 @@ import {metaReducers, reducers} from '@core/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {RatingModule} from 'ng-starrating';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
 import {DROPZONE_CONFIG, DropzoneModule, DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
 import {AlertModalComponent} from '@app/shared/views/_partials/common-dialogs/alert/alert-modal.component';
 import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
 import {LayoutFooterComponent} from '@app/views/layouts/_partials/footer/layout-footer.component';
+import {SharedUserMgmtComponent} from '@app/shared/views/_partials/user-mgmt/shared-user-mgmt.component';
+import {SharedUserMgmtEditComponent} from '@app/shared/views/_partials/user-mgmt/shared-user-mgmt-edit.component';
 import {SharedMediaSliderDataComponent} from '@app/shared/views/_partials/media-slider-data/shared-media-slider-data.component';
 import {SharedMediaSliderDataEditComponent} from '@app/shared/views/_partials/media-slider-data/shared-media-slider-data-edit.component';
 import {SharedOurServicesDataComponent} from '@app/shared/views/_partials/our-services-data/shared-our-services-data.component';
@@ -27,6 +30,7 @@ import {SharedDirectorBoardDataComponent} from '@app/shared/views/_partials/dire
 import {SharedDirectorBoardDataEditComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data-edit.component';
 import {SharedEventsDataComponent} from '@app/shared/views/_partials/events-data/shared-events-data.component';
 import {SharedEventsDataEditComponent} from '@app/shared/views/_partials/events-data/shared-events-data-edit.component';
+import {SharedEventJoinDataComponent} from '@app/shared/views/_partials/events-data/shared-event-join-data.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -47,12 +51,16 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     RouterModule,
     DropzoneModule,
     RatingModule,
+    NgxQRCodeModule,
   ],
   declarations: [
     AlertModalComponent,
     QuestionModalComponent,
 
     LayoutFooterComponent,
+
+    SharedUserMgmtComponent,
+    SharedUserMgmtEditComponent,
 
     SharedMediaSliderDataComponent,
     SharedMediaSliderDataEditComponent,
@@ -68,6 +76,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedDirectorBoardDataEditComponent,
     SharedEventsDataComponent,
     SharedEventsDataEditComponent,
+    SharedEventJoinDataComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -80,6 +89,9 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 
     LayoutFooterComponent,
 
+    SharedUserMgmtComponent,
+    SharedUserMgmtEditComponent,
+
     SharedMediaSliderDataComponent,
     SharedMediaSliderDataEditComponent,
     SharedOurServicesDataComponent,
@@ -94,6 +106,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedDirectorBoardDataEditComponent,
     SharedEventsDataComponent,
     SharedEventsDataEditComponent,
+    SharedEventJoinDataComponent,
   ],
   providers: [
     {

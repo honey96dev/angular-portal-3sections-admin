@@ -24,7 +24,8 @@ export class ConferenceLayoutComponent implements OnInit {
   constructor(private globalVariableService: GlobalVariableService,
               private router: Router,
               private translationService: TranslationService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private authService: AuthenticationService) {
     // authLayout = this;
   }
 
@@ -47,5 +48,10 @@ export class ConferenceLayoutComponent implements OnInit {
     window.scroll(0,0);
     //or document.body.scrollTop = 0;
     //or document.querySelector('body').scrollTo(0,0)
+  }
+
+  signOut() {
+    this.authService.signOut();
+    this.router.navigate(['/']);
   }
 }

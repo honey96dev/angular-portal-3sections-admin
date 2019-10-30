@@ -6,12 +6,12 @@
   {{alert.message}}
 </div>
   <div class="row">
-<!--    <div class="col-md-6" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">-->
+    <div class="col-md-6" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
 <!--      <button [routerLink]="addUrl" mdbBtn color="primary" mdbWavesEffect [disabled]="loading || !addButtonEnabled" class="add-button" (click)="editItem({})">-->
 <!--        <mdb-icon fas icon="plus" class="mr-1"></mdb-icon>-->
 <!--&lt;!&ndash;        {{strings.add}}&ndash;&gt;-->
 <!--      </button>-->
-<!--    </div>-->
+    </div>
     <div class="col-md-6">
       <div class="md-form">
         <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"

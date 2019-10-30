@@ -78,21 +78,29 @@ export class SharedEventsDataEditComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: new FormControl(''),
-      type: new FormControl('', Validators.required),
-      name: new FormControl('', Validators.required),
+      typeEn: new FormControl('', Validators.required),
+      typeAr: new FormControl('', Validators.required),
+      nameEn: new FormControl('', Validators.required),
+      nameAr: new FormControl('', Validators.required),
       timestamp: new FormControl('', Validators.required),
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
+      titleEn: new FormControl('', Validators.required),
+      titleAr: new FormControl('', Validators.required),
+      descriptionEn: new FormControl('', Validators.required),
+      descriptionAr: new FormControl('', Validators.required),
       media: new FormControl('', Validators.required),
       originMedia: new FormControl('', Validators.required),
     });
 
     this.f['id'].patchValue(row.id);
-    this.f['type'].patchValue(row.type);
-    this.f['name'].patchValue(row.name);
+    this.f['typeEn'].patchValue(row.typeEn);
+    this.f['typeAr'].patchValue(row.typeAr);
+    this.f['nameEn'].patchValue(row.nameEn);
+    this.f['nameAr'].patchValue(row.nameAr);
     this.f['timestamp'].patchValue(row.timestamp);
-    this.f['title'].patchValue(row.title);
-    this.f['description'].patchValue(row.description);
+    this.f['titleEn'].patchValue(row.titleEn);
+    this.f['titleAr'].patchValue(row.titleAr);
+    this.f['descriptionEn'].patchValue(row.descriptionEn);
+    this.f['descriptionAr'].patchValue(row.descriptionAr);
     this.f['media'].patchValue(row.media);
     this.f['originMedia'].patchValue(row.originMedia);
 
@@ -131,17 +139,21 @@ export class SharedEventsDataEditComponent implements OnInit {
     const {scope, category} = this;
     const f = this.f;
     const id = f.id.value;
-    const type = f.type.value;
-    const name = f.name.value;
+    const typeEn = f.typeEn.value;
+    const typeAr = f.typeAr.value;
+    const nameEn = f.nameEn.value;
+    const nameAr = f.nameAr.value;
     const timestamp = f.timestamp.value;
-    const title = f.title.value;
-    const description = f.description.value;
+    const titleEn = f.titleEn.value;
+    const titleAr = f.titleAr.value;
+    const descriptionEn = f.descriptionEn.value;
+    const descriptionAr = f.descriptionAr.value;
     const media = f.media.value;
     const originMedia = f.originMedia.value;
     const mediaSize = this.mediaSize;
 
     const data = {
-      scope, id, category, type, name, timestamp, title, description, media, originMedia, mediaSize
+      scope, id, category, typeEn, typeAr, nameEn, nameAr, timestamp, titleEn, titleAr, descriptionEn, descriptionAr, media, originMedia, mediaSize
     };
 
     this.loading = true;

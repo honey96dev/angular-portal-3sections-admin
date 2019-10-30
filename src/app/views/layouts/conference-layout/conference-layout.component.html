@@ -5,7 +5,7 @@
       <mdb-navbar-brand><a class="navbar-brand"><img routerLink="/" src="./assets/media/logos/logo-sm.png" (click)="clearSection()"></a>
       </mdb-navbar-brand>
       <links>
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav" [class.mr-auto]="('DIRECTION' | translate) === 'ltr'" [class.ml-auto]="('DIRECTION' | translate) === 'rtl'">
           <li class="nav-item">
             <a class="nav-link waves-light" [routerLink]="routes.conference.main"
                mdbWavesEffect>{{'CONFERENCE_LAYOUT.MAIN' | translate}}</a>
@@ -52,6 +52,10 @@
 <!--            <a [ngx-scroll-to]="'ourClients'" [ngx-scroll-to-offset]="scrollOffset" class="nav-link waves-light"-->
 <!--               mdbWavesEffect>{{'CONFERENCE_LAYOUT.SPONSOR_REQUEST4COMPANIES' | translate}}</a>-->
 <!--          </li>-->
+        </ul>
+        <ul class="navbar-nav"  [class.ml-auto]="('DIRECTION' | translate) === 'ltr'" [class.mr-auto]="('DIRECTION' | translate) === 'rtl'">
+          <!--          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>-->
+          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="signOut()"><strong>{{'SIGNIN.SIGNOUT' | translate}}</strong></a>
         </ul>
       </links>
     </mdb-navbar>

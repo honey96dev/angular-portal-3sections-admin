@@ -1,0 +1,58 @@
+@import "../../../../../consts";
+
+$white-color: #ffffff;
+$gray-color: #757575;
+$gray-color2: #b9babc;
+$primary-color: #4285f4;
+$gray-primary-color: #426db5;
+
+@import '~dropzone/dist/min/dropzone.min.css';
+
+form {
+  //margin-left: 15px;
+}
+
+.my-error {
+  //margin-top: 10px;
+  margin-left: 15px;
+}
+
+.profit-card-body {
+  padding-bottom: 0;
+}
+
+.button-spec {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gray-button {
+  background-color: $gray-color;
+}
+
+.gray-title {
+  background-color: transparent !important;
+  color: $gray-color;
+}
+
+.btn-primary:not([disabled]):not(.disabled).active, .btn-light-blue:not([disabled]):not(.disabled):active, .show>.btn-light-blue.dropdown-toggle {
+  background-color: $primary-color !important;
+  color: $white-color;
+}
+
+.dropzone-container {
+  height: 350px;
+}
+
+@media (max-width: $screen-breakpoint) {
+  .dropzone-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: $screen-breakpoint2) {
+  .dropzone-container {
+    height: 250px;
+  }
+}

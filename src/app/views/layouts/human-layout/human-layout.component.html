@@ -34,7 +34,9 @@
           </li>
         </ul>
         <ul class="navbar-nav"  [class.ml-auto]="('DIRECTION' | translate) === 'ltr'" [class.mr-auto]="('DIRECTION' | translate) === 'rtl'">
-          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>
+<!--          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="secondary" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>-->
+<!--          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>-->
+          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="signOut()"><strong>{{'SIGNIN.SIGNOUT' | translate}}</strong></a>
         </ul>
       </links>
     </mdb-navbar>

@@ -7,7 +7,7 @@ import {apis} from '@core/apis';
 
 @Injectable({providedIn: 'root'})
 export class EventsDataService {
-  defaultRow: any = {};
+  defaultRow: any;
 
   editableRow: any;
 
@@ -35,8 +35,29 @@ export class EventsDataService {
       }));
   }
 
+  get(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.get}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
   delete(params) {
     return this.http.post<any>(`${environment.apiUrl}${apis.common.events.delete}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
+  applicants(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.applicants}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
+  attend(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.attend}`, params)
       .pipe(map(res => {
         return res;
       }));

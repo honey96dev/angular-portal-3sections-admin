@@ -73,17 +73,23 @@ export class SharedDirectorBoardDataEditComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: new FormControl(''),
-      name: new FormControl('', Validators.required),
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
+      nameEn: new FormControl('', Validators.required),
+      nameAr: new FormControl('', Validators.required),
+      titleEn: new FormControl('', Validators.required),
+      titleAr: new FormControl('', Validators.required),
+      descriptionEn: new FormControl('', Validators.required),
+      descriptionAr: new FormControl('', Validators.required),
       media: new FormControl('', Validators.required),
       originMedia: new FormControl('', Validators.required),
     });
 
     this.f['id'].patchValue(row.id);
-    this.f['name'].patchValue(row.name);
-    this.f['title'].patchValue(row.title);
-    this.f['description'].patchValue(row.description);
+    this.f['nameEn'].patchValue(row.nameEn);
+    this.f['nameAr'].patchValue(row.nameAr);
+    this.f['titleEn'].patchValue(row.titleEn);
+    this.f['titleAr'].patchValue(row.titleAr);
+    this.f['descriptionEn'].patchValue(row.descriptionEn);
+    this.f['descriptionAr'].patchValue(row.descriptionAr);
     this.f['media'].patchValue(row.media);
     this.f['originMedia'].patchValue(row.originMedia);
 
@@ -118,15 +124,18 @@ export class SharedDirectorBoardDataEditComponent implements OnInit {
     const category = this.category;
     const f = this.f;
     const id = f.id.value;
-    const name = f.name.value;
-    const title = f.title.value;
-    const description = f.description.value;
+    const nameEn = f.nameEn.value;
+    const nameAr = f.nameAr.value;
+    const titleEn = f.titleEn.value;
+    const titleAr = f.titleAr.value;
+    const descriptionEn = f.descriptionEn.value;
+    const descriptionAr = f.descriptionAr.value;
     const media = f.media.value;
     const originMedia = f.originMedia.value;
     const mediaSize = this.mediaSize;
 
     const data = {
-      id, category, name, title, description, media, originMedia, mediaSize
+      id, category, nameEn, nameAr, titleEn, titleAr, descriptionEn, descriptionAr, media, originMedia, mediaSize
     };
 
     this.loading = true;

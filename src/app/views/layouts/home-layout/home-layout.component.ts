@@ -19,7 +19,8 @@ export class HomeLayoutComponent implements OnInit {
   constructor(private globalVariableService: GlobalVariableService,
               private router: Router,
               private translationService: TranslationService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private authService: AuthenticationService) {
     // authLayout = this;
   }
 
@@ -32,5 +33,10 @@ export class HomeLayoutComponent implements OnInit {
     lang = lang === 'en' ? 'ar' : 'en';
     this.translationService.setLanguage(lang);
     this.globalVariableService.setLanguage(lang);
+  }
+
+  signOut() {
+    this.authService.signOut();
+    this.router.navigate(['/']);
   }
 }

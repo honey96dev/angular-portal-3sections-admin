@@ -21,6 +21,7 @@ export class SharedEventsDataComponent implements OnInit {
   @Input() scope: string;
   @Input() category: string;
   routes = routes;
+  lang: string = '';
   form: FormGroup;
   loading = false;
   submitted = false;
@@ -41,10 +42,11 @@ export class SharedEventsDataComponent implements OnInit {
     this.translate.instant('SHARED_EVENTS.NAME'),
     this.translate.instant('SHARED_EVENTS.TIMESTAMP'),
     this.translate.instant('SHARED_EVENTS.TITLE'),
-    this.translate.instant('SHARED_EVENTS.DESCRIPTION'),
+    // this.translate.instant('SHARED_EVENTS.DESCRIPTION'),
     this.translate.instant('SHARED_EVENTS.MEDIA'),
   ];
 
+  applicantsUrl: string = '';
   addUrl: string = '';
   editUrl: string = '';
   searchText: string = '';
@@ -75,6 +77,7 @@ export class SharedEventsDataComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.lang = this.translate.instant('LANG');
     let title;
     switch (this.category) {
       case 'human':
@@ -98,6 +101,7 @@ export class SharedEventsDataComponent implements OnInit {
       password: ['', Validators.required]
     });
 
+    this.applicantsUrl = sprintf("/%s/%s", this.category, routes._partials.eventJoin);
     if (this.scope === consts.upcoming) {
       this.addUrl = sprintf("/%s/%s", this.category, routes._partials.upcomingEvents.edit);
       this.editUrl = sprintf("/%s/%s", this.category, routes._partials.upcomingEvents.edit);
@@ -186,7 +190,7 @@ export class SharedEventsDataComponent implements OnInit {
 
     this.modalRef = this.modalService.show(QuestionModalComponent, modalOptions);
     this.modalRef.content.title = this.translate.instant('COMMON.DELETE');
-    this.modalRef.content.message = this.translate.instant('COMMON.DELETE_CONFIRM_MSG', {item: el.name});
+    this.modalRef.content.message = this.translate.instant('COMMON.DELETE_CONFIRM_MSG', {item: this.lang == 'en' ? el.nameEn : el.nameAr});
     this.modalRef.content.yesButtonColor = 'danger';
     this.modalRef.content.yesButtonClicked.subscribe(() => {
       el['scope'] = this.scope;

@@ -5,3 +5,4 @@ export * from './events-data.service';
 export * from './media-slider-data.service';
 export * from './our-clients-data.service';
 export * from './our-services-data.service';
+export * from './user-mgmt.service';

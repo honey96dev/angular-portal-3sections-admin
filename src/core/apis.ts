@@ -1,6 +1,14 @@
 const apis = {
   common: {
     upload: 'common/upload',
+    userMgmt: {
+      list: 'user-mgmt/list',
+      add: 'user-mgmt/add',
+      edit: 'user-mgmt/edit',
+      delete: 'user-mgmt/delete',
+      allow: 'user-mgmt/allow',
+      resetPassword: 'user-mgmt/reset-password',
+    },
     mediaSlider: {
       list: 'media-slider/list',
       add: 'media-slider/add',
@@ -42,6 +50,9 @@ const apis = {
       add: 'events/add',
       edit: 'events/edit',
       delete: 'events/delete',
+      get: 'events/get',
+      applicants: 'events/applicants',
+      attend: 'events/attend',
     },
     previousEvents: {
       list: 'previous-events/list',
@@ -60,8 +71,7 @@ const apis = {
     signIn: 'auth/sign-in',
     signUp: 'auth/sign-up',
   },
-  human: {
-  },
+  human: {},
 };
 
 export {

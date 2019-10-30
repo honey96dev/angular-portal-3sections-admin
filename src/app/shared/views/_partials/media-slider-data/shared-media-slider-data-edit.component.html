@@ -6,76 +6,119 @@
 <!--    <h4 class="modal-title w-100" id="myModalLabel">{{editableRow.id ? 'Edit Bot: ' + editableRow.name : 'New Bot'}}</h4>-->
 <!--  </div>-->
 <!--  <div class="modal-body">-->
-    <form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
-      <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="md-form mt-0">
-            <input type="text" id="name" class="form-control" formControlName="name" mdbInput mdbValidate
-                   [validateSuccess]="false">
-            <label for="name">{{'SHARED_MEDIA_SLIDER.NAME' | translate}}</label>
-            <mdb-error *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.NAME' | translate}"></mdb-error>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="md-form mt-0">
-            <input type="text" id="title" class="form-control" formControlName="title" mdbInput mdbValidate
-                   [validateSuccess]="false">
-            <label for="title">{{'SHARED_MEDIA_SLIDER.TITLE' | translate}}</label>
-            <mdb-error *ngIf="f.title.invalid && (f.title.dirty || f.title.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.TITLE' | translate}"></mdb-error>
-          </div>
-        </div>
+<form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
+  <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="nameEn" class="form-control" formControlName="nameEn" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <label for="nameEn">{{'SHARED_MEDIA_SLIDER.NAME' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
+        <mdb-error *ngIf="f.nameEn.invalid && (f.nameEn.dirty || f.nameEn.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_MEDIA_SLIDER.NAME' | translate}"></mdb-error>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="md-form mt-0">
-            <textarea type="text" id="description" class="md-textarea form-control" formControlName="description" mdbInput mdbValidate
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="nameAr" class="form-control" formControlName="nameAr" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <label for="nameAr">{{'SHARED_MEDIA_SLIDER.NAME' | translate}}({{'COMMON.ARABIC' | translate}})</label>
+        <mdb-error *ngIf="f.nameAr.invalid && (f.nameAr.dirty || f.nameAr.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_MEDIA_SLIDER.NAME' | translate}"></mdb-error>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="titleEn" class="form-control" formControlName="titleEn" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <label for="titleEn">{{'SHARED_MEDIA_SLIDER.TITLE' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
+        <mdb-error *ngIf="f.titleEn.invalid && (f.titleEn.dirty || f.titleEn.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_MEDIA_SLIDER.TITLE' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mt-0">
+        <input type="text" id="titleAr" class="form-control" formControlName="titleAr" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <label for="titleAr">{{'SHARED_MEDIA_SLIDER.TITLE' | translate}}({{'COMMON.ARABIC' | translate}})</label>
+        <mdb-error *ngIf="f.titleAr.invalid && (f.titleAr.dirty || f.titleAr.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_MEDIA_SLIDER.TITLE' | translate}"></mdb-error>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="md-form mt-0">
+            <textarea type="text" id="descriptionEn" class="md-textarea form-control" formControlName="descriptionEn"
+                      mdbInput mdbValidate
                       [validateSuccess]="false" rows="8"></textarea>
-            <label for="description">{{'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}}</label>
-            <mdb-error *ngIf="f.description.invalid && (f.description.dirty || f.description.touched)"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}"></mdb-error>
+        <label for="descriptionEn">{{'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}}({{'COMMON.ENGLISH' | translate}}
+          )</label>
+        <mdb-error *ngIf="f.descriptionEn.invalid && (f.descriptionEn.dirty || f.descriptionEn.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="md-form mt-0">
+            <textarea type="text" id="descriptionAr" class="md-textarea form-control" formControlName="descriptionAr"
+                      mdbInput mdbValidate
+                      [validateSuccess]="false" rows="8"></textarea>
+        <label for="descriptionAr">{{'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}}({{'COMMON.ARABIC' | translate}}
+          )</label>
+        <mdb-error *ngIf="f.descriptionAr.invalid && (f.descriptionAr.dirty || f.descriptionAr.touched)"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_MEDIA_SLIDER.DESCRIPTION' | translate}"></mdb-error>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="md-form mt-0">
+        <div class="row px-0">
+          <div for="media" class="col-md-3 label">{{'SHARED_MEDIA_SLIDER.MEDIA' | translate}}</div>
+          <div class="col-md-3">
+            <button *ngIf="f.media.value && f.media.value.length > 0" mdbBtn color="warning" mdbWavesEffect
+                    (click)="onClearMediaClicked()">{{'COMMON.CLEAR' | translate}}</button>
           </div>
         </div>
+        <input type="hidden" id="media" class="form-control" formControlName="media" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <input type="hidden" id="originMedia" class="form-control" formControlName="originMedia" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <mdb-error *ngIf="f.media.invalid"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_MEDIA_SLIDER.MEDIA' | translate}"></mdb-error>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="md-form mt-0">
-            <div class="row px-0">
-              <div for="media" class="col-md-3 label">{{'SHARED_MEDIA_SLIDER.MEDIA' | translate}}</div>
-              <div class="col-md-3">
-                <button *ngIf="f.media.value && f.media.value.length > 0" mdbBtn color="warning" mdbWavesEffect (click)="onClearMediaClicked()">{{'COMMON.CLEAR' | translate}}</button>
-              </div>
-            </div>
-            <input type="hidden" id="media" class="form-control" formControlName="media" mdbInput mdbValidate
-                   [validateSuccess]="false">
-            <input type="hidden" id="originMedia" class="form-control" formControlName="originMedia" mdbInput mdbValidate
-                   [validateSuccess]="false">
-            <mdb-error *ngIf="f.media.invalid"
-                       [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_MEDIA_SLIDER.MEDIA' | translate}"></mdb-error>
-          </div>
-          <div class="md-form col-md-8 margin-auto-x mt-0">
-<!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->
-            <dropzone class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>
-          </div>
-        </div>
+      <div class="md-form col-md-8 margin-auto-x mt-0">
+        <!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->
+        <dropzone class="dropzone-container round-border z-depth-1" #media [config]="config"
+                  [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)"
+                  (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>
       </div>
+    </div>
+  </div>
 
-      <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
-        <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        {{alert.message}}
-      </div>
-      <div class="button-spec mt-3">
-        <button [routerLink]="backUrl" mdbBtn color="warning" class="waves-light" aria-label="Close"
-                mdbWavesEffect [disabled]="loading">{{'COMMON.BACK' | translate}}
-        </button>
-        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
-                [disabled]="form.invalid || loading">{{'COMMON.SAVE' | translate}}
-        </button>
-      </div>
-    </form>
+  <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{alert.message}}
+  </div>
+  <div class="button-spec mt-3">
+    <button [routerLink]="backUrl" mdbBtn color="warning" class="waves-light" aria-label="Close"
+            mdbWavesEffect [disabled]="loading">{{'COMMON.BACK' | translate}}
+    </button>
+    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+            [disabled]="form.invalid || loading">{{'COMMON.SAVE' | translate}}
+    </button>
+  </div>
+</form>
 <!--  </div>-->
 <!--</div>-->

@@ -1,10 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from '@app/_helpers';
 import {AuthLayoutComponent} from '@app/views/layouts/auth-layout/auth-layout.component';
 import {AuthSigninComponent} from '@app/views/auth/signin/auth-signin.component';
 import {HomeLayoutComponent} from '@app/views/layouts/home-layout/home-layout.component';
 import {HomeFrontComponent} from '@app/views/home/front/home-front.component';
-import {AuthGuard} from '@app/_helpers';
+import {UserMgmtLayoutComponent} from '@app/views/layouts/user-mgmt-layout/user-mgmt-layout.component';
+import {HomeUserMgmtComponent} from '@app/views/home/user-mgmt/home-user-mgmt.component';
+import {HomeUserMgmtEditComponent} from '@app/views/home/user-mgmt/home-user-mgmt-edit.component';
 
 
 const routes: Routes = [
@@ -21,6 +24,15 @@ const routes: Routes = [
     component: HomeLayoutComponent,
     children: [
       {path: '', component: HomeFrontComponent},
+    ],
+  },
+  {
+    path: 'user-mgmt',
+    canActivate: [AuthGuard],
+    component: UserMgmtLayoutComponent,
+    children: [
+      {path: '', component: HomeUserMgmtComponent},
+      {path: 'edit', component: HomeUserMgmtEditComponent},
     ],
   },
   {
@@ -45,4 +57,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

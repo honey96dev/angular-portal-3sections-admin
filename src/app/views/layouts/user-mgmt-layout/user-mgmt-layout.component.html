@@ -1,0 +1,23 @@
+<main>
+  <div class="full-width">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-light background-color-white sticky-top"
+                [containerInside]="false">
+      <!-- Navbar brand -->
+      <mdb-navbar-brand><a class="navbar-brand"><img routerLink="/" src="./assets/media/logos/logo-sm.png"
+                                                     (click)="clearSection()"></a></mdb-navbar-brand>
+
+      <links>
+        <ul class="navbar-nav" [class.mr-auto]="('DIRECTION' | translate) === 'ltr'" [class.ml-auto]="('DIRECTION' | translate) === 'rtl'">
+
+        </ul>
+        <ul class="navbar-nav"  [class.ml-auto]="('DIRECTION' | translate) === 'ltr'" [class.mr-auto]="('DIRECTION' | translate) === 'rtl'">
+<!--          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>-->
+          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="signOut()"><strong>{{'SIGNIN.SIGNOUT' | translate}}</strong></a>
+        </ul>
+      </links>
+    </mdb-navbar>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+    <app-layout-footer></app-layout-footer>
+  </div>
+</main>
+

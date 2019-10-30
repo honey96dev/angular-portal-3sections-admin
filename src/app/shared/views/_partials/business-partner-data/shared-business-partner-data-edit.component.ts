@@ -73,9 +73,12 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: new FormControl(''),
-      name: new FormControl('', Validators.required),
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
+      nameEn: new FormControl('', Validators.required),
+      nameAr: new FormControl('', Validators.required),
+      titleEn: new FormControl('', Validators.required),
+      titleAr: new FormControl('', Validators.required),
+      descriptionEn: new FormControl('', Validators.required),
+      descriptionAr: new FormControl('', Validators.required),
       social1: new FormControl(''),
       social2: new FormControl(''),
       social3: new FormControl(''),
@@ -84,9 +87,12 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
     });
 
     this.f['id'].patchValue(row.id);
-    this.f['name'].patchValue(row.name);
-    this.f['title'].patchValue(row.title);
-    this.f['description'].patchValue(row.description);
+    this.f['nameEn'].patchValue(row.nameEn);
+    this.f['nameAr'].patchValue(row.nameAr);
+    this.f['titleEn'].patchValue(row.titleEn);
+    this.f['titleAr'].patchValue(row.titleAr);
+    this.f['descriptionEn'].patchValue(row.descriptionEn);
+    this.f['descriptionAr'].patchValue(row.descriptionAr);
     this.f['social1'].patchValue(row.social1);
     this.f['social2'].patchValue(row.social2);
     this.f['social3'].patchValue(row.social3);
@@ -124,9 +130,12 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
     const category = this.category;
     const f = this.f;
     const id = f.id.value;
-    const name = f.name.value;
-    const title = f.title.value;
-    const description = f.description.value;
+    const nameEn = f.nameEn.value;
+    const nameAr = f.nameAr.value;
+    const titleEn = f.titleEn.value;
+    const titleAr = f.titleAr.value;
+    const descriptionEn = f.descriptionEn.value;
+    const descriptionAr = f.descriptionAr.value;
     const social1 = f.social1.value;
     const social2 = f.social2.value;
     const social3 = f.social3.value;
@@ -135,7 +144,7 @@ export class SharedBusinessPartnerDataEditComponent implements OnInit {
     const mediaSize = this.mediaSize;
 
     const data = {
-      id, category, name, title, description, social1, social2, social3, media, originMedia, mediaSize
+      id, category, nameEn, nameAr, titleEn, titleAr, descriptionEn, descriptionAr, social1, social2, social3, media, originMedia, mediaSize
     };
 
     this.loading = true;

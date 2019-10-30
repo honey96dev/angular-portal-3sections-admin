@@ -20,6 +20,7 @@ import {OurServicesDataService} from '@app/shared/_services';
 export class SharedOurServicesDataComponent implements OnInit {
   @Input() category: string;
   routes = routes;
+  lang: string = '';
   form: FormGroup;
   loading = false;
   submitted = false;
@@ -72,6 +73,7 @@ export class SharedOurServicesDataComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.lang = this.translate.instant('LANG');
     this.title.setTitle(this.translate.instant('HOME_FRONT.HUMAN_CAPITAL') + ' - ' + this.translate.instant('SITE_NAME'));
     this.globalVariableService.getLanguage()
       .subscribe(data => {
@@ -165,7 +167,7 @@ export class SharedOurServicesDataComponent implements OnInit {
 
     this.modalRef = this.modalService.show(QuestionModalComponent, modalOptions);
     this.modalRef.content.title = this.translate.instant('COMMON.DELETE');
-    this.modalRef.content.message = this.translate.instant('COMMON.DELETE_CONFIRM_MSG', {item: el.name});
+    this.modalRef.content.message = this.translate.instant('COMMON.DELETE_CONFIRM_MSG', {item: this.lang == 'en' ? el.nameEn : el.nameAr});
     this.modalRef.content.yesButtonColor = 'danger';
     this.modalRef.content.yesButtonClicked.subscribe(() => {
       this.service.delete(el).pipe(first())
