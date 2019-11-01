@@ -3,15 +3,39 @@ import {CommonModule} from '@angular/common';
 import {SharedModule} from '@app/shared/shared.module';
 import {BusinessLayoutComponent} from '@app/views/layouts/business-layout/business-layout.component';
 import {BusinessRoutingModule} from '@app/business/business-routing.module';
+import {BusinessMainDataComponent} from '@app/business/views/main/business-main-data.component';
+import {BusinessMainDataEditComponent} from '@app/business/views/main/business-main-data-edit.component';
+import {BusinessUpcomingDataComponent} from '@app/business/views/upcoming/business-upcoming-data.component';
+import {BusinessUpcomingDataEditComponent} from '@app/business/views/upcoming/business-upcoming-data-edit.component';
+import {BusinessPreviousDataComponent} from '@app/business/views/previous/business-previous-data.component';
+import {BusinessPreviousDataEditComponent} from '@app/business/views/previous/business-previous-data-edit.component';
+import {BusinessInstructorsDataComponent} from '@app/business/views/instructors/business-instructors-data.component';
+import {BusinessInstructorsDataEditComponent} from '@app/business/views/instructors/business-instructors-data-edit.component';
+import {BusinessContactUsDataComponent} from '@app/business/views/contact-us/business-contact-us-data.component';
+import {BusinessContactUsDataEditComponent} from '@app/business/views/contact-us/business-contact-us-data-edit.component';
+import {BusinessDirectorBoardDataComponent} from '@app/business/views/director-board/business-director-board-data.component';
+import {BusinessDirectorBoardDataEditComponent} from '@app/business/views/director-board/business-director-board-data-edit.component';
 
 @NgModule({
-  declarations: [
-    BusinessLayoutComponent,
-  ],
   imports: [
     CommonModule,
     SharedModule,
     BusinessRoutingModule,
+  ],
+  declarations: [
+    BusinessLayoutComponent,
+    BusinessMainDataComponent,
+    BusinessMainDataEditComponent,
+    BusinessUpcomingDataComponent,
+    BusinessUpcomingDataEditComponent,
+    BusinessPreviousDataComponent,
+    BusinessPreviousDataEditComponent,
+    BusinessInstructorsDataComponent,
+    BusinessInstructorsDataEditComponent,
+    BusinessContactUsDataComponent,
+    BusinessContactUsDataEditComponent,
+    BusinessDirectorBoardDataComponent,
+    BusinessDirectorBoardDataEditComponent,
   ],
 })
 export class BusinessModule { }

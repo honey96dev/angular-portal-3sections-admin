@@ -11,20 +11,28 @@
                mdbWavesEffect>{{'BUSINESS_LAYOUT.MAIN' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-light" [routerLink]="routes.business.ourServices"
-               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_SERVICES' | translate}}</a>
+            <a class="nav-link waves-light" [routerLink]="routes.business.annualUpcoming"
+               mdbWavesEffect>{{'BUSINESS_LAYOUT.ANNUAL_UPCOMING' | translate}}</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link waves-light" [routerLink]="routes.business.mostUpcoming"-->
+<!--               mdbWavesEffect>{{'BUSINESS_LAYOUT.MOST_UPCOMING' | translate}}</a>-->
+<!--          </li>-->
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.upcoming"
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.UPCOMING' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-light" [routerLink]="routes.business.businessPartner"
-               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_BUSINESS_PARTNER' | translate}}</a>
-          </li>
-          <li class="nav-item">
-            <a  class="nav-link waves-light" [routerLink]="routes.business.ourClients"
-               mdbWavesEffect>{{'BUSINESS_LAYOUT.OUR_CLIENTS' | translate}}</a>
+            <a  class="nav-link waves-light" [routerLink]="routes.business.previous"
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.PREVIOUS' | translate}}</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link waves-light" [routerLink]="routes.business.contactUs"
-               mdbWavesEffect>{{'BUSINESS_LAYOUT.CONTACT_US' | translate}}</a>
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.CONTACT_US' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.directorBoard"
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
           </li>
         </ul>
         <ul class="navbar-nav"  [class.ml-auto]="('DIRECTION' | translate) === 'ltr'" [class.mr-auto]="('DIRECTION' | translate) === 'rtl'">

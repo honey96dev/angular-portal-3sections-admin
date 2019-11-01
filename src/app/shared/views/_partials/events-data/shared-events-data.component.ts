@@ -46,6 +46,8 @@ export class SharedEventsDataComponent implements OnInit {
     this.translate.instant('SHARED_EVENTS.MEDIA'),
   ];
 
+  heading: string = '';
+
   applicantsUrl: string = '';
   addUrl: string = '';
   editUrl: string = '';
@@ -103,9 +105,11 @@ export class SharedEventsDataComponent implements OnInit {
 
     this.applicantsUrl = sprintf("/%s/%s", this.category, routes._partials.eventJoin);
     if (this.scope === consts.upcoming) {
+      this.heading = this.translate.instant('CONFERENCE_LAYOUT.UPCOMING_EVENTS');
       this.addUrl = sprintf("/%s/%s", this.category, routes._partials.upcomingEvents.edit);
       this.editUrl = sprintf("/%s/%s", this.category, routes._partials.upcomingEvents.edit);
     } else {
+      this.heading = this.translate.instant('CONFERENCE_LAYOUT.PREVIOUS_EVENTS');
       this.addUrl = sprintf("/%s/%s", this.category, routes._partials.previousEvents.edit);
       this.editUrl = sprintf("/%s/%s", this.category, routes._partials.previousEvents.edit);
     }

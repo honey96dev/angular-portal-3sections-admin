@@ -1,0 +1,65 @@
+<!--<div class="container">-->
+<h2 class="h1-responsive font-weight-bold text-center mt-3">{{heading}}</h2>
+<div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+  <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{alert.message}}
+</div>
+  <div class="row">
+    <div class="col-md-6" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+      <button [routerLink]="addUrl" mdbBtn color="primary" mdbWavesEffect [disabled]="loading || !addButtonEnabled" class="add-button" (click)="editItem({})">
+        <mdb-icon fas icon="plus" class="mr-1"></mdb-icon>
+<!--        {{strings.add}}-->
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form">
+        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"
+               mdbInput>
+        <label for="search-input">{{'COMMON.SEARCH' | translate}}</label>
+      </div>
+    </div>
+    <div class="table-responsive col-md-12">
+      <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">
+        <thead class="sticky-top">
+        <tr>
+          <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
+              scope="col">{{head}} <mdb-icon fas icon="sort"></mdb-icon>
+          </th>
+          <th scope="col" class="edit-col"></th>
+        </tr>
+        </thead>
+        <tbody #row>
+        <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="no-col">{{i+1}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.nameEn : el.nameAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.timestamp}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.titleEn : el.titleAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.summaryEn : el.summaryAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.descriptionEn : el.descriptionAr}}</td>
+<!--          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.originMedia}}</td>-->
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
+            <a mdbBtn [routerLink]="[instructorsUrl, el.id]" floating="true" rounded="true" color="indigo" size="sm" mdbWavesEffect
+               [class.mr-2]="('DIRECTION' | translate) === 'ltr'" [class.ml-2]="('DIRECTION' | translate) === 'rtl'"
+               (click)="editItem(el)"><mdb-icon fas icon="list"></mdb-icon></a>
+          </td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
+            <a mdbBtn [routerLink]="[editUrl, el.id]" floating="true" rounded="true" color="warning" size="sm" mdbWavesEffect
+               [class.mr-2]="('DIRECTION' | translate) === 'ltr'" [class.ml-2]="('DIRECTION' | translate) === 'rtl'"
+               (click)="editItem(el)"><mdb-icon fas icon="edit"></mdb-icon></a>
+            <a mdbBtn floating="true" rounded="true" color="danger" size="sm" mdbWavesEffect (click)="removeItem(el)"><mdb-icon fas icon="trash"></mdb-icon></a>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot class="">
+        <tr>
+          <td colspan="8">
+            <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements" dir="ltr"></mdb-table-pagination>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+<!--</div>-->

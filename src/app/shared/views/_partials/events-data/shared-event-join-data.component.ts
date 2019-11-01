@@ -13,6 +13,7 @@ import {ExcelService} from '@app/_services/excel-service';
 import {Event} from '@app/shared/_model';
 import html2canvas from 'html2canvas';
 import {sprintf} from 'sprintf-js';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-shared-event-join-data',
@@ -72,7 +73,8 @@ export class SharedEventJoinDataComponent implements OnInit {
                      private service: EventsDataService,
                      private formBuilder: FormBuilder,
                      private cdRef: ChangeDetectorRef,
-                     private excelService: ExcelService
+                     private excelService: ExcelService,
+                     private location: Location
   ) {
 
   }
@@ -99,9 +101,6 @@ export class SharedEventJoinDataComponent implements OnInit {
 
     this.route.paramMap.subscribe(map => {
       this.target = map.get('id');
-    });
-    // this.data = this.service.editableRowValue();
-    // if (!this.data) {
       this.service.get({id: this.target}).pipe(first())
         .subscribe(res => {
           const {result, data} = res;
@@ -110,10 +109,10 @@ export class SharedEventJoinDataComponent implements OnInit {
           } else {
             this.data = null;
           }
+          this.loadData();
         });
-    // }
+    });
 
-    this.loadData();
   }
 
   ngAfterViewInit() {
@@ -128,6 +127,10 @@ export class SharedEventJoinDataComponent implements OnInit {
     this.alert.show = false;
   }
 
+  goBack() {
+    this.location.back();
+  }
+
   loadData() {
     this.service.applicants({target: this.target}).pipe(first())
       .subscribe(res => {
@@ -135,7 +138,8 @@ export class SharedEventJoinDataComponent implements OnInit {
         if (res.result == consts.success) {
           let arr = [];
           for (let item of res.data) {
-            arr = [item['id'], item['firstName'], item['lastName'], item['country'], item['city'], item['company'], item['job'], item['email'], item['phone'], item['attend']];
+            arr = [item['id'], item['firstName'], item['lastName'], item['country'], item['city'], item['company'], item['job'], item['email'], item['phone']];
+            // arr = [item['id'], item['firstName'], item['lastName'], item['country'], item['city'], item['company'], item['job'], item['email'], item['phone'], item['attend']];
             item['code'] = arr.join('@@');
             item['showCode'] = false;
             // item['hover'] = '<ngx-qrcode qrc-element-type="url" width="128" qrc-value = "' + item['code'] + '"></ngx-qrcode>';

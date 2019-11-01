@@ -14,6 +14,7 @@ import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
 import consts from '@core/consts';
 import ext2mime from '@core/ext2mime.json';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-shared-events-data-edit',
@@ -36,7 +37,7 @@ export class SharedEventsDataEditComponent implements OnInit {
 
   @ViewChild(DropzoneComponent, { static: false }) mediaRef?: DropzoneComponent;
 
-  backUrl: string = '';
+  heading: string = '';
 
   loading = false;
   alert = {
@@ -53,7 +54,8 @@ export class SharedEventsDataEditComponent implements OnInit {
               private authService: AuthenticationService,
               private modalService: MDBModalService,
               private service: EventsDataService,
-              private formBuilder: FormBuilder,) {
+              private formBuilder: FormBuilder,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -91,23 +93,26 @@ export class SharedEventsDataEditComponent implements OnInit {
       originMedia: new FormControl('', Validators.required),
     });
 
-    this.f['id'].patchValue(row.id);
-    this.f['typeEn'].patchValue(row.typeEn);
-    this.f['typeAr'].patchValue(row.typeAr);
-    this.f['nameEn'].patchValue(row.nameEn);
-    this.f['nameAr'].patchValue(row.nameAr);
-    this.f['timestamp'].patchValue(row.timestamp);
-    this.f['titleEn'].patchValue(row.titleEn);
-    this.f['titleAr'].patchValue(row.titleAr);
-    this.f['descriptionEn'].patchValue(row.descriptionEn);
-    this.f['descriptionAr'].patchValue(row.descriptionAr);
-    this.f['media'].patchValue(row.media);
-    this.f['originMedia'].patchValue(row.originMedia);
+    this.f['id'].patchValue(null);
+    if (row) {
+      this.f['id'].patchValue(row.id);
+      this.f['typeEn'].patchValue(row.typeEn);
+      this.f['typeAr'].patchValue(row.typeAr);
+      this.f['nameEn'].patchValue(row.nameEn);
+      this.f['nameAr'].patchValue(row.nameAr);
+      this.f['timestamp'].patchValue(row.timestamp);
+      this.f['titleEn'].patchValue(row.titleEn);
+      this.f['titleAr'].patchValue(row.titleAr);
+      this.f['descriptionEn'].patchValue(row.descriptionEn);
+      this.f['descriptionAr'].patchValue(row.descriptionAr);
+      this.f['media'].patchValue(row.media);
+      this.f['originMedia'].patchValue(row.originMedia);
+    }
 
     if (this.scope === consts.upcoming) {
-      this.backUrl = sprintf("/%s/%s", this.category, routes._partials.upcomingEvents.main);
+      this.heading = this.translate.instant('CONFERENCE_LAYOUT.UPCOMING_EVENTS');
     } else {
-      this.backUrl = sprintf("/%s/%s", this.category, routes._partials.previousEvents.main);
+      this.heading = this.translate.instant('CONFERENCE_LAYOUT.PREVIOUS_EVENTS');
     }
     this.config = {
       url: `${environment.apiUrl}${apis.common.upload}/previous-events`,
@@ -132,6 +137,10 @@ export class SharedEventsDataEditComponent implements OnInit {
 
   closeAlert() {
     this.alert.show = false;
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   onSubmit() {
@@ -192,7 +201,7 @@ export class SharedEventsDataEditComponent implements OnInit {
     console.log('onUploadInit:', args);
     setTimeout(() => {
       const row = this.service.editableRowValue();
-      if (!!row.id && row.media.length > 0) {
+      if (!!row && !!row.id && row.media.length > 0) {
         const dropzone = this.mediaRef.directiveRef.dropzone();
 
         const mockFile = { name: row.originMedia, size: row.mediaSize };

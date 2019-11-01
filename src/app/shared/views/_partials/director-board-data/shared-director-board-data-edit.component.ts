@@ -14,6 +14,7 @@ import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
 import consts from '@core/consts';
 import ext2mime from '@core/ext2mime.json';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-shared-director-board-data-edit',
@@ -31,8 +32,6 @@ export class SharedDirectorBoardDataEditComponent implements OnInit {
 
   @ViewChild(DropzoneComponent, { static: false }) mediaRef?: DropzoneComponent;
 
-  backUrl: string = '';
-
   loading = false;
   alert = {
     show: false,
@@ -48,7 +47,8 @@ export class SharedDirectorBoardDataEditComponent implements OnInit {
               private authService: AuthenticationService,
               private modalService: MDBModalService,
               private service: DirectorBoardDataService,
-              private formBuilder: FormBuilder,) {
+              private formBuilder: FormBuilder,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -93,7 +93,6 @@ export class SharedDirectorBoardDataEditComponent implements OnInit {
     this.f['media'].patchValue(row.media);
     this.f['originMedia'].patchValue(row.originMedia);
 
-    this.backUrl = sprintf("/%s/%s", this.category, routes._partials.directorBoard.main);
     this.config = {
       url: `${environment.apiUrl}${apis.common.upload}/director-board`,
       // url: `${environment.apiUrl}${apis.common.upload}/${this.category}`,
@@ -117,6 +116,10 @@ export class SharedDirectorBoardDataEditComponent implements OnInit {
 
   closeAlert() {
     this.alert.show = false;
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   onSubmit() {

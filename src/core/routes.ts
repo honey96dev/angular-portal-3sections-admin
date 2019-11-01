@@ -41,6 +41,18 @@ export default {
       edit: 'upcoming-events/edit'
     },
     eventJoin: 'event-join',
+    upcomingCourses: {
+      main: 'upcoming',
+      edit: 'upcoming/edit',
+    },
+    previousCourses: {
+      main: 'previous',
+      edit: 'previous/edit',
+    },
+    courseInstructors: {
+      main: 'instructors',
+      edit: 'instructors/edit',
+    },
   },
   human: {
     main: '/human',
@@ -76,11 +88,11 @@ export default {
   },
   business: {
     main: '/business',
-    ourServices: '/business/our-services',
-    signIn: '/business/sign-in',
-    businessPartner: '/business/business-partner',
-    ourClients: '/business/our-clients',
+    annualUpcoming: '/business/annual-upcoming',
+    mostUpcoming: '/business/most-upcoming',
+    upcoming: '/business/upcoming',
+    previous: '/business/previous',
     contactUs: '/business/contact-us',
-    registrationRequest: '/business/registration',
+    directorBoard: '/business/director-board',
   },
 };

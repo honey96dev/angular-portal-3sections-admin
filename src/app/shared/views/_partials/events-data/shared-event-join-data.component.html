@@ -1,4 +1,5 @@
 <!--<div class="container">-->
+<h2 class="h1-responsive font-weight-bold text-center mt-3">{{'SHARED_EVENT_JOIN.JOIN_TO_EVENT' | translate}}</h2>
 <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
   <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
     <span aria-hidden="true">&times;</span>
@@ -9,6 +10,9 @@
     <div class="col-md-6" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
       <button mdbBtn color="primary" mdbWavesEffect [disabled]="loading || !buttonEnabled" class="add-button" (click)="exportData()">
         <mdb-icon fas icon="download" class="mr-1"></mdb-icon>
+      </button>
+      <button mdbBtn color="warning" mdbWavesEffect class="add-button" (click)="goBack({})">
+        <mdb-icon fas icon="arrow-left" class="mr-1"></mdb-icon>
       </button>
     </div>
     <div class="col-md-6">

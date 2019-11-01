@@ -66,6 +66,27 @@ const apis = {
       edit: 'upcoming-events/edit',
       delete: 'upcoming-events/delete',
     },
+    courses: {
+      list: 'courses/list',
+      add: 'courses/add',
+      edit: 'courses/edit',
+      delete: 'courses/delete',
+      get: 'courses/get',
+      items: {
+        list: 'courses/items/list',
+        add: 'courses/items/add',
+        edit: 'courses/items/edit',
+        delete: 'courses/items/delete',
+        get: 'courses/items/get',
+      }
+    },
+    courseInstructors: {
+      list: 'course-instructors/list',
+      add: 'course-instructors/add',
+      edit: 'course-instructors/edit',
+      delete: 'course-instructors/delete',
+      get: 'course-instructors/get',
+    },
   },
   auth: {
     signIn: 'auth/sign-in',
