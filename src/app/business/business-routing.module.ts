@@ -13,6 +13,7 @@ import {BusinessContactUsDataComponent} from '@app/business/views/contact-us/bus
 import {BusinessContactUsDataEditComponent} from '@app/business/views/contact-us/business-contact-us-data-edit.component';
 import {BusinessDirectorBoardDataComponent} from '@app/business/views/director-board/business-director-board-data.component';
 import {BusinessDirectorBoardDataEditComponent} from '@app/business/views/director-board/business-director-board-data-edit.component';
+import {BusinessAnnualDataComponent} from '@app/business/views/annual/business-annual-data.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,8 @@ const routes: Routes = [
     children: [
       {path: '', component: BusinessMainDataComponent},
       {path: 'media-slider/edit', component: BusinessMainDataEditComponent},
+
+      {path: 'annual-upcoming', component: BusinessAnnualDataComponent},
 
       {path: 'upcoming/edit', component: BusinessUpcomingDataEditComponent},
       {path: 'upcoming/edit/:id', component: BusinessUpcomingDataEditComponent},

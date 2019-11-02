@@ -35,6 +35,7 @@ import {SharedCourseDataComponent} from '@app/shared/views/_partials/course-data
 import {SharedCourseDataEditComponent} from '@app/shared/views/_partials/course-data/shared-course-data-edit.component';
 import {SharedCourseInstructorsComponent} from '@app/shared/views/_partials/course-data/shared-course-instructors.component';
 import {SharedCourseInstructorsEditComponent} from '@app/shared/views/_partials/course-data/shared-course-instructors-edit.component';
+import {SharedCourseAnnualDataComponent} from '@app/shared/views/_partials/course-data/shared-course-annual-data.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -85,6 +86,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedCourseDataEditComponent,
     SharedCourseInstructorsComponent,
     SharedCourseInstructorsEditComponent,
+    SharedCourseAnnualDataComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -119,6 +121,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedCourseDataEditComponent,
     SharedCourseInstructorsComponent,
     SharedCourseInstructorsEditComponent,
+    SharedCourseAnnualDataComponent,
   ],
   providers: [
     {

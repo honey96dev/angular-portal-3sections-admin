@@ -127,7 +127,7 @@ export class SharedEventJoinDataComponent implements OnInit {
     this.alert.show = false;
   }
 
-  goBack() {
+  goBack(params) {
     this.location.back();
   }
 

@@ -254,7 +254,7 @@ export class SharedCourseInstructorsComponent implements OnInit {
 
   }
 
-  goBack() {
+  goBack(params) {
     this.location.back();
   }
 }

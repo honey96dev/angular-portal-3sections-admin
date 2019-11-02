@@ -11,7 +11,7 @@
   <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
   <div class="row">
     <div class="col-md-6">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
         <input type="text" id="nameEn" class="form-control" formControlName="nameEn" mdbInput mdbValidate
                [validateSuccess]="false">
         <label for="nameEn">{{'BUSINESS_COURSES.NAME' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
         <input type="text" id="nameAr" class="form-control" formControlName="nameAr" mdbInput mdbValidate
                [validateSuccess]="false">
         <label for="nameAr">{{'BUSINESS_COURSES.NAME' | translate}}({{'COMMON.ARABIC' | translate}})</label>
@@ -33,7 +33,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
         <!--            <input type="text" id="timestamp" class="form-control" formControlName="timestamp" mdbInput mdbValidate-->
         <!--                   [validateSuccess]="false">-->
         <mdb-date-picker name="timestamp" id="timestamp" [options]="timestampOptions" [placeholder]="'BUSINESS_COURSES.TIMESTAMP' | translate"  formControlName="timestamp" required></mdb-date-picker>
@@ -47,7 +47,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
         <input type="text" id="titleEn" class="form-control" formControlName="titleEn" mdbInput mdbValidate
                [validateSuccess]="false">
         <label for="titleEn">{{'BUSINESS_COURSES.TITLE' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
         <input type="text" id="titleAr" class="form-control" formControlName="titleAr" mdbInput mdbValidate
                [validateSuccess]="false">
         <label for="titleAr">{{'BUSINESS_COURSES.TITLE' | translate}}({{'COMMON.ARABIC' | translate}})</label>
@@ -69,7 +69,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
             <textarea type="text" id="summaryEn" class="md-textarea form-control" formControlName="summaryEn"
                       mdbInput mdbValidate
                       [validateSuccess]="false" rows="5"></textarea>
@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="col-md-12">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
             <textarea type="text" id="summaryAr" class="md-textarea form-control" formControlName="summaryAr"
                       mdbInput mdbValidate
                       [validateSuccess]="false" rows="5"></textarea>
@@ -93,7 +93,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
             <textarea type="text" id="descriptionEn" class="md-textarea form-control" formControlName="descriptionEn"
                       mdbInput mdbValidate
                       [validateSuccess]="false" rows="8"></textarea>
@@ -104,7 +104,7 @@
       </div>
     </div>
     <div class="col-md-12">
-      <div class="md-form mt-0">
+      <div class="md-form md-outline mt-0">
             <textarea type="text" id="descriptionAr" class="md-textarea form-control" formControlName="descriptionAr"
                       mdbInput mdbValidate
                       [validateSuccess]="false" rows="8"></textarea>
@@ -149,7 +149,7 @@
     {{alert.message}}
   </div>
   <div class="button-spec mt-3">
-    <button mdbBtn color="warning" class="waves-light" aria-label="Close" mdbWavesEffect [disabled]="loading" (click)="goBack()">{{'COMMON.BACK' | translate}}</button>
+    <button type="button" mdbBtn color="warning" class="waves-light" aria-label="Close" mdbWavesEffect [disabled]="loading" (click)="goBack()">{{'COMMON.BACK' | translate}}</button>
     <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect [disabled]="form.invalid || loading">{{'COMMON.SAVE' | translate}}</button>
   </div>
 </form>

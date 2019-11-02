@@ -11,7 +11,7 @@
       <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
       <div class="row">
         <div class="col-md-6">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <input type="text" id="nameEn" class="form-control" formControlName="nameEn" mdbInput mdbValidate
                    [validateSuccess]="false">
             <label for="nameEn">{{'SHARED_BUSINESS_PARTNER.NAME' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <input type="text" id="nameAr" class="form-control" formControlName="nameAr" mdbInput mdbValidate
                    [validateSuccess]="false">
             <label for="nameAr">{{'SHARED_BUSINESS_PARTNER.NAME' | translate}}({{'COMMON.ARABIC' | translate}})</label>
@@ -31,7 +31,7 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <input type="text" id="titleEn" class="form-control" formControlName="titleEn" mdbInput mdbValidate
                    [validateSuccess]="false">
             <label for="titleEn">{{'SHARED_BUSINESS_PARTNER.TITLE' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <input type="text" id="titleAr" class="form-control" formControlName="titleAr" mdbInput mdbValidate
                    [validateSuccess]="false">
             <label for="titleAr">{{'SHARED_BUSINESS_PARTNER.TITLE' | translate}}({{'COMMON.ARABIC' | translate}})</label>
@@ -51,7 +51,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <textarea type="text" id="descriptionEn" class="md-textarea form-control" formControlName="descriptionEn" mdbInput mdbValidate
                       [validateSuccess]="false" rows="8"></textarea>
             <label for="descriptionEn">{{'SHARED_BUSINESS_PARTNER.DESCRIPTION' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="col-md-12">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <textarea type="text" id="descriptionAr" class="md-textarea form-control" formControlName="descriptionAr" mdbInput mdbValidate
                       [validateSuccess]="false" rows="8"></textarea>
             <label for="descriptionAr">{{'SHARED_BUSINESS_PARTNER.DESCRIPTION' | translate}}({{'COMMON.ARABIC' | translate}})</label>
@@ -71,7 +71,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <input type="text" id="social1" class="form-control" formControlName="social1" mdbInput mdbValidate
                    [validateSuccess]="false">
             <label for="social1">{{'SHARED_BUSINESS_PARTNER.SOCIAL1' | translate}}</label>
@@ -82,7 +82,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <input type="text" id="social2" class="form-control" formControlName="social2" mdbInput mdbValidate
                    [validateSuccess]="false">
             <label for="social2">{{'SHARED_BUSINESS_PARTNER.SOCIAL2' | translate}}</label>
@@ -93,7 +93,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="md-form mt-0">
+          <div class="md-form md-outline mt-0">
             <input type="text" id="social3" class="form-control" formControlName="social3" mdbInput mdbValidate
                    [validateSuccess]="false">
             <label for="social3">{{'SHARED_BUSINESS_PARTNER.SOCIAL3' | translate}}</label>
@@ -132,7 +132,7 @@
         {{alert.message}}
       </div>
       <div class="button-spec mt-3">
-        <button [routerLink]="backUrl" mdbBtn color="warning" class="waves-light" aria-label="Close"
+        <button type="button" [routerLink]="backUrl" mdbBtn color="warning" class="waves-light" aria-label="Close"
                 mdbWavesEffect [disabled]="loading">{{'COMMON.BACK' | translate}}
         </button>
         <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect

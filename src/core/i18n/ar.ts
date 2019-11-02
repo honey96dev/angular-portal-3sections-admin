@@ -29,6 +29,8 @@ export const locale = {
       FIELD_INVALID: '{{field}} غير صالح',
       FIELD_MIN_LENGTH: 'الحد الأدنى لطول {{field}} هو {{length}}',
       FIELD_MAX_LENGTH: 'الحد الأقصى لطول {{field}} هو {{length}}',
+      FIELD_MIN: '{{field}} القيمة الدنيا {{value}}',
+      FIELD_MAX: '{{field}} القيمة القصوى {{value}}',
       MAKE_SURE_SAME_TO: 'تأكد من نفسه إلى {{field}}',
       UNKNOWN_SERVER_ERROR: 'خطأ غير معروف في الخادم',
       NO_DATA: 'لايوجد بيانات',
@@ -202,6 +204,10 @@ export const locale = {
       PREVIOUS: 'الدورات السابقة',
       CONTACT_US: 'اتصل بنا',
       BOARD_OF_DIRECTORS: 'المجلس الاستشاري',
+    },
+    BUSINESS_COURSE_ANNUAL: {
+      YEAR: 'عام',
+      SUMMARY: 'ملخص',
     },
     BUSINESS_COURSES: {
       NAME: 'اسم',

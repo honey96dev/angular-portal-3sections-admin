@@ -1,0 +1,43 @@
+
+<h2 class="h1-responsive font-weight-bold text-center mt-3">{{'BUSINESS_LAYOUT.ANNUAL_UPCOMING' | translate}}</h2>
+<form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form md-outline mt-0">
+        <input type="number" id="year" class="form-control" formControlName="year" mdbInput mdbValidate [validateSuccess]="false">
+        <label for="year">{{'BUSINESS_COURSE_ANNUAL.YEAR' | translate}}</label>
+        <mdb-error *ngIf="f.year.errors && f.year.errors.required && (f.year.dirty || f.year.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.YEAR' | translate}"></mdb-error>
+        <mdb-error *ngIf="f.year.errors && f.year.errors.min && (f.year.dirty || f.year.touched)" [translate]="'COMMON.FIELD_MIN'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.YEAR' | translate, value: minYear}"></mdb-error>
+        <mdb-error *ngIf="f.year.errors && f.year.errors.max && (f.year.dirty || f.year.touched)" [translate]="'COMMON.FIELD_MAX'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.YEAR' | translate, value: maxYear}"></mdb-error>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="md-form md-outline mt-0">
+        <textarea type="text" id="summaryEn" class="md-textarea form-control" formControlName="summaryEn" mdbInput mdbValidate [validateSuccess]="false" rows="8"></textarea>
+        <label for="summaryEn">{{'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
+        <mdb-error *ngIf="f.summaryEn.invalid && (f.summaryEn.dirty || f.summaryEn.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}"></mdb-error>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="md-form md-outline mt-0">
+        <textarea type="text" id="summaryAr" class="md-textarea form-control" formControlName="summaryAr" mdbInput mdbValidate [validateSuccess]="false" rows="8"></textarea>
+        <label for="summaryAr">{{'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}}({{'COMMON.ARABIC' | translate}})</label>
+        <mdb-error *ngIf="f.summaryAr.invalid && (f.summaryAr.dirty || f.summaryAr.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}"></mdb-error>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{alert.message}}
+  </div>
+  <div class="button-spec mt-3">
+    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect [disabled]="form.invalid || loading">{{'COMMON.SAVE' | translate}}
+    </button>
+  </div>
+</form>

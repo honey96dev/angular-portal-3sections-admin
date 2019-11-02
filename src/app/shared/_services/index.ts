@@ -1,5 +1,6 @@
 export * from './business-partner-data.service';
 export * from './contact-us-data.service';
+export * from './training-data.service';
 export * from './course-data.service';
 export * from './course-instructors-data.service';
 export * from './director-board-data.service';

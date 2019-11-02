@@ -5,6 +5,7 @@ import {BusinessLayoutComponent} from '@app/views/layouts/business-layout/busine
 import {BusinessRoutingModule} from '@app/business/business-routing.module';
 import {BusinessMainDataComponent} from '@app/business/views/main/business-main-data.component';
 import {BusinessMainDataEditComponent} from '@app/business/views/main/business-main-data-edit.component';
+import {BusinessAnnualDataComponent} from '@app/business/views/annual/business-annual-data.component';
 import {BusinessUpcomingDataComponent} from '@app/business/views/upcoming/business-upcoming-data.component';
 import {BusinessUpcomingDataEditComponent} from '@app/business/views/upcoming/business-upcoming-data-edit.component';
 import {BusinessPreviousDataComponent} from '@app/business/views/previous/business-previous-data.component';
@@ -26,6 +27,7 @@ import {BusinessDirectorBoardDataEditComponent} from '@app/business/views/direct
     BusinessLayoutComponent,
     BusinessMainDataComponent,
     BusinessMainDataEditComponent,
+    BusinessAnnualDataComponent,
     BusinessUpcomingDataComponent,
     BusinessUpcomingDataEditComponent,
     BusinessPreviousDataComponent,

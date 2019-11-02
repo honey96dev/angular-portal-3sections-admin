@@ -29,6 +29,8 @@ export const locale = {
       FIELD_INVALID: '{{field}} is invalid',
       FIELD_MIN_LENGTH: '{{field}} minimum length is {{length}}',
       FIELD_MAX_LENGTH: '{{field}} maximum length is {{length}}',
+      FIELD_MIN: '{{field}} minimum value is {{value}}',
+      FIELD_MAX: '{{field}} maximum value is {{value}}',
       MAKE_SURE_SAME_TO: 'Make sure same to {{field}}',
       UNKNOWN_SERVER_ERROR: 'Unknown server error',
       NO_DATA: 'No data',
@@ -202,6 +204,10 @@ export const locale = {
       PREVIOUS: 'Previous Courses',
       CONTACT_US: 'Contact Us',
       BOARD_OF_DIRECTORS: 'Board of Consultancy',
+    },
+    BUSINESS_COURSE_ANNUAL: {
+      YEAR: 'Year',
+      SUMMARY: 'Summary',
     },
     BUSINESS_COURSES: {
       NAME: 'Name',

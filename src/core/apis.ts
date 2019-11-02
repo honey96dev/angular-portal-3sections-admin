@@ -93,6 +93,10 @@ const apis = {
     signUp: 'auth/sign-up',
   },
   human: {},
+  training: {
+    loadAnnualSettings: 'training/load-annual-settings',
+    saveAnnualSettings: 'training/save-annual-settings',
+  },
 };
 
 export {
