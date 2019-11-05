@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://eliteresources.co/api/admin/',
-  assetsBaseUrl: 'http://eliteresources.co/assets',
-  // apiUrl: 'http://108.160.135.63/api/admin/',
-  socketIOUrl: 'http://eliteresources.co',
+  apiUrl: 'https://eliteresources.co/api/admin/',
+  assetsBaseUrl: 'https://eliteresources.co/assets',
+  // apiUrl: 'https://108.160.135.63/api/admin/',
+  socketIOUrl: 'https://eliteresources.co',
 
   pingTimeoutDelay: 30 * 1000,
 };

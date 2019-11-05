@@ -209,6 +209,7 @@ export class SharedCourseDataComponent implements OnInit {
     this.modalRef.content.message = this.translate.instant('COMMON.DELETE_CONFIRM_MSG', {item: this.lang == 'en' ? el.nameEn : el.nameAr});
     this.modalRef.content.yesButtonColor = 'danger';
     this.modalRef.content.yesButtonClicked.subscribe(() => {
+      el['scope'] = this.scope;
       this.service.delete(el).pipe(first())
         .subscribe(res => {
           this.loading = false;
