@@ -174,6 +174,7 @@ export const locale = {
       SILVER_SPONSOR: 'Silver Sponsor',
     },
     SHARED_QR_SCANNER: {
+      DEVICE: 'Device',
       SCOPE: 'Scope',
       CATEGORY: 'Category',
       HASH: 'Signature',

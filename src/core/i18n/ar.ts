@@ -174,6 +174,7 @@ export const locale = {
       SILVER_SPONSOR: 'الراعي الفضي',
     },
     SHARED_QR_SCANNER: {
+      DEVICE: 'جهاز',
       SCOPE: 'نطاق',
       CATEGORY: 'الفئة',
       HASH: 'التوقيع',

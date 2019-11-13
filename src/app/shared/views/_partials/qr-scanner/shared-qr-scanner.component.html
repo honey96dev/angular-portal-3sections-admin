@@ -6,7 +6,8 @@
 <!--</div>-->
 <div class="row" [hidden]="!hasDevices">
   <div class="col-md-6">
-<!--    <mdb-select name="cameras" id="cameras" required [options]="sponsorSelect" [placeholder]="'COMMON.SELECT_PLACEHOLDER' | translate" [label]="'SHARED_PREV_SPONSORS.SPONSOR' | translate"></mdb-select>-->
+<!--    <mdb-select name="cameras" id="cameras" required [(ngModel)]="currentDevice" [options]="deviceSelect" [placeholder]="'COMMON.SELECT_PLACEHOLDER' | translate" [label]="'SHARED_PREV_SPONSORS.SPONSOR' | translate" (changed)="onDeviceSelectChange($event)"></mdb-select>-->
+    <mdb-select name="cameras" id="cameras" required [(ngModel)]="currentDeviceId" [options]="deviceSelect" [placeholder]="'COMMON.SELECT_PLACEHOLDER' | translate" [label]="'SHARED_QR_SCANNER.DEVICE' | translate" (ngModelChange)="onDeviceSelectChange(currentDeviceId)"></mdb-select>
     <zxing-scanner [torch]="torchEnabled" [(device)]="currentDevice" (scanSuccess)="onCodeResult($event)"
                    [formats]="formatsEnabled" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
                    (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner>

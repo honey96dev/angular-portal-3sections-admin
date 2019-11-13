@@ -35,6 +35,8 @@ export class SharedQrScannerComponent implements OnInit {
 
   availableDevices: MediaDeviceInfo[];
   currentDevice: MediaDeviceInfo = null;
+  deviceSelect: any[] = [];
+  currentDeviceId: string = '';
 
   formatsEnabled: BarcodeFormat[] = [
     BarcodeFormat.CODE_128,
@@ -176,7 +178,11 @@ export class SharedQrScannerComponent implements OnInit {
   onCamerasFound(devices: MediaDeviceInfo[]): void {
     this.availableDevices = devices;
     this.hasDevices = Boolean(devices && devices.length);
-    console.log(devices);
+    this.deviceSelect = [{value: '', label: ''}];
+    for (let device of devices) {
+      // this.deviceSelect.push({value: device, label: device.label})
+      this.deviceSelect.push({value: device.deviceId, label: device.label})
+    }
   }
 
   onCodeResult(resultString: string) {
@@ -189,6 +195,7 @@ export class SharedQrScannerComponent implements OnInit {
       this.f.email.patchValue(result[3]);
       this.f.hash.patchValue(result[4]);
 
+      console.log('scanned');
       if (result[0] !== this.category) {
         this.submittable = false;
         this.alert = {
@@ -242,9 +249,16 @@ export class SharedQrScannerComponent implements OnInit {
     }
   }
 
-  onDeviceSelectChange(selected: string) {
-    const device = this.availableDevices.find(x => x.deviceId === selected);
-    this.currentDevice = device || null;
+  onDeviceSelectChange(selected: any) {
+    // console.log('PREVIOUS', this.currentDevice);
+    if (this.availableDevices) {
+      const device = this.availableDevices.find(x => x.deviceId === selected);
+      this.currentDevice = device || null;
+      console.log('currentDevice', this.currentDevice);
+      // setTimeout(() => {
+      //
+      // }, 500);
+    }
   }
 
   onHasPermission(has: boolean) {
