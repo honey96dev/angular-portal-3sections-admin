@@ -189,7 +189,14 @@ export class SharedQrScannerComponent implements OnInit {
     if (!this.submittable) {
       this.qrResultString = resultString;
       const result = resultString.split('@@');
-      this.f.category.patchValue(this.translate.instant('SHARED_QR_SCANNER.' + result[0].toUpperCase()));
+      if (result.length !== 5) {
+        return;
+      }
+      if (result[0] === consts.event || result[0] === consts.course) {
+        this.f.category.patchValue(this.translate.instant('SHARED_QR_SCANNER.' + result[0].toUpperCase()));
+      } else {
+        this.f.category.patchValue(this.translate.instant(result[0]));
+      }
       this.f.id.patchValue(result[1]);
       this.f.userId.patchValue(result[2]);
       this.f.email.patchValue(result[3]);
