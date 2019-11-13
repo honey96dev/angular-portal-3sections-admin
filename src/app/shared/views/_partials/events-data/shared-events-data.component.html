@@ -14,7 +14,7 @@
       </button>
     </div>
     <div class="col-md-6">
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"
                mdbInput>
         <label for="search-input">{{'COMMON.SEARCH' | translate}}</label>
@@ -50,7 +50,7 @@
         </tbody>
         <tfoot class="">
         <tr>
-          <td colspan="8">
+          <td [colSpan]="headElements.length + 1">
             <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements" dir="ltr"></mdb-table-pagination>
           </td>
         </tr>

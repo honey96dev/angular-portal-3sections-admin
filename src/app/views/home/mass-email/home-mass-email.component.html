@@ -1,0 +1,47 @@
+<section class="screen-breakpoint margin-auto-x my-5 px-3">
+    <h2 class="h1-responsive font-weight-bold text-center my-5">{{'MASS_EMAIL.MASS_EMAIL' | translate}}</h2>
+    <p class="text-center w-responsive mx-auto mb-5">{{'MASS_EMAIL.DESCRIPTION_MSG' | translate}}</p>
+
+    <form name="form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form mb-0">
+            <input type="text" id="name" class="form-control" formControlName="name" mdbInput mdbValidate>
+            <label for="name" class="">{{'MASS_EMAIL.NAME' | translate}}</label>
+            <mdb-error *ngIf="f.name.errors && f.name.errors.required && (f.name.dirty || f.name.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'MASS_EMAIL.NAME' | translate}"></mdb-error>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form mb-0">
+            <input type="text" id="subject" class="form-control" formControlName="subject" mdbInput mdbValidate>
+            <label for="subject" class="">{{'MASS_EMAIL.SUBJECT' | translate}}</label>
+            <mdb-error *ngIf="f.subject.errors && f.subject.errors.required && (f.subject.dirty || f.subject.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'MASS_EMAIL.SUBJECT' | translate}"></mdb-error>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form">
+            <textarea type="text" id="message" class="form-control md-textarea" rows="8" formControlName="message" mdbInput mdbValidate></textarea>
+            <label for="message">{{'MASS_EMAIL.MESSAGE' | translate}}</label>
+            <mdb-error *ngIf="f.message.errors && f.message.errors.required && (f.message.dirty || f.message.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'MASS_EMAIL.MESSAGE' | translate}"></mdb-error>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+        <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{alert.message}}
+      </div>
+
+      <div class="text-center" [class.text-md-left]="('DIRECTION' | translate) === 'ltr'" [class.text-md-right]="('DIRECTION' | translate) === 'rtl'">
+        <button type="submit" mdbBtn color="primary" mdbWavesEffect [disabled]="form.invalid || loading">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>{{'COMMON.SEND' | translate}}
+        </button>
+      </div>
+    </form>
+</section>

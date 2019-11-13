@@ -106,6 +106,18 @@
   right: unset !important;
 }
 
+.rtl-content .mdb-select-toggle {
+  float: left !important;
+  left: 0 !important;
+  right: unset !important;
+}
+
+.rtl-content mdb-select label.active {
+  float: right;
+  left: unset;
+  right: 0;
+}
+
 .background-color-semi-white {
   background-color: $semi-white;
 }

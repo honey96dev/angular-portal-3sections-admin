@@ -22,10 +22,7 @@ export class SharedCourseDataComponent implements OnInit {
   @Input() category: string;
   routes = routes;
   lang: string = '';
-  form: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
+
   error = '';
   alert = {
     show: false,
@@ -45,11 +42,13 @@ export class SharedCourseDataComponent implements OnInit {
     this.translate.instant('BUSINESS_COURSES.DESCRIPTION'),
     // this.translate.instant('BUSINESS_COURSES.MEDIA'),
     this.translate.instant('BUSINESS_COURSES.INSTRUCTORS'),
+    this.translate.instant('BUSINESS_COURSES.APPLICANTS'),
   ];
 
   heading: string = '';
 
   instructorsUrl: string = '';
+  applicantsUrl: string = '';
   addUrl: string = '';
   editUrl: string = '';
   searchText: string = '';
@@ -99,12 +98,8 @@ export class SharedCourseDataComponent implements OnInit {
         this.title.setTitle(title);
       });
 
-    this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
-
     this.instructorsUrl = sprintf('/%s/%s', this.category, routes._partials.courseInstructors.main);
+    this.applicantsUrl = sprintf("/%s/%s", this.category, routes._partials.courseJoin);
     if (this.scope === consts.upcoming) {
       this.heading = this.translate.instant('BUSINESS_LAYOUT.UPCOMING');
       this.addUrl = sprintf("/%s/%s", this.category, routes._partials.upcomingCourses.edit);
@@ -137,10 +132,6 @@ export class SharedCourseDataComponent implements OnInit {
     this.cdRef.detectChanges();
   }
 
-  get f() {
-    return this.form.controls;
-  }
-
   closeAlert() {
     this.alert.show = false;
   }
@@ -148,7 +139,6 @@ export class SharedCourseDataComponent implements OnInit {
   loadData() {
     this.service.list({scope: this.scope, category: this.category}).pipe(first())
       .subscribe(res => {
-        this.loading = false;
         if (res.result == consts.success) {
           this.elements = res.data;
           if (this.elements.length === 0) {
@@ -169,7 +159,6 @@ export class SharedCourseDataComponent implements OnInit {
           };
         }
       }, error => {
-        this.loading = false;
         this.alert = {
           show: true,
           type: 'alert-danger',
@@ -212,7 +201,6 @@ export class SharedCourseDataComponent implements OnInit {
       el['scope'] = this.scope;
       this.service.delete(el).pipe(first())
         .subscribe(res => {
-          this.loading = false;
           if (res.result == consts.success) {
             this.elements = res.data;
             this.mdbTable.setDataSource(this.elements);
@@ -226,7 +214,6 @@ export class SharedCourseDataComponent implements OnInit {
             };
           }
         }, error => {
-          this.loading = false;
           this.alert = {
             show: true,
             type: 'alert-danger',

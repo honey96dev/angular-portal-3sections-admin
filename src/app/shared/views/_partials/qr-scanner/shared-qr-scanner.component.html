@@ -1,0 +1,108 @@
+
+<h2 class="h1-responsive font-weight-bold text-center mt-3">{{'CONFERENCE_LAYOUT.QR_SCANNER' | translate}}</h2>
+<!--<p class="text-center w-responsive mx-auto my-5">{{'SHARED_QR_SCANNER.NO_CAMERA' | translate}}</p>-->
+<!--<div class="row" [hidden]="hasDevices">-->
+<!--  <h4 class="text-center w-responsive mx-auto my-5">{{'SHARED_QR_SCANNER.NO_CAMERA' | translate}}</h4>-->
+<!--</div>-->
+<div class="row" [hidden]="!hasDevices">
+  <div class="col-md-6">
+<!--    <mdb-select name="cameras" id="cameras" required [options]="sponsorSelect" [placeholder]="'COMMON.SELECT_PLACEHOLDER' | translate" [label]="'SHARED_PREV_SPONSORS.SPONSOR' | translate"></mdb-select>-->
+    <zxing-scanner [torch]="torchEnabled" [(device)]="currentDevice" (scanSuccess)="onCodeResult($event)"
+                   [formats]="formatsEnabled" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
+                   (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner>
+  </div>
+  <div class="col-md-6">
+    <form name="form" [formGroup]="form" (ngSubmit)="submit()">
+      <input type="hidden" id="id" formControlName="id">
+      <input type="hidden" id="userId" formControlName="userId">
+      <div class="md-form">
+        <input type="text" id="category" class="form-control" mdbInput mdbValidate formControlName="category" [readOnly]="loading">
+        <label for="category">{{'SHARED_QR_SCANNER.CATEGORY' | translate}}</label>
+        <mdb-error *ngIf="f.category.errors && f.category.errors.required && (f.category.dirty || f.category.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_QR_SCANNER.CATEGORY' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="email" id="email" class="form-control" mdbInput mdbValidate formControlName="email" [readOnly]="loading">
+        <label for="email">{{'SIGNIN.EMAIL' | translate}}</label>
+        <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
+        <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SIGNIN.EMAIL' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="firstName" class="form-control" mdbInput mdbValidate formControlName="firstName" [readOnly]="loading">
+        <label for="firstName">{{'SIGNIN.FIRST_NAME' | translate}}</label>
+        <mdb-error *ngIf="f.firstName.errors && f.firstName.errors.required && (f.firstName.dirty || f.firstName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.FIRST_NAME' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="lastName" class="form-control" mdbInput mdbValidate formControlName="lastName" [readOnly]="loading">
+        <label for="lastName">{{'SIGNIN.LAST_NAME' | translate}}</label>
+        <mdb-error *ngIf="f.lastName.errors && f.lastName.errors.required && (f.lastName.dirty || f.lastName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.LAST_NAME' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="company" class="form-control" mdbInput mdbValidate formControlName="company" [readOnly]="loading">
+        <label for="company">{{'SIGNIN.COMPANY' | translate}}</label>
+        <mdb-error *ngIf="f.company.errors && f.company.errors.required && (f.company.dirty || f.company.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.COMPANY' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="position" class="form-control" mdbInput mdbValidate formControlName="position" [readOnly]="loading">
+        <label for="position">{{'SIGNIN.POSITION' | translate}}</label>
+        <mdb-error *ngIf="f.position.errors && f.position.errors.required && (f.position.dirty || f.position.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.POSITION' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="country" class="form-control" mdbInput mdbValidate formControlName="country" [readOnly]="loading" autocomplete="na">
+        <label for="country">{{'SIGNIN.COUNTRY' | translate}}</label>
+        <mdb-error *ngIf="f.country.errors && f.country.errors.required && (f.country.dirty || f.country.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.COUNTRY' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="city" class="form-control" mdbInput mdbValidate formControlName="city" [readOnly]="loading">
+        <label for="city">{{'SIGNIN.CITY' | translate}}</label>
+        <mdb-error *ngIf="f.city.errors && f.city.errors.required && (f.city.dirty || f.city.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.CITY' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="phone" class="form-control" mdbInput mdbValidate formControlName="phone" [readOnly]="loading">
+        <label for="phone">{{'SIGNIN.PHONE' | translate}}</label>
+        <mdb-error *ngIf="f.phone.errors && f.phone.errors.required && (f.phone.dirty || f.phone.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SIGNIN.PHONE' | translate}"></mdb-error>
+      </div>
+      <div class="md-form">
+        <input type="text" id="hash" class="form-control" mdbInput mdbValidate formControlName="hash" [readOnly]="loading">
+        <label for="hash">{{'SHARED_QR_SCANNER.HASH' | translate}}</label>
+        <mdb-error *ngIf="f.hash.errors && f.hash.errors.required && (f.hash.dirty || f.hash.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_QR_SCANNER.HASH' | translate}"></mdb-error>
+      </div>
+      <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+        <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{alert.message}}
+      </div>
+      <div class="row my-3">
+        <div class="col-md-12" [class.text-align-right]="('DIRECTION' | translate) === 'rtl'">
+          <button type="button" mdbBtn color="warning" mdbWavesEffect (click)="clearResult()">
+            <mdb-icon far icon="redo"></mdb-icon>
+          </button>
+          <button mdbBtn color="indigo" mdbWavesEffect [disabled]="!submittable || form.invalid || loading" (click)="submit()">
+            <mdb-icon far icon="paper-plane"></mdb-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="text-align-center">
+  <div *ngIf="hasPermission === undefined">
+    <h2>{{'SHARED_QR_SCANNER.WAITING_FOR_PERMISSIONS' | translate}}</h2>
+    <blockquote>{{'SHARED_QR_SCANNER.WAITING_FOR_PERMISSIONS_DESCRIPTION' | translate}}</blockquote>
+  </div>
+
+  <div *ngIf="hasPermission === false">
+    <h2>{{'SHARED_QR_SCANNER.PERMISSION_DENIED' | translate}}</h2>
+  </div>
+
+  <div *ngIf="hasDevices === undefined">
+    <h2>{{'SHARED_QR_SCANNER.COULD_NOT_CHECK' | translate}}</h2>
+    <blockquote>{{'SHARED_QR_SCANNER.COULD_NOT_CHECK_DESCRIPTION' | translate}}</blockquote>
+  </div>
+
+  <div *ngIf="hasDevices === false">
+    <h2>{{'SHARED_QR_SCANNER.NO_DEVICE' | translate}}</h2>
+    <blockquote>{{'SHARED_QR_SCANNER.NO_DEVICE_DESCRIPTION' | translate}}</blockquote>
+  </div>
+</div>
+<!--</div>-->

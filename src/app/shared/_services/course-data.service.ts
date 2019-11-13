@@ -50,6 +50,20 @@ export class CourseDataService {
       }));
   }
 
+  applicants(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.applicants}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
+  attend(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.attend}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
   setEditableRow(params: any) {
     this.editableRow = params;
   }

@@ -46,6 +46,7 @@ export class SharedEventJoinDataComponent implements OnInit {
     this.translate.instant('SHARED_EVENT_JOIN.JOB_TITLE'),
     this.translate.instant('SHARED_EVENT_JOIN.EMAIL'),
     this.translate.instant('SHARED_EVENT_JOIN.PHONE'),
+    this.translate.instant('SHARED_EVENT_JOIN.QRCODE'),
   ];
 
   target: string;
@@ -138,7 +139,7 @@ export class SharedEventJoinDataComponent implements OnInit {
         if (res.result == consts.success) {
           let arr = [];
           for (let item of res.data) {
-            arr = [item['id'], item['firstName'], item['lastName'], item['country'], item['city'], item['company'], item['job'], item['email'], item['phone']];
+            arr = [consts.event, item['id'], item['userId'], item['email'], item['hash']];
             // arr = [item['id'], item['firstName'], item['lastName'], item['country'], item['city'], item['company'], item['job'], item['email'], item['phone'], item['attend']];
             item['code'] = arr.join('@@');
             item['showCode'] = false;

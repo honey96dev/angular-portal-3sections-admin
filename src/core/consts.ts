@@ -11,4 +11,6 @@ export default {
   business: 'business',
   upcoming: 'upcoming',
   previous: 'previous',
+  event: 'event',
+  course: 'course',
 }

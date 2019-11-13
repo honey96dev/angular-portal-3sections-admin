@@ -8,6 +8,7 @@ import {HomeFrontComponent} from '@app/views/home/front/home-front.component';
 import {UserMgmtLayoutComponent} from '@app/views/layouts/user-mgmt-layout/user-mgmt-layout.component';
 import {HomeUserMgmtComponent} from '@app/views/home/user-mgmt/home-user-mgmt.component';
 import {HomeUserMgmtEditComponent} from '@app/views/home/user-mgmt/home-user-mgmt-edit.component';
+import {HomeMassEmailComponent} from '@app/views/home/mass-email/home-mass-email.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,14 @@ const routes: Routes = [
     children: [
       {path: '', component: HomeUserMgmtComponent},
       {path: 'edit', component: HomeUserMgmtEditComponent},
+    ],
+  },
+  {
+    path: 'mass-email',
+    canActivate: [AuthGuard],
+    component: UserMgmtLayoutComponent,
+    children: [
+      {path: '', component: HomeMassEmailComponent},
     ],
   },
   {

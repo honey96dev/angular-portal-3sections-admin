@@ -2,33 +2,33 @@
 <h2 class="h1-responsive font-weight-bold text-center mt-3">{{'HOME_FRONT.USER_MANAGEMENT' | translate}}</h2>
     <form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
       <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="email" id="email" class="form-control" mdbInput mdbValidate formControlName="email" [readOnly]="loading">
         <label for="email">{{'SHARED_USER_MGMT.EMAIL' | translate}}</label>
         <mdb-error *ngIf="f.email.errors && f.email.errors.required && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.EMAIL' | translate}"></mdb-error>
         <mdb-error *ngIf="f.email.errors && f.email.errors.email && (f.email.dirty || f.email.touched)" [translate]="'COMMON.FIELD_INVALID'" [translateParams]="{field: 'SHARED_USER_MGMT.EMAIL' | translate}"></mdb-error>
       </div>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" id="firstName" class="form-control" mdbInput mdbValidate formControlName="firstName" [readOnly]="loading">
         <label for="firstName">{{'SHARED_USER_MGMT.FIRST_NAME' | translate}}</label>
         <mdb-error *ngIf="f.firstName.errors && f.firstName.errors.required && (f.firstName.dirty || f.firstName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.FIRST_NAME' | translate}"></mdb-error>
       </div>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" id="lastName" class="form-control" mdbInput mdbValidate formControlName="lastName" [readOnly]="loading">
         <label for="lastName">{{'SHARED_USER_MGMT.LAST_NAME' | translate}}</label>
         <mdb-error *ngIf="f.lastName.errors && f.lastName.errors.required && (f.lastName.dirty || f.lastName.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.LAST_NAME' | translate}"></mdb-error>
       </div>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" id="company" class="form-control" mdbInput mdbValidate formControlName="company" [readOnly]="loading">
         <label for="company">{{'SHARED_USER_MGMT.COMPANY' | translate}}</label>
         <mdb-error *ngIf="f.company.errors && f.company.errors.required && (f.company.dirty || f.company.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.COMPANY' | translate}"></mdb-error>
       </div>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" id="position" class="form-control" mdbInput mdbValidate formControlName="position" [readOnly]="loading">
         <label for="position">{{'SHARED_USER_MGMT.POSITION' | translate}}</label>
         <mdb-error *ngIf="f.position.errors && f.position.errors.required && (f.position.dirty || f.position.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.POSITION' | translate}"></mdb-error>
       </div>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" id="country" class="form-control" mdbInput mdbValidate formControlName="country" [readOnly]="loading" [mdbAutoCompleter]="country" autocomplete="na">
         <label for="country">{{'SHARED_USER_MGMT.COUNTRY' | translate}}</label>
         <mdb-auto-completer #country="mdbAutoCompleter" [textNoResults]="'COMMON.NO_DATA' | translate">
@@ -38,12 +38,12 @@
         </mdb-auto-completer>
         <mdb-error *ngIf="f.country.errors && f.country.errors.required && (f.country.dirty || f.country.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.COUNTRY' | translate}"></mdb-error>
       </div>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" id="city" class="form-control" mdbInput mdbValidate formControlName="city" [readOnly]="loading">
         <label for="city">{{'SHARED_USER_MGMT.CITY' | translate}}</label>
         <mdb-error *ngIf="f.city.errors && f.city.errors.required && (f.city.dirty || f.city.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.CITY' | translate}"></mdb-error>
       </div>
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" id="phone" class="form-control" mdbInput mdbValidate formControlName="phone" [readOnly]="loading">
         <label for="phone">{{'SHARED_USER_MGMT.PHONE' | translate}}</label>
         <mdb-error *ngIf="f.phone.errors && f.phone.errors.required && (f.phone.dirty || f.phone.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'SHARED_USER_MGMT.PHONE' | translate}"></mdb-error>

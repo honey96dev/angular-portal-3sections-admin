@@ -35,15 +35,15 @@ export class EventsDataService {
       }));
   }
 
-  get(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.get}`, params)
+  delete(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.delete}`, params)
       .pipe(map(res => {
         return res;
       }));
   }
 
-  delete(params) {
-    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.delete}`, params)
+  get(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.get}`, params)
       .pipe(map(res => {
         return res;
       }));

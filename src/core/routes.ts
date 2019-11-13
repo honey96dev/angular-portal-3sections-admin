@@ -53,6 +53,11 @@ export default {
       main: 'instructors',
       edit: 'instructors/edit',
     },
+    courseJoin: 'course-join',
+    prevSponsors: {
+      main: 'prev-sponsors',
+      edit: 'prev-sponsors/edit',
+    },
   },
   human: {
     main: '/human',
@@ -84,7 +89,9 @@ export default {
     upcomingEvents: '/conference/upcoming-events',
     register: 'register',
     sponsorRequest: '/conference/sponsor-request',
+    previousSponsors: '/conference/prev-sponsors',
     directorBoard: '/conference/director-board',
+    qrScanner: '/conference/qr-scanner',
   },
   business: {
     main: '/business',
@@ -94,5 +101,6 @@ export default {
     previous: '/business/previous',
     contactUs: '/business/contact-us',
     directorBoard: '/business/director-board',
+    qrScanner: '/business/qr-scanner',
   },
 };

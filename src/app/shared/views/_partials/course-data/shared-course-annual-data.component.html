@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div class="md-form md-outline mt-0">
+      <div class="md-form mt-0">
         <input type="number" id="year" class="form-control" formControlName="year" mdbInput mdbValidate [validateSuccess]="false">
         <label for="year">{{'BUSINESS_COURSE_ANNUAL.YEAR' | translate}}</label>
         <mdb-error *ngIf="f.year.errors && f.year.errors.required && (f.year.dirty || f.year.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.YEAR' | translate}"></mdb-error>
@@ -15,14 +15,14 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="md-form md-outline mt-0">
+      <div class="md-form mt-0">
         <textarea type="text" id="summaryEn" class="md-textarea form-control" formControlName="summaryEn" mdbInput mdbValidate [validateSuccess]="false" rows="8"></textarea>
         <label for="summaryEn">{{'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
         <mdb-error *ngIf="f.summaryEn.invalid && (f.summaryEn.dirty || f.summaryEn.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}"></mdb-error>
       </div>
     </div>
     <div class="col-md-12">
-      <div class="md-form md-outline mt-0">
+      <div class="md-form mt-0">
         <textarea type="text" id="summaryAr" class="md-textarea form-control" formControlName="summaryAr" mdbInput mdbValidate [validateSuccess]="false" rows="8"></textarea>
         <label for="summaryAr">{{'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}}({{'COMMON.ARABIC' | translate}})</label>
         <mdb-error *ngIf="f.summaryAr.invalid && (f.summaryAr.dirty || f.summaryAr.touched)" [translate]="'COMMON.FIELD_REQUIRED'" [translateParams]="{field: 'BUSINESS_COURSE_ANNUAL.SUMMARY' | translate}"></mdb-error>

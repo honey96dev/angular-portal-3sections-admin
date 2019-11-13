@@ -34,6 +34,10 @@
             <a  class="nav-link waves-light" [routerLink]="routes.business.directorBoard"
                 mdbWavesEffect>{{'BUSINESS_LAYOUT.BOARD_OF_DIRECTORS' | translate}}</a>
           </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.qrScanner"
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.QR_SCANNER' | translate}}</a>
+          </li>
         </ul>
         <ul class="navbar-nav"  [class.ml-auto]="('DIRECTION' | translate) === 'ltr'" [class.mr-auto]="('DIRECTION' | translate) === 'rtl'">
           <!--          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>-->

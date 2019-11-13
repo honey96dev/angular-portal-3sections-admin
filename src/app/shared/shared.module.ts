@@ -8,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {RatingModule} from 'ng-starrating';
 import {NgxQRCodeModule} from 'ngx-qrcode2';
+import {ZXingScannerModule} from '@zxing/ngx-scanner';
+import {DeviceDetectorModule} from 'ngx-device-detector';
 import {DROPZONE_CONFIG, DropzoneModule, DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
@@ -36,6 +38,10 @@ import {SharedCourseDataEditComponent} from '@app/shared/views/_partials/course-
 import {SharedCourseInstructorsComponent} from '@app/shared/views/_partials/course-data/shared-course-instructors.component';
 import {SharedCourseInstructorsEditComponent} from '@app/shared/views/_partials/course-data/shared-course-instructors-edit.component';
 import {SharedCourseAnnualDataComponent} from '@app/shared/views/_partials/course-data/shared-course-annual-data.component';
+import {SharedCourseJoinDataComponent} from '@app/shared/views/_partials/course-data/shared-course-join-data.component';
+import {SharedPrevSponsorDataComponent} from '@app/shared/views/_partials/prev-sponsor-data/shared-prev-sponsor-data.component';
+import {SharedPrevSponsorDataEditComponent} from '@app/shared/views/_partials/prev-sponsor-data/shared-prev-sponsor-data-edit.component';
+import {SharedQrScannerComponent} from '@app/shared/views/_partials/qr-scanner/shared-qr-scanner.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -57,6 +63,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     DropzoneModule,
     RatingModule,
     NgxQRCodeModule,
+    ZXingScannerModule,
+    DeviceDetectorModule.forRoot(),
   ],
   declarations: [
     AlertModalComponent,
@@ -87,6 +95,10 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedCourseInstructorsComponent,
     SharedCourseInstructorsEditComponent,
     SharedCourseAnnualDataComponent,
+    SharedCourseJoinDataComponent,
+    SharedPrevSponsorDataComponent,
+    SharedPrevSponsorDataEditComponent,
+    SharedQrScannerComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -122,6 +134,10 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedCourseInstructorsComponent,
     SharedCourseInstructorsEditComponent,
     SharedCourseAnnualDataComponent,
+    SharedCourseJoinDataComponent,
+    SharedPrevSponsorDataComponent,
+    SharedPrevSponsorDataEditComponent,
+    SharedQrScannerComponent,
   ],
   providers: [
     {

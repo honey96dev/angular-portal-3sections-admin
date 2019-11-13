@@ -72,6 +72,8 @@ const apis = {
       edit: 'courses/edit',
       delete: 'courses/delete',
       get: 'courses/get',
+      applicants: 'courses/applicants',
+      attend: 'courses/attend',
       items: {
         list: 'courses/items/list',
         add: 'courses/items/add',
@@ -87,6 +89,16 @@ const apis = {
       delete: 'course-instructors/delete',
       get: 'course-instructors/get',
     },
+    prevSponsors: {
+      list: 'prev-sponsors/list',
+      add: 'prev-sponsors/add',
+      edit: 'prev-sponsors/edit',
+      delete: 'prev-sponsors/delete',
+    },
+    qrScanner: {
+      get: 'qr-scanner/get',
+      post: 'qr-scanner/post',
+    },
   },
   auth: {
     signIn: 'auth/sign-in',
@@ -96,6 +108,9 @@ const apis = {
   training: {
     loadAnnualSettings: 'training/load-annual-settings',
     saveAnnualSettings: 'training/save-annual-settings',
+  },
+  massEmail: {
+    sendEmail: 'mass-email/send-email',
   },
 };
 

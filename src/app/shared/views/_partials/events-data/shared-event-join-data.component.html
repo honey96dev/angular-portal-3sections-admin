@@ -16,7 +16,7 @@
       </button>
     </div>
     <div class="col-md-6">
-      <div class="md-form md-outline">
+      <div class="md-form">
         <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"
                mdbInput>
         <label for="search-input">{{'COMMON.SEARCH' | translate}}</label>
@@ -30,7 +30,6 @@
               scope="col">{{head}} <mdb-icon fas icon="sort"></mdb-icon>
           </th>
           <th *ngIf="this.data && data.isPrevious" scope="col" [mdbTableSort]="elements" sortBy="attend">{{'SHARED_EVENT_JOIN.ATTEND' | translate}} <mdb-icon fas icon="sort"></mdb-icon></th>
-          <th *ngIf="this.data && data.isPrevious" scope="col" class="edit-col">{{'SHARED_EVENT_JOIN.QRCODE' | translate}}</th>
         </tr>
         </thead>
         <tbody #row>
@@ -44,10 +43,7 @@
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.jobTitle}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.email}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.phone}}</td>
-          <td *ngIf="this.data && data.isPrevious && i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
-            <a mdbBtn floating="true" rounded="true" color="indigo" size="sm" mdbWavesEffect (click)="toggleAttend(el, el.attend == 1 ? 0 : 1)"><mdb-icon fas [icon]="el.attend ? 'check' : 'times'"></mdb-icon></a>
-          </td>
-          <td *ngIf="this.data && data.isPrevious && i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
 <!--            <ng-template #hoverImgTemp><div [innerHtml]="el.hover"></div></ng-template>-->
 <!--            <a mdbBtn color="primary" placement="bottom" [mdbPopover]="hoverImgTemp" mdbWavesEffect triggers="click">Hover me</a>-->
             <a mdbBtn floating="true" rounded="true" color="primary" size="sm" mdbWavesEffect [class.mr-2]="('DIRECTION' | translate) === 'ltr'" [class.ml-2]="('DIRECTION' | translate) === 'rtl'" (click)="toggleCode(el, !el.showCode)"><mdb-icon fas [icon]="el.showCode ? 'eye-slash' : 'eye'"></mdb-icon></a>
@@ -55,11 +51,14 @@
             <ngx-qrcode *ngIf="el.showCode" [id]="'qrcode' + el.id" qrc-element-type="url" [qrc-value] = "el.code" qrc-width="10"></ngx-qrcode>
 <!--            <a mdbBtn floating="true" rounded="true" color="purple" size="sm" mdbWavesEffect (click)="barcode()"><mdb-icon fas icon="barcode"></mdb-icon></a>-->
           </td>
+          <td *ngIf="data && data.isPrevious && i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
+            <a mdbBtn floating="true" rounded="true" color="indigo" size="sm" mdbWavesEffect (click)="toggleAttend(el, el.attend == 1 ? 0 : 1)"><mdb-icon fas [icon]="el.attend ? 'check' : 'times'"></mdb-icon></a>
+          </td>
         </tr>
         </tbody>
         <tfoot class="">
         <tr>
-          <td [colSpan]="this.data && data.isPrevious ? 11 : 9">
+          <td [colSpan]="data && data.isPrevious ? headElements.length + 2 : headElements.length + 1">
             <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements" dir="ltr"></mdb-table-pagination>
           </td>
         </tr>
