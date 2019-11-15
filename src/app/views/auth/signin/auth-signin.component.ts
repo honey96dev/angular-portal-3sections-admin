@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, isDevMode, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {Title} from '@angular/platform-browser';
@@ -47,8 +47,8 @@ export class AuthSigninComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
-    this.f.username.patchValue('honey96dev');
-    this.f.password.patchValue('123456');
+    isDevMode() && this.f.username.patchValue('honey96dev');
+    isDevMode() && this.f.password.patchValue('123456');
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
