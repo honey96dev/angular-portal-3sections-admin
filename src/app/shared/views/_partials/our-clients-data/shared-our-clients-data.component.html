@@ -31,15 +31,14 @@
         </tr>
         </thead>
         <tbody #row>
-        <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
+        <tr mdbTableCol *ngFor="let el of elements; let i = index">
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="no-col">{{i+1}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.timestamp}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.nameEn : el.nameAr}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="rating-col">
-<!--            {{el.starts}}-->
-            <star-rating [value]="el.stars" checkedcolor="gold" uncheckedcolor="gray" size="24px" readonly="true"></star-rating>
-          </td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.feedbackEn : el.feedbackAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.titleEn : el.titleAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.durationEn : el.durationAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.scopeEn : el.scopeAr}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{lang === 'en' ? el.deliverableEn : el.deliverableAr}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
             <a mdbBtn [routerLink]="editUrl" floating="true" rounded="true" color="warning" size="sm" mdbWavesEffect
                [class.mr-2]="('DIRECTION' | translate) === 'ltr'" [class.ml-2]="('DIRECTION' | translate) === 'rtl'"

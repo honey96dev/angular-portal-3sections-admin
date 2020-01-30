@@ -10,6 +10,8 @@ import {BusinessUpcomingDataComponent} from '@app/business/views/upcoming/busine
 import {BusinessUpcomingDataEditComponent} from '@app/business/views/upcoming/business-upcoming-data-edit.component';
 import {BusinessPreviousDataComponent} from '@app/business/views/previous/business-previous-data.component';
 import {BusinessPreviousDataEditComponent} from '@app/business/views/previous/business-previous-data-edit.component';
+import {BusinessPrevClientsDataComponent} from '@app/business/views/prev-clients/business-prev-clients-data.component';
+import {BusinessPrevClientsDataEditComponent} from '@app/business/views/prev-clients/business-prev-clients-data-edit.component';
 import {BusinessInstructorsDataComponent} from '@app/business/views/instructors/business-instructors-data.component';
 import {BusinessInstructorsDataEditComponent} from '@app/business/views/instructors/business-instructors-data-edit.component';
 import {BusinessContactUsDataComponent} from '@app/business/views/contact-us/business-contact-us-data.component';
@@ -34,6 +36,8 @@ import {BusinessQrScannerComponent} from '@app/business/views/qr-scanner/busines
     BusinessUpcomingDataEditComponent,
     BusinessPreviousDataComponent,
     BusinessPreviousDataEditComponent,
+    BusinessPrevClientsDataComponent,
+    BusinessPrevClientsDataEditComponent,
     BusinessInstructorsDataComponent,
     BusinessInstructorsDataEditComponent,
     BusinessContactUsDataComponent,

@@ -13,6 +13,7 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./auth-layout.component.scss']
 })
 export class AuthLayoutComponent implements OnInit {
+  language: string;
 
   constructor(private globalVariableService: GlobalVariableService,
               private router: Router,
@@ -22,6 +23,7 @@ export class AuthLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.language = this.translationService.getSelectedLanguage();
   }
 
   // sendSignoutSignal() {
@@ -35,7 +37,7 @@ export class AuthLayoutComponent implements OnInit {
 
   onLanguageButtonClicked() {
     let lang = this.translationService.getSelectedLanguage();
-    lang = lang === 'en' ? 'ar' : 'en';
+    this.language = lang = lang === 'en' ? 'ar' : 'en';
     this.translationService.setLanguage(lang);
     this.globalVariableService.setLanguage(lang);
   }

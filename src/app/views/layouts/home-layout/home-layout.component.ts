@@ -25,12 +25,12 @@ export class HomeLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.language = this.translationService.getSelectedLanguage();
   }
 
   onLanguageButtonClicked() {
     let lang = this.translationService.getSelectedLanguage();
-    lang = lang === 'en' ? 'ar' : 'en';
+    this.language = lang = lang === 'en' ? 'ar' : 'en';
     this.translationService.setLanguage(lang);
     this.globalVariableService.setLanguage(lang);
   }

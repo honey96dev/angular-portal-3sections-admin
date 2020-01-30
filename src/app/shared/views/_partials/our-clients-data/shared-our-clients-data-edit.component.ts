@@ -85,11 +85,21 @@ export class SharedOurClientsDataEditComponent implements OnInit {
       nameAr: new FormControl('', Validators.required),
       photo: new FormControl('', Validators.required),
       photoOriginMedia: new FormControl('', Validators.required),
-      stars: new FormControl('', Validators.required),
-      feedbackEn: new FormControl('', Validators.required),
-      feedbackAr: new FormControl('', Validators.required),
-      files: new FormControl(''),
+      // stars: new FormControl('', Validators.required),
+      // feedbackEn: new FormControl('', Validators.required),
+      // feedbackAr: new FormControl('', Validators.required),
+      // files: new FormControl(''),
       // originMedia: new FormControl('', Validators.required),
+      titleEn: new FormControl('', Validators.required),
+      titleAr: new FormControl('', Validators.required),
+      descriptionEn: new FormControl('', Validators.required),
+      descriptionAr: new FormControl('', Validators.required),
+      durationEn: new FormControl('', Validators.required),
+      durationAr: new FormControl('', Validators.required),
+      scopeEn: new FormControl('', Validators.required),
+      scopeAr: new FormControl('', Validators.required),
+      deliverableEn: new FormControl('', Validators.required),
+      deliverableAr: new FormControl('', Validators.required),
     });
 
     this.f['id'].patchValue(row.id);
@@ -98,10 +108,20 @@ export class SharedOurClientsDataEditComponent implements OnInit {
     this.f['nameAr'].patchValue(row.nameAr);
     this.f['photo'].patchValue(row.photo);
     this.f['photoOriginMedia'].patchValue(row.photoOriginMedia);
-    this.f['stars'].patchValue(row.stars);
-    this.f['feedbackEn'].patchValue(row.feedbackEn);
-    this.f['feedbackAr'].patchValue(row.feedbackAr);
-    this.f['files'].patchValue(row.files);
+    this.f['titleEn'].patchValue(row.titleEn);
+    this.f['titleAr'].patchValue(row.titleAr);
+    this.f['descriptionEn'].patchValue(row.descriptionEn);
+    this.f['descriptionAr'].patchValue(row.descriptionAr);
+    this.f['durationEn'].patchValue(row.durationEn);
+    this.f['durationAr'].patchValue(row.durationAr);
+    this.f['scopeEn'].patchValue(row.scopeEn);
+    this.f['scopeAr'].patchValue(row.scopeAr);
+    this.f['deliverableEn'].patchValue(row.deliverableEn);
+    this.f['deliverableAr'].patchValue(row.deliverableAr);
+    // this.f['stars'].patchValue(row.stars);
+    // this.f['feedbackEn'].patchValue(row.feedbackEn);
+    // this.f['feedbackAr'].patchValue(row.feedbackAr);
+    // this.f['files'].patchValue(row.files);
 
     this.backUrl = sprintf("/%s/%s", this.category, routes._partials.ourClients.main);
     this.photoConfig = {
@@ -140,12 +160,23 @@ export class SharedOurClientsDataEditComponent implements OnInit {
     const photo = f.photo.value;
     const photoOriginMedia = f.photoOriginMedia.value;
     const photoMediaSize = this.photoMediaSize;
-    const stars = f.stars.value;
-    const feedbackEn = f.feedbackEn.value;
-    const feedbackAr = f.feedbackAr.value;
+    // const stars = f.stars.value;
+    // const feedbackEn = f.feedbackEn.value;
+    // const feedbackAr = f.feedbackAr.value;
+    const titleEn = f.titleEn.value;
+    const titleAr = f.titleAr.value;
+    const descriptionEn = f.descriptionEn.value;
+    const descriptionAr = f.descriptionAr.value;
+    const durationEn = f.durationEn.value;
+    const durationAr = f.durationAr.value;
+    const scopeEn = f.scopeEn.value;
+    const scopeAr = f.scopeAr.value;
+    const deliverableEn = f.deliverableEn.value;
+    const deliverableAr = f.deliverableAr.value;
 
     const data = {
-      id, category, timestamp, nameEn, nameAr, photo, photoOriginMedia, photoMediaSize, stars, feedbackEn, feedbackAr
+      id, category, timestamp, nameEn, nameAr, photo, photoOriginMedia, photoMediaSize, titleEn, titleAr, descriptionEn, descriptionAr, durationEn, durationAr, scopeEn, scopeAr, deliverableEn, deliverableAr,
+      // id, category, timestamp, nameEn, nameAr, photo, photoOriginMedia, photoMediaSize, stars, feedbackEn, feedbackAr
     };
 
     this.loading = true;

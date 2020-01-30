@@ -39,8 +39,11 @@ export class SharedOurClientsDataComponent implements OnInit {
     '',
     this.translate.instant('SHARED_OUR_CLIENTS.TIMESTAMP'),
     this.translate.instant('SHARED_OUR_CLIENTS.NAME'),
-    this.translate.instant('SHARED_OUR_CLIENTS.RATING'),
-    this.translate.instant('SHARED_OUR_CLIENTS.FEEDBACK'),
+    this.translate.instant('SHARED_OUR_CLIENTS.TITLE'),
+    // this.translate.instant('SHARED_OUR_CLIENTS.DESCRIPTION'),
+    this.translate.instant('SHARED_OUR_CLIENTS.DURATION'),
+    this.translate.instant('SHARED_OUR_CLIENTS.SCOPE'),
+    this.translate.instant('SHARED_OUR_CLIENTS.DELIVERABLE'),
   ];
 
   addUrl: string = '';

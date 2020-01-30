@@ -99,6 +99,7 @@ export default {
     mostUpcoming: '/business/most-upcoming',
     upcoming: '/business/upcoming',
     previous: '/business/previous',
+    prevClients: '/business/our-clients',
     contactUs: '/business/contact-us',
     directorBoard: '/business/director-board',
     qrScanner: '/business/qr-scanner',

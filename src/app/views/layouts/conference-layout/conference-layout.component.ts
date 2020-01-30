@@ -33,9 +33,8 @@ export class ConferenceLayoutComponent implements OnInit {
 
   }
 
-  onLanguageButtonClicked() {
-    let lang = this.translationService.getSelectedLanguage();
-    lang = lang === 'en' ? 'ar' : 'en';
+  onLanguageButtonClicked(lang) {
+    this.language = lang;
     this.translationService.setLanguage(lang);
     this.globalVariableService.setLanguage(lang);
   }

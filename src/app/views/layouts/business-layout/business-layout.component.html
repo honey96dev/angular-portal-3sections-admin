@@ -22,9 +22,13 @@
             <a  class="nav-link waves-light" [routerLink]="routes.business.upcoming"
                 mdbWavesEffect>{{'BUSINESS_LAYOUT.UPCOMING' | translate}}</a>
           </li>
+<!--          <li class="nav-item">-->
+<!--            <a  class="nav-link waves-light" [routerLink]="routes.business.previous"-->
+<!--                mdbWavesEffect>{{'BUSINESS_LAYOUT.PREVIOUS' | translate}}</a>-->
+<!--          </li>-->
           <li class="nav-item">
-            <a  class="nav-link waves-light" [routerLink]="routes.business.previous"
-                mdbWavesEffect>{{'BUSINESS_LAYOUT.PREVIOUS' | translate}}</a>
+            <a  class="nav-link waves-light" [routerLink]="routes.business.prevClients"
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.PREV_CLIENTS' | translate}}</a>
           </li>
           <li class="nav-item">
             <a  class="nav-link waves-light" [routerLink]="routes.business.contactUs"
@@ -40,6 +44,17 @@
           </li>
         </ul>
         <ul class="navbar-nav"  [class.ml-auto]="('DIRECTION' | translate) === 'ltr'" [class.mr-auto]="('DIRECTION' | translate) === 'rtl'">
+          <li class="nav-item dropdown" dropdown>
+            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light">
+              {{'COMMON.LANGUAGE' | translate}}<span class="caret"></span>
+            </a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+              <div >
+                <a (click)="onLanguageButtonClicked('ar')" class="dropdown-item waves-light" mdbWavesEffect>{{'COMMON.ARABIC' | translate}}</a>
+                <a (click)="onLanguageButtonClicked('en')" class="dropdown-item waves-light" mdbWavesEffect>{{'COMMON.ENGLISH' | translate}}</a>
+              </div>
+            </div>
+          </li>
           <!--          <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>-->
           <a class="waves-light btn-sm" mdbWavesEffect mdbBtn color="danger" (click)="signOut()"><strong>{{'SIGNIN.SIGNOUT' | translate}}</strong></a>
         </ul>

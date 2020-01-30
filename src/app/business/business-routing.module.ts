@@ -7,6 +7,8 @@ import {BusinessUpcomingDataComponent} from '@app/business/views/upcoming/busine
 import {BusinessUpcomingDataEditComponent} from '@app/business/views/upcoming/business-upcoming-data-edit.component';
 import {BusinessPreviousDataComponent} from '@app/business/views/previous/business-previous-data.component';
 import {BusinessPreviousDataEditComponent} from '@app/business/views/previous/business-previous-data-edit.component';
+import {BusinessPrevClientsDataComponent} from '@app/business/views/prev-clients/business-prev-clients-data.component';
+import {BusinessPrevClientsDataEditComponent} from '@app/business/views/prev-clients/business-prev-clients-data-edit.component';
 import {BusinessInstructorsDataComponent} from '@app/business/views/instructors/business-instructors-data.component';
 import {BusinessInstructorsDataEditComponent} from '@app/business/views/instructors/business-instructors-data-edit.component';
 import {BusinessContactUsDataComponent} from '@app/business/views/contact-us/business-contact-us-data.component';
@@ -36,6 +38,11 @@ const routes: Routes = [
       {path: 'previous/edit/:id', component: BusinessPreviousDataEditComponent},
       {path: 'previous', component: BusinessPreviousDataComponent},
       {path: 'previous/:page', component: BusinessPreviousDataComponent},
+
+      {path: 'our-clients/edit', component: BusinessPrevClientsDataEditComponent},
+      {path: 'our-clients/edit/:id', component: BusinessPrevClientsDataEditComponent},
+      {path: 'our-clients', component: BusinessPrevClientsDataComponent},
+      {path: 'our-clients/:page', component: BusinessPrevClientsDataComponent},
 
       {path: 'instructors/edit/:target', component: BusinessInstructorsDataEditComponent},
       {path: 'instructors/edit/:target/:id', component: BusinessInstructorsDataEditComponent},

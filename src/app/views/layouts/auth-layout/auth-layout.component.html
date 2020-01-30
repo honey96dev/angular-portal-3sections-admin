@@ -5,6 +5,14 @@
     <mdb-navbar-brand>
       <a class="logo navbar-brand waves-light btn-sm" mdbWavesEffect mdbBtn color="primary" (click)="onLanguageButtonClicked()"><strong>{{'LANGUAGE' | translate}}</strong></a>
     </mdb-navbar-brand>
+<!--    <ul class="navbar-nav nav-flex-icons" [ngClass]="language === 'en' ? 'ml-auto' : 'mr-auto'">-->
+<!--      <li class="nav-item">-->
+<!--        <a href="/" class="nav-link waves-light text-black" mdbWavesEffect>{{'COMMON.MAIN_PAGE' | translate}}</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+    <mdb-navbar-brand [ngClass]="language === 'en' ? 'ml-auto' : 'mr-auto'">
+      <a href="/" class="logo navbar-brand waves-light btn-sm" mdbWavesEffect mdbBtn color="secondary"><strong>{{'COMMON.MAIN_PAGE' | translate}}</strong></a>
+    </mdb-navbar-brand>
   </mdb-navbar>
   <!-- Full Page Intro -->
   <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/89.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
