@@ -32,6 +32,8 @@ import {SharedDirectorBoardDataComponent} from '@app/shared/views/_partials/dire
 import {SharedDirectorBoardDataEditComponent} from '@app/shared/views/_partials/director-board-data/shared-director-board-data-edit.component';
 import {SharedEventsDataComponent} from '@app/shared/views/_partials/events-data/shared-events-data.component';
 import {SharedEventsDataEditComponent} from '@app/shared/views/_partials/events-data/shared-events-data-edit.component';
+import {SharedEventPhotosComponent} from '@app/shared/views/_partials/events-data/shared-event-photos.component';
+import {SharedEventPhotosEditComponent} from '@app/shared/views/_partials/events-data/shared-event-photos-edit.component';
 import {SharedEventJoinDataComponent} from '@app/shared/views/_partials/events-data/shared-event-join-data.component';
 import {SharedCourseDataComponent} from '@app/shared/views/_partials/course-data/shared-course-data.component';
 import {SharedCourseDataEditComponent} from '@app/shared/views/_partials/course-data/shared-course-data-edit.component';
@@ -42,6 +44,7 @@ import {SharedCourseJoinDataComponent} from '@app/shared/views/_partials/course-
 import {SharedPrevSponsorDataComponent} from '@app/shared/views/_partials/prev-sponsor-data/shared-prev-sponsor-data.component';
 import {SharedPrevSponsorDataEditComponent} from '@app/shared/views/_partials/prev-sponsor-data/shared-prev-sponsor-data-edit.component';
 import {SharedQrScannerComponent} from '@app/shared/views/_partials/qr-scanner/shared-qr-scanner.component';
+import {SharedAboutUsDataComponent} from '@app/shared/views/_partials/about-us-data/shared-about-us-data.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -89,6 +92,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedDirectorBoardDataEditComponent,
     SharedEventsDataComponent,
     SharedEventsDataEditComponent,
+    SharedEventPhotosComponent,
+    SharedEventPhotosEditComponent,
     SharedEventJoinDataComponent,
     SharedCourseDataComponent,
     SharedCourseDataEditComponent,
@@ -99,6 +104,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedPrevSponsorDataComponent,
     SharedPrevSponsorDataEditComponent,
     SharedQrScannerComponent,
+    SharedAboutUsDataComponent,
   ],
   exports: [
     MDBBootstrapModulesPro,
@@ -128,6 +134,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedDirectorBoardDataEditComponent,
     SharedEventsDataComponent,
     SharedEventsDataEditComponent,
+    SharedEventPhotosComponent,
+    SharedEventPhotosEditComponent,
     SharedEventJoinDataComponent,
     SharedCourseDataComponent,
     SharedCourseDataEditComponent,
@@ -138,6 +146,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedPrevSponsorDataComponent,
     SharedPrevSponsorDataEditComponent,
     SharedQrScannerComponent,
+    SharedAboutUsDataComponent,
   ],
   providers: [
     {

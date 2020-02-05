@@ -51,6 +51,7 @@ export class SharedEventsDataComponent implements OnInit {
   applicantsUrl: string = '';
   addUrl: string = '';
   editUrl: string = '';
+  photosUrl: string = '';
   searchText: string = '';
 
   maxVisibleItems: number = 8;
@@ -104,6 +105,7 @@ export class SharedEventsDataComponent implements OnInit {
     });
 
     this.applicantsUrl = sprintf("/%s/%s", this.category, routes._partials.eventJoin);
+    this.photosUrl = sprintf("/%s/%s", this.category, routes._partials.eventPhotos.main);
     if (this.scope === consts.upcoming) {
       this.heading = this.translate.instant('CONFERENCE_LAYOUT.UPCOMING_EVENTS');
       this.addUrl = sprintf("/%s/%s", this.category, routes._partials.upcomingEvents.edit);

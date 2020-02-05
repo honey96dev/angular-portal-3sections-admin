@@ -20,6 +20,7 @@ import {BusinessDirectorBoardDataComponent} from '@app/business/views/director-b
 import {BusinessDirectorBoardDataEditComponent} from '@app/business/views/director-board/business-director-board-data-edit.component';
 import {BusinessCourseJoinDataComponent} from '@app/business/views/course-join/business-course-join-data.component';
 import {BusinessQrScannerComponent} from '@app/business/views/qr-scanner/business-qr-scanner.component';
+import {BusinessAboutUsDataComponent} from '@app/business/views/about-us/business-about-us-data.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import {BusinessQrScannerComponent} from '@app/business/views/qr-scanner/busines
     BusinessDirectorBoardDataEditComponent,
     BusinessCourseJoinDataComponent,
     BusinessQrScannerComponent,
+    BusinessAboutUsDataComponent,
   ],
 })
 export class BusinessModule { }

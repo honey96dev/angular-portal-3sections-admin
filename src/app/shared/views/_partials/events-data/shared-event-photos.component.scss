@@ -12,10 +12,6 @@
   width: $edit-col-width;
 }
 
-.edit-col3 {
-  width: calc(#{$edit-col-width} + 95px);
-}
-
-td.edit-col, td.edit-col2 {
+td.edit-col {
   padding: 0.5rem;
 }

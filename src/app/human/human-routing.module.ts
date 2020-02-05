@@ -13,6 +13,7 @@ import {HumanOurClientsDataComponent} from '@app/human/views/our-clients/human-o
 import {HumanOurClientsDataEditComponent} from '@app/human/views/our-clients/human-our-clients-data-edit.component';
 import {HumanDirectorBoardDataComponent} from '@app/human/views/director-board/human-director-board-data.component';
 import {HumanDirectorBoardDataEditComponent} from '@app/human/views/director-board/human-director-board-data-edit.component';
+import {HumanAboutUsDataComponent} from '@app/human/views/about-us/human-about-us-data.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
       {path: 'our-clients/edit', component: HumanOurClientsDataEditComponent},
       {path: 'director-board', component: HumanDirectorBoardDataComponent},
       {path: 'director-board/edit', component: HumanDirectorBoardDataEditComponent},
+      {path: 'about-us', component: HumanAboutUsDataComponent},
     ]
   }
 ];

@@ -1,9 +1,9 @@
 
-<h2 class="h1-responsive font-weight-bold text-center mt-3">{{'COMMON.INSTRUCTORS' | translate}}</h2>
+<h2 class="h1-responsive font-weight-bold text-center mt-3">{{'SHARED_EVENT_PHOTOS.HEADING' | translate}}</h2>
 
 <form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
   <input id="id" type="hidden" class="form-control grey-text" formControlName="id" mdbInput>
-  <input id="targetId" type="hidden" class="form-control grey-text" formControlName="targetId" mdbInput>
+  <input id="eventId" type="hidden" class="form-control grey-text" formControlName="eventId" mdbInput>
   <div class="row">
     <div class="col-md-6">
       <div class="md-form mt-0">
@@ -29,34 +29,10 @@
   <div class="row">
     <div class="col-md-12">
       <div class="md-form mt-0">
-            <textarea type="text" id="summaryEn" class="md-textarea form-control" formControlName="summaryEn"
-                      mdbInput mdbValidate
-                      [validateSuccess]="false" rows="5"></textarea>
-        <label for="summaryEn">{{'BUSINESS_COURSES.SUMMARY' | translate}}({{'COMMON.ENGLISH' | translate}})</label>
-        <mdb-error *ngIf="f.summaryEn.invalid && (f.summaryEn.dirty || f.summaryEn.touched)"
-                   [translate]="'COMMON.FIELD_REQUIRED'"
-                   [translateParams]="{field: 'BUSINESS_COURSES.SUMMARY' | translate}"></mdb-error>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="md-form mt-0">
-            <textarea type="text" id="summaryAr" class="md-textarea form-control" formControlName="summaryAr"
-                      mdbInput mdbValidate
-                      [validateSuccess]="false" rows="5"></textarea>
-        <label for="summaryAr">{{'BUSINESS_COURSES.SUMMARY' | translate}}({{'COMMON.ARABIC' | translate}})</label>
-        <mdb-error *ngIf="f.summaryAr.invalid && (f.summaryAr.dirty || f.summaryAr.touched)"
-                   [translate]="'COMMON.FIELD_REQUIRED'"
-                   [translateParams]="{field: 'BUSINESS_COURSES.SUMMARY' | translate}"></mdb-error>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="md-form mt-0">
         <div class="row px-0">
           <div for="media" class="col-md-3 label text-left">{{'BUSINESS_COURSES.MEDIA' | translate}}</div>
           <div class="col-md-3 text-left">
-            <button *ngIf="f.media.value && f.media.value.length > 0" mdbBtn color="warning" mdbWavesEffect
+            <button type="button" *ngIf="f.media.value && f.media.value.length > 0" mdbBtn color="warning" mdbWavesEffect
                     (click)="onClearMediaClicked()">{{'COMMON.CLEAR' | translate}}</button>
           </div>
         </div>

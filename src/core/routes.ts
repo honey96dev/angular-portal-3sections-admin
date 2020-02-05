@@ -34,11 +34,19 @@ export default {
     },
     previousEvents: {
       main: 'previous-events',
-      edit: 'previous-events/edit'
+      edit: 'previous-events/edit',
+      photos: 'previous-events/photos',
+      // photosEdit: 'previous-events/photos/edit',
     },
     upcomingEvents: {
       main: 'upcoming-events',
-      edit: 'upcoming-events/edit'
+      edit: 'upcoming-events/edit',
+      photos: 'upcoming-events/photos',
+      // photosEdit: 'upcoming-events/photos/edit',
+    },
+    eventPhotos: {
+      main: 'event-photos',
+      edit: 'event-photos/edit',
     },
     eventJoin: 'event-join',
     upcomingCourses: {
@@ -82,6 +90,9 @@ export default {
       main: '/human/director-board',
       edit: '/human/director-board/edit'
     },
+    aboutUs: {
+      main: '/human/about-us',
+    },
   },
   conference: {
     main: '/conference',
@@ -92,6 +103,9 @@ export default {
     previousSponsors: '/conference/prev-sponsors',
     directorBoard: '/conference/director-board',
     qrScanner: '/conference/qr-scanner',
+    aboutUs: {
+      main: '/conference/about-us',
+    },
   },
   business: {
     main: '/business',
@@ -103,5 +117,8 @@ export default {
     contactUs: '/business/contact-us',
     directorBoard: '/business/director-board',
     qrScanner: '/business/qr-scanner',
+    aboutUs: {
+      main: '/business/about-us',
+    },
   },
 };

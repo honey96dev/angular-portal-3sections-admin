@@ -42,6 +42,10 @@
             <a  class="nav-link waves-light" [routerLink]="routes.business.qrScanner"
                 mdbWavesEffect>{{'BUSINESS_LAYOUT.QR_SCANNER' | translate}}</a>
           </li>
+          <li class="nav-item">
+            <a  class="nav-link waves-light" [routerLink]="routes.business.aboutUs.main"
+                mdbWavesEffect>{{'BUSINESS_LAYOUT.ABOUT_US' | translate}}</a>
+          </li>
         </ul>
         <ul class="navbar-nav"  [class.ml-auto]="('DIRECTION' | translate) === 'ltr'" [class.mr-auto]="('DIRECTION' | translate) === 'rtl'">
           <li class="nav-item dropdown" dropdown>

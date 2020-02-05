@@ -155,6 +155,11 @@ export const locale = {
       DROPZONE_PLACEHOLDER: 'انقر أو اسحب الصورة أو الفيديو هنا رفع',
       APPLICANT: 'المتقدمين',
     },
+    SHARED_EVENT_PHOTOS: {
+      HEADING: 'صور الحدث',
+      NAME: 'Name',
+      FILE_SIZE: 'File Size',
+    },
     SHARED_EVENT_JOIN: {
       JOIN_TO_EVENT: 'المتقدمين',
       FIRST_NAME: 'الاسم الاول',
@@ -199,6 +204,11 @@ export const locale = {
       NO_DEVICE: 'لم يتم العثور على الأجهزة',
       NO_DEVICE_DESCRIPTION: 'أعتقد أن جهازك لا يحتوي على أجهزة وسائط متصلة بها',
     },
+    SHARED_ABOUT_US: {
+      HEADING: 'نبذة عن خدمتنا',
+      VIDEO: 'فيديو',
+      BROCHURE: 'كراسة',
+    },
     HOME_FRONT: {
       TITLE: 'الصفحة الرئيسية',
       HUMAN_CAPITAL: 'إدارة رأس المال البشري',
@@ -215,6 +225,7 @@ export const locale = {
       OUR_BUSINESS_PARTNER: 'شركاء النجاح',
       OUR_CLIENTS: 'عملائنا',
       BOARD_OF_DIRECTORS: 'المجلس الاستشاري',
+      ABOUT_US: 'نبذة عن خدمتنا',
     },
     CONFERENCE_LAYOUT: {
       MAIN: 'الأساسية',
@@ -227,6 +238,7 @@ export const locale = {
       PREV_SPONSORS: 'الرعاة السابقون',
       BOARD_OF_DIRECTORS: 'المجلس الاستشاري',
       QR_SCANNER: 'رمز الاستجابة السريعة الماسح الضوئي',
+      ABOUT_US: 'نبذة عن خدمتنا',
     },
     CONFERENCE_RECENT_EVENTS: {
       LAST_EVENTS: 'الأحداث الأخيرة',
@@ -249,6 +261,7 @@ export const locale = {
       CONTACT_US: 'اتصل بنا',
       BOARD_OF_DIRECTORS: 'المجلس الاستشاري',
       QR_SCANNER: 'رمز الاستجابة السريعة الماسح الضوئي',
+      ABOUT_US: 'نبذة عن خدمتنا',
     },
     BUSINESS_COURSE_ANNUAL: {
       YEAR: 'عام',

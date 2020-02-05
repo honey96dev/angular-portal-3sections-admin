@@ -1,0 +1,69 @@
+
+<h2 class="h1-responsive font-weight-bold text-center mt-3">{{'SHARED_ABOUT_US.HEADING' | translate}}</h2>
+<form [formGroup]="form" class="mx-2 mt-4" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="md-form mt-0">
+        <div class="row px-0">
+          <div for="video" class="col-md-3 label text-left">{{'SHARED_ABOUT_US.VIDEO' | translate}}</div>
+          <div class="col-md-3 text-left">
+            <button *ngIf="f.video.value && f.video.value.length > 0" mdbBtn color="warning" mdbWavesEffect
+                    (click)="onVideoClearClicked()">{{'COMMON.CLEAR' | translate}}</button>
+          </div>
+        </div>
+        <input type="hidden" id="video" class="form-control" formControlName="video" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <input type="hidden" id="originVideo" class="form-control" formControlName="originVideo" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <mdb-error *ngIf="f.video.invalid"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_ABOUT_US.VIDEO' | translate}"></mdb-error>
+      </div>
+      <div class="md-form col-md-8 margin-auto-x mt-0">
+        <!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->
+        <dropzone class="dropzone-container round-border z-depth-1" #video [config]="videoConfig"
+                  [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onVideoDropzoneInit($event)"
+                  (error)="onVideoDropzoneError($event)" (success)="onVideoDropzoneSuccess($event)"></dropzone>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="md-form mt-0">
+        <div class="row px-0">
+          <div for="brochure" class="col-md-3 label text-left">{{'SHARED_ABOUT_US.BROCHURE' | translate}}</div>
+          <div class="col-md-3 text-left">
+            <button *ngIf="f.brochure.value && f.brochure.value.length > 0" mdbBtn color="warning" mdbWavesEffect
+                    (click)="onBrochureClearClicked()">{{'COMMON.CLEAR' | translate}}</button>
+          </div>
+        </div>
+        <input type="hidden" id="brochure" class="form-control" formControlName="brochure" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <input type="hidden" id="originBrochure" class="form-control" formControlName="originBrochure" mdbInput mdbValidate
+               [validateSuccess]="false">
+        <mdb-error *ngIf="f.brochure.invalid"
+                   [translate]="'COMMON.FIELD_REQUIRED'"
+                   [translateParams]="{field: 'SHARED_ABOUT_US.BROCHURE' | translate}"></mdb-error>
+      </div>
+      <div class="md-form col-md-8 margin-auto-x mt-0">
+        <!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->
+        <dropzone class="dropzone-container round-border z-depth-1" #brochure [config]="brochureConfig"
+                  [message]="'SHARED_MEDIA_SLIDER.DROPZONE_PLACEHOLDER' | translate" (init)="onBrochureDropzoneInit($event)"
+                  (error)="onBrochureDropzoneError($event)" (success)="onBrochureDropzoneSuccess($event)"></dropzone>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="alert.show" class="alert alert-dismissible fade show mt-3" [ngClass]="alert.type" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{alert.message}}
+  </div>
+  <div class="button-spec mt-3">
+    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect [disabled]="form.invalid || loading">{{'COMMON.SAVE' | translate}}
+    </button>
+  </div>
+</form>

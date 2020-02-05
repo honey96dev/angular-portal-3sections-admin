@@ -66,6 +66,13 @@ const apis = {
       edit: 'upcoming-events/edit',
       delete: 'upcoming-events/delete',
     },
+    eventPhotos: {
+      list: 'event-photos/list',
+      add: 'event-photos/add',
+      edit: 'event-photos/edit',
+      delete: 'event-photos/delete',
+      get: 'event-photos/get',
+    },
     courses: {
       list: 'courses/list',
       add: 'courses/add',
@@ -98,6 +105,10 @@ const apis = {
     qrScanner: {
       get: 'qr-scanner/get',
       post: 'qr-scanner/post',
+    },
+    aboutUs: {
+      load: 'about-us/load',
+      save: 'about-us/save',
     },
   },
   auth: {

@@ -155,6 +155,11 @@ export const locale = {
       DROPZONE_PLACEHOLDER: 'Click or drag image or video here to upload',
       APPLICANTS: 'Applicants',
     },
+    SHARED_EVENT_PHOTOS: {
+      HEADING: 'Event Photos',
+      NAME: 'Name',
+      FILE_SIZE: 'File Size',
+    },
     SHARED_EVENT_JOIN: {
       JOIN_TO_EVENT: 'Applicants',
       FIRST_NAME: 'First Name',
@@ -199,6 +204,11 @@ export const locale = {
       NO_DEVICE: 'No devices were found',
       NO_DEVICE_DESCRIPTION: 'I believe your device has no media devices attached to',
     },
+    SHARED_ABOUT_US: {
+      HEADING: 'A Brief about our Service',
+      VIDEO: 'Video',
+      BROCHURE: 'Brochure',
+    },
     HOME_FRONT: {
       TITLE: 'Home',
       HUMAN_CAPITAL: 'Human Capital Solutions',
@@ -215,6 +225,7 @@ export const locale = {
       OUR_BUSINESS_PARTNER: 'Our Success Partners',
       OUR_CLIENTS: 'Our Clients',
       BOARD_OF_DIRECTORS: 'Board of Consultancy',
+      ABOUT_US: 'A Brief about our Service',
     },
     CONFERENCE_LAYOUT: {
       MAIN: 'Main Page',
@@ -227,6 +238,7 @@ export const locale = {
       PREV_SPONSORS: 'Previous Sponsors',
       BOARD_OF_DIRECTORS: 'Board of Consultancy',
       QR_SCANNER: 'Qr Code Scanner',
+      ABOUT_US: 'A Brief about our Service',
     },
     CONFERENCE_RECENT_EVENTS: {
       LAST_EVENTS: 'Last Events',
@@ -249,6 +261,7 @@ export const locale = {
       CONTACT_US: 'Contact Us',
       BOARD_OF_DIRECTORS: 'Board of Consultancy',
       QR_SCANNER: 'Qr Code Scanner',
+      ABOUT_US: 'A Brief about our Service',
     },
     BUSINESS_COURSE_ANNUAL: {
       YEAR: 'Year',

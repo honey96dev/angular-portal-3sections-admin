@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MDBModalRef, MDBModalService, MdbTableDirective, MdbTablePaginationComponent} from 'ng-uikit-pro-standard';
 import {first} from 'rxjs/operators';
@@ -9,17 +9,18 @@ import {sprintf} from 'sprintf-js';
 import consts from '@core/consts';
 import routes from '@core/routes';
 import {AuthenticationService, GlobalVariableService} from '@app/_services';
-import {CourseDataService, CourseInstructorsDataService} from '@app/shared/_services';
+import {EventPhotosDataService, EventsDataService} from '@app/shared/_services';
 import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
 import {Location} from '@angular/common';
 
 @Component({
-  selector: 'app-shared-course-instructors',
-  templateUrl: './shared-course-instructors.component.html',
-  styleUrls: ['./shared-course-instructors.component.scss']
+  selector: 'app-shared-event-photos',
+  templateUrl: './shared-event-photos.component.html',
+  styleUrls: ['./shared-event-photos.component.scss']
 })
-export class SharedCourseInstructorsComponent implements OnInit {
+export class SharedEventPhotosComponent implements OnInit {
   @Input() category: string;
+  @Input() scope: string;
   routes = routes;
   lang: string = '';
   form: FormGroup;
@@ -38,12 +39,12 @@ export class SharedCourseInstructorsComponent implements OnInit {
   previous: string;
   headElements = [
     '',
-    this.translate.instant('BUSINESS_COURSES.NAME'),
-    this.translate.instant('BUSINESS_COURSES.SUMMARY'),
+    this.translate.instant('SHARED_EVENT_PHOTOS.NAME'),
+    // this.translate.instant('SHARED_EVENT_PHOTOS.FILE_SIZE'),
   ];
 
-  targetId: string;
-  course: any;
+  eventId: string;
+  event: any;
 
   addUrl: string = '';
   editUrl: string = '';
@@ -67,8 +68,8 @@ export class SharedCourseInstructorsComponent implements OnInit {
                      private translate: TranslateService,
                      private authService: AuthenticationService,
                      private modalService: MDBModalService,
-                     private service: CourseInstructorsDataService,
-                     private courseService: CourseDataService,
+                     private service: EventPhotosDataService,
+                     private eventsService: EventsDataService,
                      private formBuilder: FormBuilder,
                      private cdRef: ChangeDetectorRef,
                      private location: Location
@@ -96,22 +97,22 @@ export class SharedCourseInstructorsComponent implements OnInit {
         this.title.setTitle(title);
       });
 
-    this.addUrl = sprintf("/%s/%s", this.category, routes._partials.courseInstructors.edit);
-    this.editUrl = sprintf("/%s/%s", this.category, routes._partials.courseInstructors.edit);
+    this.addUrl = sprintf("/%s/%s", this.category, routes._partials.eventPhotos.edit);
+    this.editUrl = sprintf("/%s/%s", this.category, routes._partials.eventPhotos.edit);
 
     this.route.paramMap.subscribe(map => {
-      this.targetId = map.get('target');
+      this.eventId = map.get('target');
       const page = map.get('page');
-      this.loadCourseData();
+      this.loadEventData();
       this.loadData();
       if (page) {
         this.mdbTablePagination.activePageNumber = parseInt(page);
       } else {
-        this.mdbTablePagination.activePageNumber = this.service.currentPageValue(this.targetId);
+        this.mdbTablePagination.activePageNumber = this.service.currentPageValue(this.eventId);
       }
     });
     this.mdbTablePagination.paginationChange().subscribe(res => {
-      this.service.setCurrentPage(this.targetId, this.mdbTablePagination.activePageNumber);
+      this.service.setCurrentPage(this.eventId, this.mdbTablePagination.activePageNumber);
     });
   }
 
@@ -131,24 +132,22 @@ export class SharedCourseInstructorsComponent implements OnInit {
     this.alert.show = false;
   }
 
-  loadCourseData() {
-    this.courseService.get({id: this.targetId}).pipe(first())
+  loadEventData() {
+    this.eventsService.get({id: this.eventId}).pipe(first())
       .subscribe(res => {
         if (res.result === consts.success) {
-          this.course = res.data;
+          this.event = res.data;
         } else {
-          this.course = undefined;
+          this.event = undefined;
         }
-      }, err => {
-        this.course = undefined;
       });
   }
 
   loadData() {
-    this.service.list({targetId: this.targetId, category: this.category}).pipe(first())
+    this.service.list({eventId: this.eventId, category: this.category}).pipe(first())
       .subscribe(res => {
         this.loading = false;
-        if (res.result === consts.success) {
+        if (res.result == consts.success) {
           this.elements = res.data;
           if (this.elements.length === 0) {
             this.alert = {

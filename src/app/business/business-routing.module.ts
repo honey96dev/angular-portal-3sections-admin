@@ -18,6 +18,7 @@ import {BusinessDirectorBoardDataEditComponent} from '@app/business/views/direct
 import {BusinessAnnualDataComponent} from '@app/business/views/annual/business-annual-data.component';
 import {BusinessCourseJoinDataComponent} from '@app/business/views/course-join/business-course-join-data.component';
 import {BusinessQrScannerComponent} from '@app/business/views/qr-scanner/business-qr-scanner.component';
+import {BusinessAboutUsDataComponent} from '@app/business/views/about-us/business-about-us-data.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,8 @@ const routes: Routes = [
       {path: 'course-join/:id', component: BusinessCourseJoinDataComponent},
 
       {path: 'qr-scanner', component: BusinessQrScannerComponent},
+
+      {path: 'about-us', component: BusinessAboutUsDataComponent},
     ]
   }
 ];
