@@ -8,7 +8,7 @@ import {AuthenticationService, GlobalVariableService} from '@app/_services';
 import {first, map, startWith} from 'rxjs/operators';
 import {UserMgmtService} from '@app/shared/_services';
 import {TranslateService} from '@ngx-translate/core';
-import {MdbAutoCompleterDirective, MDBModalService} from 'ng-uikit-pro-standard';
+import {IMyOptions, IOption, MdbAutoCompleterDirective, MDBModalService} from 'ng-uikit-pro-standard';
 import {Observable} from 'rxjs';
 import {environment} from '@environments/environment';
 import {apis} from '@core/apis';
@@ -29,18 +29,23 @@ export class SharedUserMgmtEditComponent implements OnInit {
 
   public editableRow: object;
   mediaSize: number;
-  countries: Country[] = [];
-  countriesData: Observable<Country[]>;
 
   @ViewChild(MdbAutoCompleterDirective, { static: true }) mdbAutoCompleter: MdbAutoCompleterDirective;
 
   backUrl: string = '';
 
+  lang: string;
   loading = false;
   alert = {
     show: false,
     type: '',
     message: '',
+  };
+
+  genders: Array<IOption> = [];
+  countryCodes: Array<IOption> = [];
+  public datePickerOptions: IMyOptions = {
+    minYear: 1900,
   };
 
   constructor(private router: Router,
@@ -68,52 +73,121 @@ export class SharedUserMgmtEditComponent implements OnInit {
         title = this.translate.instant('HOME_FRONT.BUSINESS_SOLUTION') + ' - ' + this.translate.instant('SITE_NAME');
         break;
     }
+
+
+    this.genders = [
+      {value: consts.male, label: this.translate.instant('COMMON.GENDER.MALE'), icon: ''},
+      {value: consts.female, label: this.translate.instant('COMMON.GENDER.FEMALE'), icon: ''},
+    ];
+    this.countryCodes = [
+      {
+        value: consts.PHONE_PREFIX_BAHRAIN,
+        label: consts.PHONE_PREFIX_BAHRAIN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.BAHRAIN'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_KUWAIT,
+        label: consts.PHONE_PREFIX_KUWAIT + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.KUWAIT'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_OMAN,
+        label: consts.PHONE_PREFIX_OMAN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.OMAN'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_QATAR,
+        label: consts.PHONE_PREFIX_QATAR + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.QATAR'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_SAUDI_ARABIA,
+        label: consts.PHONE_PREFIX_SAUDI_ARABIA + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.SAUDI_ARABIA'),
+        icon: ''
+      },
+      {
+        value: consts.PHONE_PREFIX_UAE,
+        label: consts.PHONE_PREFIX_UAE + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.UAE'),
+        icon: ''
+      },
+    ];
+
     this.title.setTitle(title);
     this.globalVariableService.getLanguage()
       .subscribe(data => {
         this.title.setTitle(title);
+        this.lang = data;
+
+        this.genders = [
+          {value: consts.male, label: this.translate.instant('COMMON.GENDER.MALE'), icon: ''},
+          {value: consts.female, label: this.translate.instant('COMMON.GENDER.FEMALE'), icon: ''},
+        ];
+        this.countryCodes = [
+          {
+            value: consts.PHONE_PREFIX_BAHRAIN,
+            label: consts.PHONE_PREFIX_BAHRAIN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.BAHRAIN'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_KUWAIT,
+            label: consts.PHONE_PREFIX_KUWAIT + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.KUWAIT'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_OMAN,
+            label: consts.PHONE_PREFIX_OMAN + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.OMAN'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_QATAR,
+            label: consts.PHONE_PREFIX_QATAR + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.QATAR'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_SAUDI_ARABIA,
+            label: consts.PHONE_PREFIX_SAUDI_ARABIA + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.SAUDI_ARABIA'),
+            icon: ''
+          },
+          {
+            value: consts.PHONE_PREFIX_UAE,
+            label: consts.PHONE_PREFIX_UAE + ' - ' + this.translate.instant('COMMON.GCC_COUNTRIES.UAE'),
+            icon: ''
+          },
+        ];
       });
 
 
     this.form = this.formBuilder.group({
       id: [''],
       email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.maxLength(20)]],
       firstName: ['', [Validators.required]],
+      fatherName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      birthday: ['', [Validators.required]],
+      jobTitle: ['', [Validators.required]],
+      sector: ['', [Validators.required]],
       company: ['', [Validators.required]],
-      position: ['', [Validators.required]],
-      country: ['', [Validators.required]],
       city: ['', [Validators.required]],
+      countryCode: ['', [Validators.required]],
       phone: ['', [Validators.required]],
     });
 
     this.f['id'].patchValue(row.id);
-    this.f['email'].patchValue(row.email);
-    this.f['firstName'].patchValue(row.firstName);
-    this.f['lastName'].patchValue(row.lastName);
-    this.f['company'].patchValue(row.company);
-    this.f['position'].patchValue(row.position);
-    this.f['country'].patchValue(row.country);
-    // this.f['country'].patchValue(row.country ? row.country['name'] : '');
-    this.f['city'].patchValue(row.city);
-    this.f['phone'].patchValue(row.phone);
-
-    this.countriesData = this.f.country.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this.filter(name) : this.countries.slice())
-      );
-
-    const countries = getCodeList();
-    let temp = [];
-    Object.entries(countries).forEach(value => {
-      temp.push({
-        code: value[0],
-        name: value[1],
-      });
-    });
-    this.countries = temp;
+    this.f.email.patchValue(row.email);
+    this.f.username.patchValue(row.username);
+    this.f.firstName.patchValue(row.firstName);
+    this.f.fatherName.patchValue(row.fatherName);
+    this.f.lastName.patchValue(row.lastName);
+    this.f.gender.patchValue(row.gender);
+    this.f.birthday.patchValue(row.birthday2);
+    this.f.jobTitle.patchValue(row.jobTitle);
+    this.f.sector.patchValue(row.sector);
+    this.f.company.patchValue(row.company);
+    this.f.city.patchValue(row.city);
+    this.f.countryCode.patchValue(row.countryCode);
+    this.f.phone.patchValue(row.phone);
 
     this.backUrl = sprintf("/%s", routes._partials.userMgmt.main);
   }
@@ -131,25 +205,37 @@ export class SharedUserMgmtEditComponent implements OnInit {
     const f = this.f;
     const id = f.id.value;
     const email = this.f.email.value;
+    const username = this.f.username.value;
     const firstName = this.f.firstName.value;
+    const fatherName = this.f.fatherName.value;
     const lastName = this.f.lastName.value;
+    const gender = this.f.gender.value;
+    const birthday = this.f.birthday.value || new Date().toISOString().substr(0, 10);
+    const jobTitle = this.f.jobTitle.value;
+    const sector = this.f.sector.value;
     const company = this.f.company.value;
-    const position = this.f.position.value;
-    const country = this.f.country.value;
     const city = this.f.city.value;
+    const countryCode = this.f.countryCode.value;
     const phone = this.f.phone.value;
+
+    // const birthdayStr = birthday.toISOString().substr(0, 10);
+    const birthdayStr = birthday;
 
     const data = {
       id,
       email,
+      username,
       firstName,
+      fatherName,
       lastName,
+      gender,
+      birthday: birthdayStr,
+      jobTitle,
+      sector,
       company,
-      position,
-      country,
       city,
+      countryCode,
       phone,
-      allow: row.allow,
     };
 
     this.loading = true;
@@ -184,14 +270,4 @@ export class SharedUserMgmtEditComponent implements OnInit {
       });
   }
 
-
-  onDisplayValue(country?: Country): string | undefined {
-    return country ? country.name : '';
-  }
-
-  filter(name: string): Country[] {
-    const filterValue = name.toLowerCase();
-
-    return this.countries.filter(option => option.name.toLowerCase().indexOf(filterValue) >= 0);
-  }
 }

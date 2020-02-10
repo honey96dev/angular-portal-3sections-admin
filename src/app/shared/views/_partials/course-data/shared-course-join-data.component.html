@@ -29,20 +29,22 @@
         <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements" [sortBy]="headElements[i]"
             scope="col">{{head}} <mdb-icon fas icon="sort"></mdb-icon>
         </th>
+        <th scope="col" class="edit-col"></th>
         <th *ngIf="this.data && data.isPrevious" scope="col" [mdbTableSort]="elements" sortBy="attend">{{'SHARED_EVENT_JOIN.ATTEND' | translate}} <mdb-icon fas icon="sort"></mdb-icon></th>
       </tr>
       </thead>
       <tbody #row>
       <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="no-col">{{i+1}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.firstName}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.lastName}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.country}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.city}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.company}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.jobTitle}}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.email}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.phone}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.firstName}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.fatherName}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.lastName}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.jobTitle}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.sector}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.company}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.city}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.countryCode}}{{el.phone}}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
           <!--            <ng-template #hoverImgTemp><div [innerHtml]="el.hover"></div></ng-template>-->
           <!--            <a mdbBtn color="primary" placement="bottom" [mdbPopover]="hoverImgTemp" mdbWavesEffect triggers="click">Hover me</a>-->
@@ -50,6 +52,15 @@
           <a *ngIf="el.showCode" mdbBtn floating="true" rounded="true" color="primary" size="sm" mdbWavesEffect (click)="download(el)"><mdb-icon fas icon="download"></mdb-icon></a>
           <ngx-qrcode *ngIf="el.showCode" [id]="'qrcode' + el.id" qrc-element-type="url" [qrc-value] = "el.code" qrc-width="10"></ngx-qrcode>
           <!--            <a mdbBtn floating="true" rounded="true" color="purple" size="sm" mdbWavesEffect (click)="barcode()"><mdb-icon fas icon="barcode"></mdb-icon></a>-->
+        </td>
+        <td class="edit-col">
+          <a mdbBtn floating="true" rounded="true" [color]="el.paid ? 'indigo' : 'warning'" size="sm" mdbWavesEffect (click)="togglePaid(el, el.paid == 1 ? 0 : 1)"><mdb-icon fas [icon]="el.paid ? 'check' : 'times'"></mdb-icon></a>
+        </td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
+          <!--            <a mdbBtn [routerLink]="[editUrl, target, el.id]" floating="true" rounded="true" color="warning" size="sm" mdbWavesEffect-->
+          <!--               [class.mr-2]="('DIRECTION' | translate) === 'ltr'" [class.ml-2]="('DIRECTION' | translate) === 'rtl'"-->
+          <!--               (click)="editItem(el)"><mdb-icon fas icon="edit"></mdb-icon></a>-->
+          <a mdbBtn floating="true" rounded="true" color="danger" size="sm" mdbWavesEffect (click)="removeItem(el)"><mdb-icon fas icon="trash"></mdb-icon></a>
         </td>
         <td *ngIf="data && data.isPrevious && i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
           <a mdbBtn floating="true" rounded="true" color="indigo" size="sm" mdbWavesEffect (click)="toggleAttend(el, el.attend == 1 ? 0 : 1)"><mdb-icon fas [icon]="el.attend ? 'check' : 'times'"></mdb-icon></a>

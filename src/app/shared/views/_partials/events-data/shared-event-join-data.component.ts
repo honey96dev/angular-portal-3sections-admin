@@ -14,6 +14,7 @@ import {Event} from '@app/shared/_model';
 import html2canvas from 'html2canvas';
 import {sprintf} from 'sprintf-js';
 import {Location} from '@angular/common';
+import {QuestionModalComponent} from '@app/shared/views/_partials/common-dialogs/question/question-modal.component';
 
 @Component({
   selector: 'app-shared-event-join-data',
@@ -38,15 +39,17 @@ export class SharedEventJoinDataComponent implements OnInit {
   previous: string;
   headElements = [
     '',
-    this.translate.instant('SHARED_EVENT_JOIN.FIRST_NAME'),
-    this.translate.instant('SHARED_EVENT_JOIN.LAST_NAME'),
-    this.translate.instant('SHARED_EVENT_JOIN.COUNTRY'),
-    this.translate.instant('SHARED_EVENT_JOIN.CITY'),
-    this.translate.instant('SHARED_EVENT_JOIN.COMPANY'),
-    this.translate.instant('SHARED_EVENT_JOIN.JOB_TITLE'),
     this.translate.instant('SHARED_EVENT_JOIN.EMAIL'),
+    this.translate.instant('SHARED_EVENT_JOIN.FIRST_NAME'),
+    this.translate.instant('SHARED_EVENT_JOIN.FATHER_NAME'),
+    this.translate.instant('SHARED_EVENT_JOIN.LAST_NAME'),
+    this.translate.instant('SHARED_EVENT_JOIN.JOB_TITLE'),
+    this.translate.instant('SHARED_EVENT_JOIN.SECTOR'),
+    this.translate.instant('SHARED_EVENT_JOIN.COMPANY'),
+    this.translate.instant('SHARED_EVENT_JOIN.CITY'),
     this.translate.instant('SHARED_EVENT_JOIN.PHONE'),
     this.translate.instant('SHARED_EVENT_JOIN.QRCODE'),
+    this.translate.instant('SHARED_EVENT_JOIN.PAY'),
   ];
 
   target: string;
@@ -55,6 +58,9 @@ export class SharedEventJoinDataComponent implements OnInit {
 
   maxVisibleItems: number = 8;
   modalRef: MDBModalRef;
+
+  addUrl: string = '';
+  editUrl: string = '';
 
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
@@ -114,6 +120,9 @@ export class SharedEventJoinDataComponent implements OnInit {
         });
     });
 
+    this.addUrl = sprintf("/%s/%s", this.category, routes._partials.eventJoin.detail);
+    this.editUrl = sprintf("/%s/%s", this.category, routes._partials.eventJoin.detail);
+
   }
 
   ngAfterViewInit() {
@@ -143,6 +152,7 @@ export class SharedEventJoinDataComponent implements OnInit {
             // arr = [item['id'], item['firstName'], item['lastName'], item['country'], item['city'], item['company'], item['job'], item['email'], item['phone'], item['attend']];
             item['code'] = arr.join('@@');
             item['showCode'] = false;
+            item['pay'] = !!item['paid'] ? this.translate.instant('SHARED_EVENT_JOIN.PAID') : this.translate.instant('SHARED_EVENT_JOIN.NOT_PAID');
             // item['hover'] = '<ngx-qrcode qrc-element-type="url" width="128" qrc-value = "' + item['code'] + '"></ngx-qrcode>';
           }
           this.elements = res.data;
@@ -175,24 +185,94 @@ export class SharedEventJoinDataComponent implements OnInit {
       });
   }
 
+
+  editItem(el: any) {
+    let elementIndex = -1;
+    if (el) {
+      elementIndex = this.elements.findIndex((elem: any) => el === elem);
+    }
+    this.service.setEditableRow(el);
+  }
+
+  removeItem(el: any) {
+    const modalOptions = {
+      class: 'modal-dialog-centered',
+    };
+
+    this.modalRef = this.modalService.show(QuestionModalComponent, modalOptions);
+    this.modalRef.content.title = this.translate.instant('COMMON.DELETE');
+    this.modalRef.content.message = this.translate.instant('COMMON.DELETE_CONFIRM_MSG', {item: el.email});
+    this.modalRef.content.yesButtonColor = 'danger';
+    this.modalRef.content.yesButtonClicked.subscribe(() => {
+      this.service.deleteApplicant({...el, target: this.target}).pipe(first())
+        .subscribe(res => {
+          this.loading = false;
+          if (res.result == consts.success) {
+            this.elements = res.data;
+            this.mdbTable.setDataSource(this.elements);
+            this.elements = this.mdbTable.getDataSource();
+            this.previous = this.mdbTable.getDataSource();
+          } else {
+            this.alert = {
+              show: true,
+              type: 'alert-danger',
+              message: res.message,
+            };
+          }
+        }, error => {
+          this.loading = false;
+          this.alert = {
+            show: true,
+            type: 'alert-danger',
+            message: this.translate.instant('COMMON.UNKNOWN_SERVER_ERROR'),
+          };
+        });
+    });
+  }
+
+  emitDataSourceChange() {
+    this.mdbTable.dataSourceChange().subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+
   exportData() {
     let data = [];
     let attend;
     for (let element of this.elements) {
       attend = element['attend'] == 1 ? 'COMMON.YES' : 'COMMON.NO';
       data.push({
-        FirstName: element['firstName'],
-        LastName: element['lastName'],
-        Country: element['country'],
-        City: element['city'],
-        Company: element['company'],
-        Job: element['job'],
-        Email: element['email'],
-        Phone: element['phone'],
-        Attend: this.translate.instant(attend),
+        [this.translate.instant('SHARED_EVENT_JOIN.FIRST_NAME')]: element['firstName'],
+        [this.translate.instant('SHARED_EVENT_JOIN.LAST_NAME')]: element['lastName'],
+        [this.translate.instant('SHARED_EVENT_JOIN.COUNTRY')]: element['country'],
+        [this.translate.instant('SHARED_EVENT_JOIN.CITY')]: element['city'],
+        [this.translate.instant('SHARED_EVENT_JOIN.COMPANY')]: element['company'],
+        [this.translate.instant('SHARED_EVENT_JOIN.JOB_TITLE')]: element['jobTitle'],
+        [this.translate.instant('SHARED_EVENT_JOIN.EMAIL')]: element['email'],
+        [this.translate.instant('SHARED_EVENT_JOIN.PHONE')]: element['phone'],
+        [this.translate.instant('SHARED_EVENT_JOIN.PAY')]: !!element['paid'] ? this.translate.instant('SHARED_EVENT_JOIN.PAID') : this.translate.instant('SHARED_EVENT_JOIN.NOT_PAID'),
+        [this.translate.instant('SHARED_EVENT_JOIN.ATTEND')]: this.translate.instant(attend),
       });
     }
     this.excelService.exportAsExcelFile(data, this.lang == 'en' ? this.data.nameEn : this.data.nameAr);
+  }
+
+  togglePaid(el, attend) {
+    el['paid'] = attend;
+    el['target'] = this.target;
+
+    this.service.paid(el).pipe(first())
+      .subscribe(res => {
+        this.loadData();
+      }, error => {
+        this.loading = false;
+        this.elements = [];
+        this.alert = {
+          show: true,
+          type: 'alert-danger',
+          message: this.translate.instant('COMMON.UNKNOWN_SERVER_ERROR'),
+        };
+      });
   }
 
   toggleAttend(el, attend) {

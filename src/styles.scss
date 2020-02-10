@@ -81,6 +81,12 @@
   background-color: $white;
 }
 
+.error-message2 {
+  position: unset !important;
+  top: unset !important;
+  color: #ffdde2 !important;
+}
+
 .rtl-content .md-form label, .rtl-content .error-message {
   left: unset;
   right: 0;

@@ -56,6 +56,20 @@ export class EventsDataService {
       }));
   }
 
+  deleteApplicant(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.deleteApplicant}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
+  paid(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.events.paid}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
   attend(params) {
     return this.http.post<any>(`${environment.apiUrl}${apis.common.events.attend}`, params)
       .pipe(map(res => {

@@ -52,6 +52,8 @@ const apis = {
       delete: 'events/delete',
       get: 'events/get',
       applicants: 'events/applicants',
+      deleteApplicant: 'events/delete-applicant',
+      paid: 'events/paid',
       attend: 'events/attend',
     },
     previousEvents: {
@@ -80,6 +82,8 @@ const apis = {
       delete: 'courses/delete',
       get: 'courses/get',
       applicants: 'courses/applicants',
+      deleteApplicant: 'courses/delete-applicant',
+      paid: 'courses/paid',
       attend: 'courses/attend',
       items: {
         list: 'courses/items/list',

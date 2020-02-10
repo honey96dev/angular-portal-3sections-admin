@@ -48,7 +48,10 @@ export default {
       main: 'event-photos',
       edit: 'event-photos/edit',
     },
-    eventJoin: 'event-join',
+    eventJoin: {
+      main: 'event-join',
+      detail: 'event-join/detail',
+    },
     upcomingCourses: {
       main: 'upcoming',
       edit: 'upcoming/edit',

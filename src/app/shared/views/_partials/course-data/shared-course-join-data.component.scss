@@ -9,7 +9,7 @@
 }
 
 .edit-col {
-  width: $edit-col-width;
+  width: calc(#{$edit-col-width} - 50px);
 }
 
 td.edit-col {

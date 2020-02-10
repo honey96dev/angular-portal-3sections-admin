@@ -65,8 +65,7 @@
         <input type="hidden" id="originMedia" class="form-control" formControlName="originMedia" mdbInput mdbValidate
                [validateSuccess]="false">
         <mdb-error *ngIf="f.media.invalid"
-                   [translate]="'COMMON.FIELD_REQUIRED'"
-                   [translateParams]="{field: 'BUSINESS_COURSES.MEDIA' | translate}"></mdb-error>
+                   [translate]="'COMMON.ADD_PHOTO'"></mdb-error>
       </div>
       <div class="md-form col-md-8 margin-auto-x mt-0">
         <!--            <dropzone *ngIf="f.media.value.length > 0" class="dropzone-container round-border z-depth-1" #media [config]="config" [message]="'BUSINESS_COURSES.DROPZONE_PLACEHOLDER' | translate" (init)="onDropzoneInit($event)" (error)="onDropzoneError($event)" (success)="onDropzoneSuccess($event)"></dropzone>-->

@@ -57,6 +57,20 @@ export class CourseDataService {
       }));
   }
 
+  deleteApplicant(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.deleteApplicant}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
+  paid(params) {
+    return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.paid}`, params)
+      .pipe(map(res => {
+        return res;
+      }));
+  }
+
   attend(params) {
     return this.http.post<any>(`${environment.apiUrl}${apis.common.courses.attend}`, params)
       .pipe(map(res => {

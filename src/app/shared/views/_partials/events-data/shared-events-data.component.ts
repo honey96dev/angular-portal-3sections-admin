@@ -104,7 +104,7 @@ export class SharedEventsDataComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.applicantsUrl = sprintf("/%s/%s", this.category, routes._partials.eventJoin);
+    this.applicantsUrl = sprintf("/%s/%s", this.category, routes._partials.eventJoin.main);
     this.photosUrl = sprintf("/%s/%s", this.category, routes._partials.eventPhotos.main);
     if (this.scope === consts.upcoming) {
       this.heading = this.translate.instant('CONFERENCE_LAYOUT.UPCOMING_EVENTS');

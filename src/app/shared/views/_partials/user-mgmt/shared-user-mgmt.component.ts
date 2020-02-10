@@ -32,17 +32,22 @@ export class SharedUserMgmtComponent implements OnInit {
   };
   addButtonEnabled: boolean = true;
 
+  lang: string;
   elements: any = [];
   previous: string;
   headElements = [
     '',
     this.translate.instant('SHARED_USER_MGMT.EMAIL'),
+    this.translate.instant('SHARED_USER_MGMT.USERNAME'),
     this.translate.instant('SHARED_USER_MGMT.FIRST_NAME'),
+    this.translate.instant('SHARED_USER_MGMT.FATHER_NAME'),
     this.translate.instant('SHARED_USER_MGMT.LAST_NAME'),
-    this.translate.instant('SHARED_USER_MGMT.COMPANY'),
-    this.translate.instant('SHARED_USER_MGMT.POSITION'),
-    this.translate.instant('SHARED_USER_MGMT.COUNTRY'),
-    this.translate.instant('SHARED_USER_MGMT.CITY'),
+    this.translate.instant('SHARED_USER_MGMT.GENDER'),
+    // this.translate.instant('SHARED_USER_MGMT.BIRTHDAY'),
+    // this.translate.instant('SHARED_USER_MGMT.JOB_TITLE'),
+    // this.translate.instant('SHARED_USER_MGMT.SECTOR'),
+    // this.translate.instant('SHARED_USER_MGMT.COMPANY'),
+    // this.translate.instant('SHARED_USER_MGMT.CITY'),
     this.translate.instant('SHARED_USER_MGMT.PHONE'),
     this.translate.instant('SHARED_USER_MGMT.ALLOW'),
   ];
@@ -93,6 +98,7 @@ export class SharedUserMgmtComponent implements OnInit {
     this.globalVariableService.getLanguage()
       .subscribe(data => {
         this.title.setTitle(title);
+        this.lang = data;
       });
 
     this.form = this.formBuilder.group({
