@@ -53,7 +53,7 @@
             <ngx-qrcode *ngIf="el.showCode" [id]="'qrcode' + el.id" qrc-element-type="url" [qrc-value] = "el.code" qrc-width="10"></ngx-qrcode>
 <!--            <a mdbBtn floating="true" rounded="true" color="purple" size="sm" mdbWavesEffect (click)="barcode()"><mdb-icon fas icon="barcode"></mdb-icon></a>-->
           </td>
-          <td class="edit-col">
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
             <a mdbBtn floating="true" rounded="true" [color]="el.paid ? 'indigo' : 'warning'" size="sm" mdbWavesEffect (click)="togglePaid(el, el.paid == 1 ? 0 : 1)"><mdb-icon fas [icon]="el.paid ? 'check' : 'times'"></mdb-icon></a>
           </td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="edit-col">
