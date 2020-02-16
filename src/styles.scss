@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./consts";
+@import "./assets/font";
+
+* {
+  font-family: "Droid Arabic Kufi", Roboto, sans-serif;
+}
 
 .rtl-content {
   direction: rtl;
